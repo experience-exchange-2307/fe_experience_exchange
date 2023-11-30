@@ -4,11 +4,14 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:20.10.1
+      - image: cimg/node:14.17
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
+      - run:
+          name: Run lint
+          command: npm run lint
       - run:
           name: Run TypeScript compiler
           command: npm run tsc
