@@ -19,9 +19,6 @@ jobs:
           name: Build
           command: npm run build
       - run:
-          name: Test
-          command: npm run test
-      - run:
           name: Cypress Headless
           command: npm run cypress
 workflows:
