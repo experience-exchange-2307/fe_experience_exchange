@@ -17,7 +17,7 @@ interface Attributes {
   last_name: String;
   email: String;
   address: String;
-  // about: String;
+  about: String;
   lat: String;
   lon: String;
   isRemote: Boolean;
