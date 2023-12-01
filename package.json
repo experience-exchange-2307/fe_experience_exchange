@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "tsc": "tsc",
-    "cypress": "cypress open"
+    "cypress": "cypress run --headless"
   },
   "eslintConfig": {
     "extends": [
