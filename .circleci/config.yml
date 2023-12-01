@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:14.17
+      - image: cypress/browsers:node14.17.0-chrome91-ff89 
     steps:
       - checkout
       - node/install-packages:
@@ -21,6 +21,9 @@ jobs:
       - run:
           name: Test
           command: npm run test
+      - run:
+          name: Cypress Headless
+          command: npm run cypress
 workflows:
   version: 2
   build_and_test:
