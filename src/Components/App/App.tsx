@@ -22,8 +22,8 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
   }, [])
   return (
     <>
-      <Nav />
     <main>
+      <Nav />
       <Routes>
       {!currentUser ? (
         <Route path="/" element={<p>Loading...</p>} />

@@ -1,3 +1,4 @@
+import "./Profile.css"
 import React from "react";
 import { CurrentUser } from "types";
 
@@ -7,7 +8,7 @@ interface ProfileProps {
 
 function Profile({ currentUser }: ProfileProps) {
   return (
-    <div>
+    <div className="profile-container">
       <p>{currentUser?.attributes.first_name}</p>
     </div>
   );
