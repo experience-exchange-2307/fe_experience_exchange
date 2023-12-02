@@ -3,6 +3,9 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { CurrentUser } from 'types';
 import { getSingleUser } from 'apiCalls';
+import {Routes, Route} from "react-router-dom"
+import Nav from 'Components/Nav/Nav';
+import ErrorPage from 'Components/ErrorPage/ErrorPage';
 
 // interface AppState {
 //   currentUser: 
@@ -18,12 +21,20 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
     })
   }, [])
   return (
-    <div>
+    <>
+      <Nav />
+    <main>
+      <Routes>
       {!currentUser ? (
-        <p>Loading...</p>)  :
-       ( <Profile currentUser={currentUser} /> )
+        <Route path="/" element={<p>Loading...</p>} />
+      ) : (
+       <Route path="/" element={<Profile currentUser={currentUser} />}
+        /> )
       }
-    </div>
+      <Route path="*" element={<ErrorPage />} />
+        </Routes>
+    </main>
+    </>
   );
 }
 
