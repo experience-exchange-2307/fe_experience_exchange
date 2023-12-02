@@ -1,0 +1,15 @@
+.nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    width: 18%;
+}
+
+.nav-links-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: flex-start;
+  padding-left: 10%;
+}
