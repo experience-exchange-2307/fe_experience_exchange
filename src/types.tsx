@@ -21,8 +21,8 @@ interface Attributes {
   lat: String;
   lon: String;
   isRemote: Boolean;
-  skills: Skills;
-  meetings: Meetings;
+  skills: Skills[];
+  meetings: Meetings[];
 }
 
 export interface CurrentUser{
