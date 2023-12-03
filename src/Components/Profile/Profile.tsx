@@ -10,7 +10,7 @@ function Profile({ currentUser }: ProfileProps) {
   return (
     <div className="profile-container">
       <p>{currentUser?.attributes.first_name}</p>
-      <img src={frog} alt='profile picture'></img>
+      <img src={frog} alt='user icon'></img>
     </div>
   );
 }
