@@ -1,6 +1,6 @@
 export const getSingleUser = () => {
   return fetch(
-    "https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io/users/1"
+    "https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io/api/v1/users/1"
   )
     .then((res) => {
       if (res.ok) {
