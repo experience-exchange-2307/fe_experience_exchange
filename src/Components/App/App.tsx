@@ -12,8 +12,8 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
   // on load => Get user (entire object)
   useEffect(() => {
     getSingleUser().then((data) => {
-      console.log("data", data);
-      setCurrentUser(data);
+      console.log("data", data.data);
+      setCurrentUser(data.data);
     })
   }, [])
   return (
