@@ -7,9 +7,9 @@ function CreateAccountForm() {
     about: "",
     address: {
       street: "",
-      apt: "",
       city: "",
       state: "",
+      zipcode: "",
     },
     email: "",
     first_name: "",
@@ -63,7 +63,8 @@ function CreateAccountForm() {
     <div className="name-container">
       <div className="input-group">
         <label>First Name</label>
-        <input
+        <input 
+          className="create-account-input"
           type="text"
           placeholder="First name"
           name="first_name"
@@ -74,7 +75,8 @@ function CreateAccountForm() {
 
       <div className="input-group">
         <label>Last Name</label>
-        <input
+        <input 
+          className="create-account-input"
           type="text"
           placeholder="Last name"
           name="last_name"
@@ -86,7 +88,8 @@ function CreateAccountForm() {
 
     <div className="input-group">
       <label>Email</label>
-      <input
+      <input 
+        className="create-account-input"
         type="email"
         placeholder="Email"
         name="email"
@@ -98,7 +101,8 @@ function CreateAccountForm() {
     <div className="address-container">
       <div className="input-group">
         <label>Street</label>
-        <input
+        <input 
+          className="create-account-input"
           type="text"
           placeholder="Street"
           name="address.street"
@@ -108,19 +112,9 @@ function CreateAccountForm() {
       </div>
 
       <div className="input-group">
-        <label>Apt</label>
-        <input
-          type="text"
-          placeholder="Apt"
-          name="address.apt"
-          value={formData.address.apt}
-          onChange={handleInputChange}
-        />
-      </div>
-
-      <div className="input-group">
         <label>City</label>
-        <input
+        <input 
+          className="create-account-input"
           type="text"
           placeholder="City"
           name="address.city"
@@ -131,7 +125,8 @@ function CreateAccountForm() {
 
       <div className="input-group">
         <label>State</label>
-        <input
+        <input 
+          className="create-account-input"
           type="text"
           placeholder="State"
           name="address.state"
@@ -139,17 +134,30 @@ function CreateAccountForm() {
           onChange={handleInputChange}
         />
       </div>
+
+      <div className="input-group">
+        <label>Zip Code</label>
+        <input 
+          className="create-account-input"
+          type="text"
+          placeholder="Zip Code"
+          name="address.zipcode"
+          value={formData.address.zipcode}
+          onChange={handleInputChange}
+        />
+      </div>
     </div>
 
-    <div className="input-group">
+    {/* <div className="input-group">
       <label>Skills</label>
-      <input
+      <input 
+        className="create-account-input"
         type="text"
         name="skills"
         value={formData.skills.join(',')}
         onChange={handleInputChange}
       />
-    </div>
+    </div> */}
 
     <div className="input-group">
       <label htmlFor="about">Tell us about yourself</label>

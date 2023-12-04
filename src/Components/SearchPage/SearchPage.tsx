@@ -27,6 +27,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
         <CheckboxSkills />
         <div className='search-bar'>
           <input
+            className="search-input"
             type='text'
             placeholder='Search..'
             value={searchQuery}
