@@ -6,6 +6,7 @@ import { getSingleUser } from 'apiCalls';
 import {Routes, Route} from "react-router-dom"
 import Nav from 'Components/Nav/Nav';
 import ErrorPage from 'Components/ErrorPage/ErrorPage';
+import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 import SearchPage from 'Components/SearchPage/SearchPage';
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
@@ -18,20 +19,19 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
   }, [])
   return (
     <>
-    <main>
-      <Nav />
-      <Routes>
-      {!currentUser ? (
-        <Route path="/dashboard" element={<p>Loading...</p>} />
-      ) : (
-       <Route path="/dashboard" element={<Profile currentUser={currentUser} />}
-        /> )
-      }
-      <Route path="/search" element={<SearchPage currentUser={currentUser} />}
-        />
-      <Route path="*" element={<ErrorPage />} />
+      <main>
+        <Nav />
+        <Routes>
+          {!currentUser ? (
+            <Route path="/" element={<p>Loading...</p>} />
+          ) : (
+            <Route path="/" element={<CreateAccountForm />} />
+          )}
+          <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
+          <Route path="/search" element={<SearchPage currentUser={currentUser} />}/>
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
-    </main>
+      </main>
     </>
   );
 }

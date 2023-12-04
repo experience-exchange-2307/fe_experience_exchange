@@ -1,0 +1,79 @@
+.sign-up-container {
+  max-width: 26em;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign-up-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.name-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.input-group {
+  display: grid;
+  gap: 10px;
+}
+
+.input-group label {
+  font-weight: bold;
+}
+
+.create-account-input {
+  height: 3em;
+  border-radius: 8px;
+  appearance: none;
+  background-color: transparent;
+  font-size: 1rem;
+  border-width: 1px;
+  border-color: rgb(204, 204, 204);
+}
+
+/* input[type="text"] {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  border: none;
+  font-size: 1.3rem;
+  height: 3rem;
+  width: 100%;
+} */
+
+.address-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.create-account-container {
+  text-align: center;
+}
+
+.create-account-container button {
+  background-color: #4c7faf;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.solid {
+  height: 2px;
+  background-color: #ddd;
+  margin: 20px 0;
+}

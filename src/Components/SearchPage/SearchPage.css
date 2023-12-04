@@ -23,7 +23,7 @@
 .search-filter2 {
   border: none;
 }
-input[type="text"] {
+.search-input {
   padding: 0.5rem;
   padding-left: 1rem;
   border: none;
