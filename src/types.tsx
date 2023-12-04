@@ -36,3 +36,14 @@ export interface CurrentUser{
   attributes: Attributes;
 }
 
+interface AttributesQuickView {
+  first_name: String;
+  last_name: String;
+  skills: Skills[];
+}
+
+export interface SearchResult {
+  id: String;
+  type: String;
+  attributes: AttributesQuickView;
+}

@@ -7,11 +7,8 @@ import {Routes, Route} from "react-router-dom"
 import Nav from 'Components/Nav/Nav';
 import ErrorPage from 'Components/ErrorPage/ErrorPage';
 import MeetingCards from 'Components/MeetingCards/MeetingCards';
-
-// interface AppState {
-//   currentUser: 
-// }
-
+import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
+import SearchPage from 'Components/SearchPage/SearchPage';
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
 
@@ -50,19 +47,20 @@ const meetings = [
   }, [])
   return (
     <>
-    <main>
-      <Nav />
-      <Routes>
-      {!currentUser ? (
-        <Route path="/" element={<p>Loading...</p>} />
-      ) : (
-       <Route path="/" element={<Profile currentUser={currentUser} />}
-        /> )
-      }
-      <Route path='/meetings' element={<MeetingCards meetings={meetings} />} />
+      <main>
+        <Nav />
+        <Routes>
+          {!currentUser ? (
+            <Route path="/" element={<p>Loading...</p>} />
+          ) : (
+            <Route path="/" element={<CreateAccountForm />} />
+          )}
+          <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
+          <Route path="/search" element={<SearchPage currentUser={currentUser} />}/>
+          <Route path='/meetings' element={<MeetingCards meetings={meetings} />} />
       <Route path="*" element={<ErrorPage />} />
         </Routes>
-    </main>
+      </main>
     </>
   );
 }

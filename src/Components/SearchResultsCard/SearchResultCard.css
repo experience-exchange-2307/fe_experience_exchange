@@ -1,0 +1,24 @@
+.result-card {
+  height: auto;
+  border: solid 2px red;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+  display:flex;
+  justify-content: space-between;
+}
+
+.result-card-name,
+.result-card-skills,
+.result-card-distance {
+    margin-bottom: .5rem;
+    font-size:1.3rem;
+    font-weight: 600;
+}
+.result-card-skills {
+    font-weight: 500;
+}
+.result-card-distance {
+    color: darkblue;
+    font-weight: 400;
+}

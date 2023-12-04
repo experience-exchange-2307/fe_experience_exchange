@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 main {
-  height: 100dvh;
+  min-height: 100dvh;
   width: 100dvw;
   display: flex;
+  overflow-x: hidden;
 }

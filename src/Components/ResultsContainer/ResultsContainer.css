@@ -1,0 +1,9 @@
+.results-container {
+    border: solid 2px blue;
+    border-radius: 10px;
+    height: auto;
+    width: 97.5%;
+    margin-top: 1rem;
+    padding: 1rem;
+    overflow-x: hidden;
+}
