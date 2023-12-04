@@ -22,9 +22,9 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
       <Nav />
       <Routes>
       {!currentUser ? (
-        <Route path="/" element={<p>Loading...</p>} />
+        <Route path="/dashboard" element={<p>Loading...</p>} />
       ) : (
-       <Route path="/" element={<Profile currentUser={currentUser} />}
+       <Route path="/dashboard" element={<Profile currentUser={currentUser} />}
         /> )
       }
       <Route path="/search" element={<SearchPage currentUser={currentUser} />}
