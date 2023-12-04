@@ -37,6 +37,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
           </button>
         </div>
       </div>
+      <ResultsContainer/>
     </div>
   );
 }
