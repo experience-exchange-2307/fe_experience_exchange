@@ -1,33 +1,49 @@
 interface Skills {
-  name: String
-  proficiency: Number;
+  name: string
+  proficiency: number;
 }
 
 interface Meetings {
-  id: Number;
-  date: String;
-  start_time: String;
-  end_time: String;
-  is_accepted: Boolean;
-  purpose: String;
+  id: number;
+  date: string;
+  start_time: string;
+  end_time: string;
+  is_accepted: boolean;
+  purpose: string;
 }
-
+interface Address {
+  street: string,
+  city: string,
+  state: string,
+  zipcode: string
+}
 interface Attributes {
-  first_name: String;
-  last_name: String;
-  email: String;
-  address: String;
-  about: String;
-  lat: String;
-  lon: String;
-  isRemote: Boolean;
-  skills: Skills;
-  meetings: Meetings;
+  first_name: string;
+  last_name: string;
+  email: string;
+  address: Address;
+  about: string;
+  lat: number;
+  lon: number;
+  isRemote: boolean;
+  skills: Skills[];
+  meetings: Meetings[];
 }
 
 export interface CurrentUser{
-  id: Number;
-  type: String;
+  id: number;
+  type: string;
   attributes: Attributes;
 }
 
+interface AttributesQuickView {
+  first_name: String;
+  last_name: String;
+  skills: Skills[];
+}
+
+export interface SearchResult {
+  id: String;
+  type: String;
+  attributes: AttributesQuickView;
+}

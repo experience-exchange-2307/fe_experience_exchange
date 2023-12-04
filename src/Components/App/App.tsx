@@ -7,18 +7,14 @@ import {Routes, Route} from "react-router-dom"
 import Nav from 'Components/Nav/Nav';
 import ErrorPage from 'Components/ErrorPage/ErrorPage';
 import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
-
-// interface AppState {
-//   currentUser: 
-// }
-
+import SearchPage from 'Components/SearchPage/SearchPage';
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
   // on load => Get user (entire object)
   useEffect(() => {
     getSingleUser().then((data) => {
-      console.log("data", data);
-      setCurrentUser(data);
+      console.log("data", data.data);
+      setCurrentUser(data.data);
     })
   }, [])
   return (
@@ -27,11 +23,13 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
       <Nav />
       <Routes>
       {!currentUser ? (
-        <Route path="/" element={<p>Loading...</p>} />
+        <Route path="/dashboard" element={<p>Loading...</p>} />
       ) : (
-       <Route path="/" element={<Profile currentUser={currentUser} />}
+       <Route path="/dashboard" element={<Profile currentUser={currentUser} />}
         /> )
       }
+      <Route path="/search" element={<SearchPage currentUser={currentUser} />}
+        />
       <Route path="/create-account" element={<CreateAccountForm />} />
       <Route path="*" element={<ErrorPage />} />
         </Routes>
