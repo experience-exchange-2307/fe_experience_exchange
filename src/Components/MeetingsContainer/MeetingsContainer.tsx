@@ -1,51 +1,61 @@
-import React from "react";
+import { useState } from "react";
 import "./MeetingsContainer.css";
 import MeetingCards from "Components/MeetingCards/MeetingCards";
-import { CurrentUser } from "types";
 
-interface MeetingProps {
-  currentUser: CurrentUser | undefined;
+interface Meeting {
+  id: number;
+  type: string;
+  attributes: {
+    partner_id: number;
+    date: string;
+    start_time: string;
+    end_time: string;
+    is_host: string;
+    is_accepted: Boolean
+  };
 }
 
-const meetings ={
-  "data": [
-    {
-      "id": "23",
-      "type": "meeting",
-      "attributes": {
-        "partner_id": "2",
-        "date": "01-01-2023",
-        "start_time": "07:30",
-        "end_time": "08:30",
-        "is_host": "true"
-      }
-    },
-    {
-      "id": "27",
-      "type": "meeting",
-      "attributes": {
-        "partner_id": "3",
-        "date": "01-05-2023",
-        "start_time": "11:00",
-        "end_time": "11:30",
-        "is_host": "false"
-      }
-    }
-  ]
+interface MeetingsContainerProps {
+  meetings: Meeting[];
+}
+//  I need to render only accepted cards on window load,
+// a toggle system to go between approved and requests
+// conditional rendering based on toggle state
+
+function MeetingsContainer({ meetings }: MeetingsContainerProps) {
+  const [isAccepted, setIsAccepted] = useState<boolean>(true);
+// I am going to bring in all meeting data ([{}, {}, ...] | []) 
+//  2 views on Meetings container =>
+//    my meetings
+//    my meeting requests
+// use state boolean as render condition (isAccepted?)
+// have button that toggles state
+// I am going to conditionally render based on isAccepted =>
+// true: my meetings: <MeetingCards acceptedMeetings={acceptedMeetings} />
+// false: requests: <MeetingCards meetingRequests={meetingRequests} />
+
+const acceptedMeetings = meetings.filter(
+  (meeting) => meeting.attributes.is_accepted === true
+);
+const meetingRequests = meetings.filter(
+  (meeting) => meeting.attributes.is_accepted !== true
+);
+
+  return (
+    <div className="meetings-container">
+      <button onClick={() => setIsAccepted(true)}>My Meetings</button>
+      <button onClick={() => setIsAccepted(false)}>My Meeting Requests</button>
+      {!!meetings.length ? (
+        isAccepted ? (
+          <MeetingCards meetings={acceptedMeetings} />
+        ) : (
+          <MeetingCards meetings={meetingRequests} />
+        )
+      ) : (
+        <h2>No meetings yet, add meetings!</h2>
+      )}
+    </div>
+  );
 }
 
-// function MeetingsContainer({ currentUser }: MeetingProps) {
-//   const meetings = currentUser?.attributes.meetings || [];
-
-//   return (
-//     <div className="meetings-container">
-//       {!!meetings.length ? (
-//         <MeetingCards meetings={meetings} />
-//       ) : (
-//         <h2>No meetings yet, add meetings!</h2>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default MeetingsContainer;
+export default MeetingsContainer;
