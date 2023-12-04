@@ -6,6 +6,7 @@ import { getSingleUser } from 'apiCalls';
 import {Routes, Route} from "react-router-dom"
 import Nav from 'Components/Nav/Nav';
 import ErrorPage from 'Components/ErrorPage/ErrorPage';
+import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 
 // interface AppState {
 //   currentUser: 
@@ -31,6 +32,7 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
        <Route path="/" element={<Profile currentUser={currentUser} />}
         /> )
       }
+      <Route path="/create-account" element={<CreateAccountForm />} />
       <Route path="*" element={<ErrorPage />} />
         </Routes>
     </main>
