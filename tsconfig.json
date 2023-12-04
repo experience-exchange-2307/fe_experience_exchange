@@ -2,6 +2,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
+    "typeRoots": ["./types.tsx", "./node_modules/@types"],
     "target": "es5",
     "lib": [
       "dom",
@@ -23,6 +24,6 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src/**/*.tsx","src/**/*.ts" , "src/typings/**/*.d.ts"
   ]
 }
