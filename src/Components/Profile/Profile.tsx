@@ -37,7 +37,7 @@ function Profile({ currentUser }: ProfileProps) {
               </article>
               <article className="profile-list">
                 <p className='profile-header'>Location</p>
-                <p>{currentUser?.attributes.address}</p>
+                <p>{currentUser?.attributes.address.city}, {currentUser?.attributes.address.state}</p>
               </article>
               <article className="profile-list">
                 <p className='profile-header'>Email</p>
