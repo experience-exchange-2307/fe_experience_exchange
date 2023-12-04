@@ -1,0 +1,125 @@
+/* .sign-up-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: solid 2px green;
+}
+
+.welcome-message {
+  margin-top: 10%;
+  width: 100%;
+  display: flex;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.form-border{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  border: solid 2px gray;
+  border-radius: 16px;
+}
+
+.first-last-name {
+  display: flex;
+  justify-content: space-between;
+  width: 48%;
+  margin-bottom: 10px;
+}
+
+
+
+.solid {
+ background-color: rgb(27, 101, 52);
+ border-radius: 0px 16px 16px 0px;
+ height: 100%;
+ width: 40%;
+}
+
+.create-account-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.sign-up-container {
+  max-width: 26em;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign-up-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.name-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.input-group {
+  display: grid;
+  gap: 10px;
+}
+
+.input-group label {
+  font-weight: bold;
+}
+
+input {
+  height: 3em;
+  border-radius: 8px;
+  /* width: 100%; */
+  appearance: none;
+  background-color: transparent;
+  font-size: 1rem;
+  border-width: 1px;
+  border-color: rgb(204, 204, 204);
+  /* padding: 0px; */
+  /* outline: none; */
+  /* border: 3px; */
+}
+
+.address-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.create-account-container {
+  text-align: center;
+}
+
+.create-account-container button {
+  background-color: #4c7faf;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.solid {
+  height: 2px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
