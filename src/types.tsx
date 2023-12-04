@@ -1,5 +1,5 @@
 interface Skills {
-  name: String
+  name: String;
   proficiency: Number;
 }
 
@@ -25,9 +25,20 @@ interface Attributes {
   meetings: Meetings;
 }
 
-export interface CurrentUser{
+export interface CurrentUser {
   id: Number;
   type: String;
   attributes: Attributes;
 }
 
+interface AttributesQuickView {
+  first_name: String;
+  last_name: String;
+  skills: Skills[];
+}
+
+export interface SearchResult {
+  id: String;
+  type: String;
+  attributes: AttributesQuickView;
+}
