@@ -39,8 +39,9 @@ input[type="text"] {
 .search-submit-btn {
   height: 3rem;
   width: 3rem;
-  background-color: lavender;
+  background-color: steelblue;
   border: none;
+  color: white;
 }
 .search-bar {
   display: flex;
@@ -50,7 +51,8 @@ input[type="text"] {
 .search-menu {
   display: flex;
   align-items: center;
-  background-color: pink;
+  background-color: lavender;
+  border-radius: 10px;
   width: 97.5%;
   height: 5rem;
   padding: 1rem;
