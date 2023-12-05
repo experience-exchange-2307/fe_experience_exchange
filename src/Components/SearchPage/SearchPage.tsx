@@ -1,5 +1,5 @@
 import "./SearchPage.css";
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent, useCallback } from "react";
 import { getSearchResults } from "apiCalls";
 import CheckboxSkills from "./CheckboxSkills";
 import CheckboxLocation from "./CheckboxLocation";
@@ -21,30 +21,28 @@ function SearchPage({ currentUser, errorMsg, setErrorMsg}: SearchPageProps) {
     setSearchQuery(event.target.value);
   };
 
+  const submitQuery = useCallback(() => {
+    getSearchResults(searchQuery, remoteQuery)
+      .then((data) => {
+        console.log("data", data);
+        if (data.data) {
+          setErrorMsg("");
+          setSearchResults(data.data);
+        } else {
+          console.log("error.error", data.error);
+          setErrorMsg(data.error);
+        }
+      })
+      .catch((error) => {
+        // console.log('error.error', error.error)
+        // setErrorMsg(error.error)
+      });
+  }, [searchQuery, remoteQuery]);
+
   useEffect(() => {
     console.log("searchQuery is", searchQuery);
     submitQuery();
-  }, [searchQuery, remoteQuery]);
-
-  const submitQuery = () => {
-    getSearchResults(searchQuery, remoteQuery).then((data) => {
-      console.log("data", data);
-      if (data.data){
-        setErrorMsg("")
-        setSearchResults(data.data);
-
-      } 
-      
-      else {
-        console.log('error.error', data.error)
-      setErrorMsg(data.error)
-      }
-    }).catch(error => {
-      // console.log('error.error', error.error)
-      // setErrorMsg(error.error)
-    });
-  };
-
+  }, [searchQuery, remoteQuery, submitQuery]);
   return (
     <div className='search-page'>
       <p className='search-title'>Find people near you</p>

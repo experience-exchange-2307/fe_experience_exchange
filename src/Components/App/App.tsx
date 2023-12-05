@@ -12,6 +12,8 @@ function App() {
 
 const [errorMsg, setErrorMsg] = useState<string>("");
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
+
+
   // on load => Get user (entire object)
   useEffect(() => {
     getSingleUser().then((data) => {

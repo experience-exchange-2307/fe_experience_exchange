@@ -33,13 +33,21 @@ function ResultsContainer({ searchResults, currentUser, errorMsg }: ResultsConta
 
   return (
     <div>
-      {!!searchResults.length && <h1>Showing {searchResults.length} Results</h1>}
+      {/* {!!searchResults.length && <h1>Showing {searchResults.length} Results</h1>} */}
       {errorMsg ? (
-        <div className='results-container'>{errorMsg}</div>
+    
+        <div className='results-container'><h3>No results yet, try searching by skill.</h3></div>
+       
       ) : searchResults.length === 0 ? (
-        <div className='results-container'>No Results for your search</div>
+        <>
+        <h1>No results found</h1>
+        <div className='results-container'>Try a different search</div>
+        </>
       ) : (
+        <>
+        <h1>Showing {searchResults.length} Results</h1>
         <div className='results-container'>{renderResults()}</div>
+        </>
       )}
     </div>
   );
