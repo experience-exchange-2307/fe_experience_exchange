@@ -37,7 +37,7 @@ function SearchPage({ currentUser, errorMsg, setErrorMsg}: SearchPageProps) {
         // console.log('error.error', error.error)
         // setErrorMsg(error.error)
       });
-  }, [searchQuery, remoteQuery]);
+  }, [searchQuery, remoteQuery, setErrorMsg]);
 
   useEffect(() => {
     console.log("searchQuery is", searchQuery);
