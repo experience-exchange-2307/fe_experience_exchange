@@ -1,5 +1,4 @@
 import "./Profile.css";
-import React from "react";
 import { CurrentUser } from "types";
 import frog from "../../images/Frog.png";
 interface ProfileProps {
