@@ -41,16 +41,23 @@ const [serverError, setServerError] = useState<ServerError | string>("")
     <>
       <main>
         <Nav />
-        <Routes>
-          {!currentUser ? (
-            <Route path="/" element={<p>Loading...</p>} />
-          ) : (
-            <Route path="/" element={<CreateAccountForm  createNewUser={createNewUser}/>} />
-          )}
-          <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
-          <Route path="/search" element={<SearchPage currentUser={currentUser} />}/>
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        {serverError ? (
+          <ErrorPage />
+        ) : (
+          <Routes>
+            {!currentUser ? (
+              <Route path="/" element={<p>Loading...</p>} />
+            ) : (
+              <Route
+                path="/"
+                element={<CreateAccountForm createNewUser={createNewUser} />}
+              />
+            )}
+            <Route path="/dashboard" element={<Profile currentUser={currentUser} />} />
+            <Route path="/search" element={<SearchPage currentUser={currentUser} />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        )}
       </main>
     </>
   );
