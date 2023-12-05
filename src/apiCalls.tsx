@@ -1,6 +1,8 @@
+const BaseURLMock = "https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io"
+
 export const getSingleUser = () => {
   return fetch(
-    "https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io/api/v1/users/1"
+    `${BaseURLMock}/api/v1/users/1`
   )
     .then((res) => {
       if (res.ok) {
@@ -16,9 +18,11 @@ export const getSingleUser = () => {
       return response.json()});
 };
 
-export const getSearchResults = (query: string) => {
+export const getSearchResults = (query: string, remoteQuery:string) => {
+  console.log(   `${BaseURLMock}/api/v1/searched_skills?query=${query}${remoteQuery}`, "endpoint")
   return fetch(
-    `https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io/api/v1/searched_skills?query=${query}`
+    `${BaseURLMock}/api/v1/searched_skills?query=${query}${remoteQuery}`
+
   )
     .then((res) => {
       if (res.ok) {

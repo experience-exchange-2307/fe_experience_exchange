@@ -14,8 +14,8 @@ function ResultsContainer({ searchResults }: ResultsContainerProps) {
   }, [searchResults]);
 
   const renderResults = () => {
-    if (searchResults.length === 0) {
-      return <p>default result card element</p>;
+    if (!searchResults || searchResults.length === 0) {
+      return <p>Please enter a skill to search for.</p>;
     } else {
       return searchResults.map((result, index) => (
         <SearchResultCard
@@ -30,19 +30,15 @@ function ResultsContainer({ searchResults }: ResultsContainerProps) {
     }
   };
 
-  const resultCards = renderResults();
+  return (<div>
+    {!searchResults || searchResults.length === 0 ? (
+      <p></p>
+    ) : (<h1>Showing {searchResults.length} Results</h1>)
 
-  return (
-    <>
-      {searchResults.length > 0 ? (
-        <div className='results-container'>{resultCards}</div>
-      ) : (
-        <p>no results</p>
-      )}
-    </>
-  );
+    }
+    <div className='results-container'>{renderResults()}</div>;
+    </div>)
 }
 
 export default ResultsContainer;
-
 
