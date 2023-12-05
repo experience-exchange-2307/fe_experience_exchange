@@ -2,13 +2,14 @@ import "./CreateAccountForm.css"
 import React from 'react'
 import { useState } from 'react'
 import { NewUserData } from 'types';
+import { useNavigate } from "react-router-dom";
 
 interface CreateAccountFormProps {
   createNewUser: (newUserData: NewUserData) => void
 }
 
-function CreateAccountForm: React.FC<CreateAccountFormProps>({createNewUser}) {
-
+const CreateAccountForm: React.FC<CreateAccountFormProps> = ({ createNewUser }) => {
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState<NewUserData>({
     first_name: "",
@@ -18,7 +19,7 @@ function CreateAccountForm: React.FC<CreateAccountFormProps>({createNewUser}) {
     city: "",
     state: "",
     zipcode: "",
-    isRemote: false,
+    is_remote: false,
     about: "",
   })
 
@@ -43,6 +44,7 @@ const handleRemoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // make POST request with formData here
     createNewUser(formData)
     console.log('Submitting:', formData);
+    navigate("/dashboard")
 
   };
 
@@ -152,8 +154,8 @@ const handleRemoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         Remote
         <input
           type="checkbox"
-          name="isRemote"
-          checked={formData.isRemote}
+          name="is_remote"
+          checked={formData.is_remote}
           onChange={handleRemoteChange}
         />
       </label>
