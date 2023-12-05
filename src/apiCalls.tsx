@@ -31,9 +31,7 @@ export const getSearchResults = (query: string) => {
         );
       }
     })
-    .then((response) =>{
-      console.log('res', response.json)
-      return response.json()});
+    .then((res) =>res.json());
 };
 
 
