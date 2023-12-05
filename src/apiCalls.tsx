@@ -13,9 +13,7 @@ export const getSingleUser = () => {
         );
       }
     })
-    .then((response) =>{
-      console.log('res', response.json)
-      return response.json()});
+    .then((res) => res.json());
 };
 
 export const getSearchResults = (query: string) => {
