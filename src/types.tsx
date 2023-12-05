@@ -56,6 +56,6 @@ export interface NewUserData {
   city: string,
   state: string,
   zipcode: string,
-  isRemote: boolean,
+  is_remote: boolean,
   about: string,
 }
