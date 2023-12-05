@@ -36,16 +36,21 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({ createNewUser }) 
 const handleRemoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   setFormData((prevFormData) => ({
     ...prevFormData,
-    isRemote: e.target.checked,
+    is_remote: e.target.checked,
   }));
 };
 
-  const handleSubmit = () => {
-    // make POST request with formData here
-    createNewUser(formData)
-    console.log('Submitting:', formData);
-    navigate("/dashboard")
+const isFormComplete = () => {
+  return !Object.values(formData).some(inputData => inputData === "");
+}
 
+  const handleSubmit = () => {
+    if(isFormComplete()) {
+      console.log('Submitting:', formData);
+      // make POST request with formData here
+      createNewUser(formData)
+      navigate("/dashboard")
+    }
   };
 
   return (
@@ -162,7 +167,7 @@ const handleRemoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     </div>
 
     <div className="create-account-container">
-      <button type="button" onClick={handleSubmit}>
+      <button className="create-account-btn" type="button" disabled={!isFormComplete()} onClick={handleSubmit}>
         Create Account
       </button>
     </div>
