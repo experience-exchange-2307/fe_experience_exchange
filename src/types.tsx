@@ -1,4 +1,4 @@
-interface Skills {
+export interface Skills {
   name: string
   proficiency: number;
 }
@@ -36,14 +36,15 @@ export interface CurrentUser{
   attributes: Attributes;
 }
 
-interface AttributesQuickView {
-  first_name: String;
-  last_name: String;
+export interface AttributesQuickView {
+  first_name: string;
+  is_remote: boolean;
+  last_name: string;
   skills: Skills[];
 }
 
 export interface SearchResult {
-  id: String;
-  type: String;
+  id: string;
+  type: string;
   attributes: AttributesQuickView;
 }
