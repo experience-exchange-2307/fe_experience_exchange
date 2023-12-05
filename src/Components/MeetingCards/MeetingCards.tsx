@@ -1,17 +1,6 @@
 import React from "react";
 import "./MeetingCards.css";
-
-interface Meeting {
-  id: number;
-  type: string;
-  attributes: {
-    partner_id: number;
-    date: string;
-    start_time: string;
-    end_time: string;
-    is_host: string;
-  };
-}
+import { Meeting } from "types";
 
 interface MeetingCardsProps {
   meetings: Meeting[];
