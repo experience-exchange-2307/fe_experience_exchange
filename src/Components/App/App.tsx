@@ -19,12 +19,11 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
     })
   }, [])
 
-
   const createNewUser = (newUserData: NewUserData) => {
     postNewUser(newUserData)
     .then(data => {
       console.log("posted user", data)
-      setCurrentUser([...currentUser, data])
+      // setCurrentUser(data)
     })
     .catch(error => console.log(error))
   }
@@ -37,7 +36,7 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
           {!currentUser ? (
             <Route path="/" element={<p>Loading...</p>} />
           ) : (
-            <Route path="/" element={<CreateAccountForm createNewUser={createNewUser}/>} />
+            <Route path="/" element={<CreateAccountForm  createNewUser={createNewUser}/>} />
           )}
           <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
           <Route path="/search" element={<SearchPage currentUser={currentUser} />}/>
