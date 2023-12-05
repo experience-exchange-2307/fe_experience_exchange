@@ -48,3 +48,20 @@ export interface SearchResult {
   type: string;
   attributes: AttributesQuickView;
 }
+
+export interface NewUserData {
+  first_name: string,
+  last_name: string,
+  email: string,
+  street: string,
+  city: string,
+  state: string,
+  zipcode: string,
+  is_remote: boolean,
+  about: string,
+}
+
+export interface ServerError {
+  message: string;
+  errorCode: number;
+}
