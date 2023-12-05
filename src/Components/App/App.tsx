@@ -21,10 +21,15 @@ const [serverError, setServerError] = useState<ServerError | string>("")
   }, [])
 
   const createNewUser = (newUserData: NewUserData) => {
+    console.log("newUserData", newUserData)
     postNewUser(newUserData)
     .then(data => {
-      console.log("posted user", data)
-      setCurrentUser(data)
+      if(data.error) {
+        throw new Error(`${data.error}`)
+      } else {
+        console.log("posted user", data)
+        setCurrentUser(data.data)
+      }
     })
     .catch(error => {
       console.log(error)
