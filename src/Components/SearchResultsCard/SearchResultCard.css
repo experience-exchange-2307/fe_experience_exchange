@@ -12,11 +12,17 @@
     margin-bottom: .5rem;
     font-size:1.3rem;
     font-weight: 600;
+    margin-right: .5rem;
 }
 .result-card-skills {
     font-weight: 300;
+    font-size:1.2rem;
 }
 .result-card-distance {
     color: darkblue;
     font-weight: 400;
+}
+.result-card-skills-container{
+    display: flex;
+    align-items: baseline;
 }

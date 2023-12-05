@@ -17,9 +17,6 @@ function SearchResultCard({
   is_remote,
   skills,
 }: SearchResultCardProps) {
-  const skillsList = skills.map((skill, index) => (
-    <p key={index}>{skill.name}</p>
-  ));
 
   const lastSkillIndex = skills.length - 1;
 
@@ -27,18 +24,16 @@ function SearchResultCard({
     <div className='result-card' id={key}>
       <div>
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>
-        <div className='result-card-title result-card-skills-container'>
-          Skills:
-
-          <div className='result-card-skills'>
-
-          {skills.map((skill, index) => (
-            <span key={index}>
-              {skill.name}
-              {index === lastSkillIndex ? "" : ", "}
-            </span>
-          ))}
-          </div>
+        <div className='result-card-skills-container'>
+          <p className='result-card-title' >Skills:</p>
+         
+            {skills.map((skill, index) => (
+              <p key={index} className='result-card-skills'>
+                {skill.name}
+                {index === lastSkillIndex ? "" : ", "}
+              </p>
+            ))}
+          
         </div>
       </div>
       <div>
