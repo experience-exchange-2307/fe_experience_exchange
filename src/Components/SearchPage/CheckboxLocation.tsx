@@ -19,18 +19,6 @@ function CheckboxLocation({ setRemoteQuery }: CheckboxLocationProps) {
 
   return (
     <fieldset className='search-filter1'>
-      {/* <div>
-        <input
-          className='search-checkbox'
-          type='checkbox'
-          name='in-person'
-          id='in-person'
-          value='in-person'
-        />
-        <label className='search-page-label' htmlFor='in-person'>
-          In-Person
-        </label>
-      </div> */}
       <div>
         <input
           className='search-checkbox'

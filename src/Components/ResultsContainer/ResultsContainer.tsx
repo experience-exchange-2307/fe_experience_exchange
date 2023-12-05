@@ -6,9 +6,10 @@ import { SearchResult, CurrentUser } from "types";
 interface ResultsContainerProps {
   searchResults: SearchResult[] | [];
   currentUser: CurrentUser | undefined;
+  errorMsg: string;
 }
 
-function ResultsContainer({ searchResults }: ResultsContainerProps) {
+function ResultsContainer({ searchResults, currentUser, errorMsg }: ResultsContainerProps) {
   useEffect(() => {
     console.log("ResultsContainer rendering with", searchResults);
   }, [searchResults]);
@@ -30,13 +31,20 @@ function ResultsContainer({ searchResults }: ResultsContainerProps) {
     }
   };
 
-  return (<div>
-   {!!searchResults.length && <h1>Showing {searchResults.length} Results</h1>}(<h1>Showing {searchResults.length} Results</h1>)
-
-    
-    <div className='results-container'>{renderResults()}</div>;
-    </div>)
+  return (
+    <div>
+      {!!searchResults.length && <h1>Showing {searchResults.length} Results</h1>}
+      {errorMsg ? (
+        <div className='results-container'>{errorMsg}</div>
+      ) : searchResults.length === 0 ? (
+        <div className='results-container'>No Results for your search</div>
+      ) : (
+        <div className='results-container'>{renderResults()}</div>
+      )}
+    </div>
+  );
 }
+
 
 export default ResultsContainer;
 

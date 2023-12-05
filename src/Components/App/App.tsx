@@ -9,6 +9,8 @@ import ErrorPage from 'Components/ErrorPage/ErrorPage';
 import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 import SearchPage from 'Components/SearchPage/SearchPage';
 function App() {
+
+const [errorMsg, setErrorMsg] = useState<string>("");
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
   // on load => Get user (entire object)
   useEffect(() => {
@@ -17,6 +19,10 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
       setCurrentUser(data.data);
     })
   }, [])
+
+  useEffect(()=>{
+      console.log(errorMsg, "errorMsg")
+  }, [errorMsg])
   return (
     <>
       <main>
@@ -28,7 +34,7 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
             <Route path="/" element={<CreateAccountForm />} />
           )}
           <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
-          <Route path="/search" element={<SearchPage currentUser={currentUser} />}/>
+          <Route path="/search" element={<SearchPage currentUser={currentUser} errorMsg={errorMsg} setErrorMsg={setErrorMsg}/>}/>
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>

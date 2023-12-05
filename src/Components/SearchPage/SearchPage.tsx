@@ -8,9 +8,11 @@ import { CurrentUser, SearchResult } from "types";
 
 interface SearchPageProps {
   currentUser: CurrentUser | undefined;
+  errorMsg: string;
+  setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function SearchPage({ currentUser }: SearchPageProps) {
+function SearchPage({ currentUser, errorMsg, setErrorMsg}: SearchPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [remoteQuery, setRemoteQuery] = useState<string>("");
@@ -27,7 +29,19 @@ function SearchPage({ currentUser }: SearchPageProps) {
   const submitQuery = () => {
     getSearchResults(searchQuery, remoteQuery).then((data) => {
       console.log("data", data);
-      setSearchResults(data.data);
+      if (data.data){
+        setErrorMsg("")
+        setSearchResults(data.data);
+
+      } 
+      
+      else {
+        console.log('error.error', data.error)
+      setErrorMsg(data.error)
+      }
+    }).catch(error => {
+      // console.log('error.error', error.error)
+      // setErrorMsg(error.error)
     });
   };
 
@@ -50,7 +64,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
           </button>
         </div>
       </div>
-      <ResultsContainer searchResults={searchResults} currentUser={currentUser} />
+      <ResultsContainer searchResults={searchResults} currentUser={currentUser} errorMsg={errorMsg} />
     </div>
   );
 }
