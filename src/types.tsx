@@ -47,3 +47,15 @@ export interface SearchResult {
   type: String;
   attributes: AttributesQuickView;
 }
+
+export interface NewUserData {
+  first_name: string,
+  last_name: string,
+  email: string,
+  street: string,
+  city: string,
+  state: string,
+  zipcode: string,
+  isRemote: boolean,
+  about: string,
+}
