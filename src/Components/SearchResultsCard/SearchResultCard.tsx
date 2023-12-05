@@ -2,7 +2,6 @@ import "./SearchResultCard.css";
 import { Skills } from "types";
 
 interface SearchResultCardProps {
-  key: string;
   first_name: string;
   last_name: string;
   is_remote: boolean;
@@ -11,17 +10,17 @@ interface SearchResultCardProps {
 }
 
 function SearchResultCard({
-  key,
   first_name,
   last_name,
   is_remote,
   skills,
+  id
 }: SearchResultCardProps) {
 
   const lastSkillIndex = skills.length - 1;
 
   return (
-    <div className='result-card' id={key}>
+    <div className='result-card' key={id}>
       <div>
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>
         <div className='result-card-skills-container'>

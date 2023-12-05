@@ -17,9 +17,9 @@ function ResultsContainer({ searchResults }: ResultsContainerProps) {
     if (searchResults.length === 0) {
       return <p>default result card element</p>;
     } else {
-      return searchResults.map((result) => (
+      return searchResults.map((result, index) => (
         <SearchResultCard
-          key={result.id}
+          key={index}
           first_name={result.attributes.first_name}
           last_name={result.attributes.last_name}
           is_remote={result.attributes.is_remote}
