@@ -12,6 +12,7 @@ export interface Meeting {
     start_time: string;
     end_time: string;
     is_host: string;
+    is_accepted: Boolean
   };
 }
 
