@@ -31,11 +31,9 @@ function ResultsContainer({ searchResults }: ResultsContainerProps) {
   };
 
   return (<div>
-    {!searchResults || searchResults.length === 0 ? (
-      <p></p>
-    ) : (<h1>Showing {searchResults.length} Results</h1>)
+   {!!searchResults.length && <h1>Showing {searchResults.length} Results</h1>}(<h1>Showing {searchResults.length} Results</h1>)
 
-    }
+    
     <div className='results-container'>{renderResults()}</div>;
     </div>)
 }
