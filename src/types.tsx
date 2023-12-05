@@ -59,3 +59,8 @@ export interface NewUserData {
   is_remote: boolean,
   about: string,
 }
+
+export interface ServerError {
+  message: string;
+  errorCode: number;
+}
