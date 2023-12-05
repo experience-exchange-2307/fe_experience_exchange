@@ -1,7 +1,7 @@
 import Profile from 'Components/Profile/Profile';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { CurrentUser, NewUserData } from 'types';
+import { CurrentUser, NewUserData, ServerError } from 'types';
 import { getSingleUser, postNewUser } from 'apiCalls';
 import {Routes, Route} from "react-router-dom"
 import Nav from 'Components/Nav/Nav';
@@ -11,6 +11,7 @@ import SearchPage from 'Components/SearchPage/SearchPage';
 
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
+const [serverError, setServerError] = useState<ServerError | string>("")
   // on load => Get user (entire object)
   useEffect(() => {
     getSingleUser().then((data) => {
@@ -23,9 +24,12 @@ const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefine
     postNewUser(newUserData)
     .then(data => {
       console.log("posted user", data)
-      // setCurrentUser(data)
+      setCurrentUser(data)
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      setServerError(error)
+    })
   }
 
   return (
