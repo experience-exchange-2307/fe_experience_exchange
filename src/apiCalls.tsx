@@ -19,7 +19,7 @@ export const getSingleUser = () => {
 
 export const getSearchResults = (query: string) => {
   return fetch(
-    `${BaseURLReal}/api/v1/searched_skills?query=${query}` )
+    `${BaseURLReal}/api/v1/search_skills?query=${query}` )
     .then((res) => {
       console.log('res1', res)
       if (res.ok) {
