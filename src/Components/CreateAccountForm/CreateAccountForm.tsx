@@ -1,64 +1,61 @@
 import "./CreateAccountForm.css"
 import React from 'react'
 import { useState } from 'react'
+import { NewUserData } from 'types';
+import { useNavigate } from "react-router-dom";
 
-function CreateAccountForm() {
-  const [formData, setFormData] = useState({
-    about: "",
-    address: {
-      street: "",
-      city: "",
-      state: "",
-      zipcode: "",
-    },
-    email: "",
+interface CreateAccountFormProps {
+  createNewUser: (newUserData: NewUserData) => void
+}
+
+const CreateAccountForm: React.FC<CreateAccountFormProps> = ({ createNewUser }) => {
+  const navigate = useNavigate()
+
+  const [formData, setFormData] = useState<NewUserData>({
     first_name: "",
     last_name: "",
-    isRemote: false ,
-    id: "",
-    type: "",
-    skills: [],
+    email: "",
+    street: "",
+    city: "",
+    state: "",
+    zipcode: "",
+    is_remote: false,
+    about: "",
   })
 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-  
-    if (name.includes("address.")) {
-      const addressProperty = name.split(".")[1];
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        address: {
-          ...prevFormData.address,
-          [addressProperty]: value,
-        },
-      }));
-    } else {
       setFormData((prevFormData) => ({
         ...prevFormData,
         [name]: value,
       }));
     }
-  };
 
-  const handleRemoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prevRemoteData) => ({
-      ...prevRemoteData,
-      remote: e.target.checked,
-    }));
-  };
+
+const handleRemoteChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    is_remote: e.target.checked,
+  }));
+};
+
+const isFormComplete = () => {
+  return !Object.values(formData).some(inputData => inputData === "");
+}
 
   const handleSubmit = () => {
-    // make POST request with formData here
-    console.log('Submitting:', formData);
-
-    
+    if(isFormComplete()) {
+      console.log('Submitting:', formData);
+      // make POST request with formData here
+      createNewUser(formData)
+      navigate("/dashboard")
+    }
   };
 
   return (
     <section className="sign-up-container">
   <h2>Let’s get you started with an Experience Exchange account</h2>
-
   <form className="form">
     <div className="name-container">
       <div className="input-group">
@@ -105,8 +102,8 @@ function CreateAccountForm() {
           className="create-account-input"
           type="text"
           placeholder="Street"
-          name="address.street"
-          value={formData.address.street}
+          name="street"
+          value={formData.street}
           onChange={handleInputChange}
         />
       </div>
@@ -117,8 +114,8 @@ function CreateAccountForm() {
           className="create-account-input"
           type="text"
           placeholder="City"
-          name="address.city"
-          value={formData.address.city}
+          name="city"
+          value={formData.city}
           onChange={handleInputChange}
         />
       </div>
@@ -129,8 +126,8 @@ function CreateAccountForm() {
           className="create-account-input"
           type="text"
           placeholder="State"
-          name="address.state"
-          value={formData.address.state}
+          name="state"
+          value={formData.state}
           onChange={handleInputChange}
         />
       </div>
@@ -141,23 +138,12 @@ function CreateAccountForm() {
           className="create-account-input"
           type="text"
           placeholder="Zip Code"
-          name="address.zipcode"
-          value={formData.address.zipcode}
+          name="zipcode"
+          value={formData.zipcode}
           onChange={handleInputChange}
         />
       </div>
     </div>
-
-    {/* <div className="input-group">
-      <label>Skills</label>
-      <input 
-        className="create-account-input"
-        type="text"
-        name="skills"
-        value={formData.skills.join(',')}
-        onChange={handleInputChange}
-      />
-    </div> */}
 
     <div className="input-group">
       <label htmlFor="about">Tell us about yourself</label>
@@ -173,15 +159,15 @@ function CreateAccountForm() {
         Remote
         <input
           type="checkbox"
-          name="isRemote"
-          checked={formData.isRemote}
+          name="is_remote"
+          checked={formData.is_remote}
           onChange={handleRemoteChange}
         />
       </label>
     </div>
 
     <div className="create-account-container">
-      <button type="button" onClick={handleSubmit}>
+      <button className="create-account-btn" type="button" disabled={!isFormComplete()} onClick={handleSubmit}>
         Create Account
       </button>
     </div>
@@ -191,6 +177,7 @@ function CreateAccountForm() {
 
   );
 }
+
 
 export default CreateAccountForm;
 
