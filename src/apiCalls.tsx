@@ -19,9 +19,9 @@ export const getSingleUser = () => {
 };
 
 export const getSearchResults = (query: string, remoteQuery:string) => {
-  console.log(`${BaseURLMock}/api/v1/searched_skills?query=${query}${remoteQuery}`)
+  console.log(`${BaseURLMock}/api/v1/search_skills?query=${query}${remoteQuery}`)
   return fetch(
-    `${BaseURLMock}/api/v1/searched_skills?query=${query}${remoteQuery}`
+    `${BaseURLMock}/api/v1/search_skills?query=${query}${remoteQuery}`
 
   )
     .then((res) => {
