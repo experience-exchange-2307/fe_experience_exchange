@@ -22,6 +22,7 @@ export const getSearchResults = (query: string) => {
     `${BaseURLReal}/api/v1/searched_skills?query=${query}`
   )
     .then((res) => {
+      console.log('res1', res)
       if (res.ok) {
         return res;
       } else {
