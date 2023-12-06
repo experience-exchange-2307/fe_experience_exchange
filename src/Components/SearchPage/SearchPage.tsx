@@ -4,7 +4,7 @@ import CheckboxSkills from "Components/SearchPage/CheckboxSkills";
 import CheckboxLocation from "./CheckboxLocation";
 import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
 import { useState, useEffect, ChangeEvent } from "react";
-import { getSearchResults, getSearchResultsEmpty } from "apiCalls";
+import { getSearchResults } from "apiCalls";
 
 interface SearchPageProps {
   currentUser: CurrentUser | undefined;
@@ -17,11 +17,6 @@ function SearchPage({ currentUser }: SearchPageProps) {
   const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
-
-  useEffect(()=> {
-    "empty search result response here:"
-    getSearchResultsEmpty()
-  })
 
   useEffect(() => {
     console.log("searchQuery is", searchQuery);
