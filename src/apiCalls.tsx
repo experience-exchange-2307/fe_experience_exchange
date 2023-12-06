@@ -3,9 +3,10 @@ import { NewUserData } from 'types';
 const BaseURLReal = 'https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com/'
 export const getSingleUser = () => {
   return fetch(
-    `${BaseURLReal}/api/v1/users/1`
+    `${BaseURLReal}/api/v1/users/2`
   )
     .then((res) => {
+      console.log('getsingleuser failure res', res)
       if (res.ok) {
         return res;
       } else {
