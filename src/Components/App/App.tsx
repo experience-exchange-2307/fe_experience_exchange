@@ -22,32 +22,6 @@ const [serverError, setServerError] = useState<ServerError | string>("")
     })
   }, [])
 
-  // useEffect(()=>{
-  //     console.log(errorMsg, "errorMsg")
-  // }, [errorMsg])
-
-//   return (
-//     <>
-//       <main>
-//         <Nav />
-//         <Routes>
-//           {!currentUser ? (
-//             <Route path="/" element={<p>Loading...</p>} />
-//           ) : (
-//             <Route path="/" element={<CreateAccountForm />} />
-//           )}
-//           <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
-//           <Route path="/search" element={<SearchPage currentUser={currentUser}
-//           //  errorMsg={errorMsg} setErrorMsg={setErrorMsg}
-//            />}/>
-//           <Route path="*" element={<ErrorPage />} />
-//         </Routes>
-//         </main>
-//     </>
-//   );
-// }
-
-// export default App;
 
   const createNewUser = (newUserData: NewUserData) => {
     console.log("newUserData", newUserData)
@@ -93,3 +67,30 @@ const [serverError, setServerError] = useState<ServerError | string>("")
 }
 
 export default App;
+
+  // useEffect(()=>{
+  //     console.log(errorMsg, "errorMsg")
+  // }, [errorMsg])
+
+//   return (
+//     <>
+//       <main>
+//         <Nav />
+//         <Routes>
+//           {!currentUser ? (
+//             <Route path="/" element={<p>Loading...</p>} />
+//           ) : (
+//             <Route path="/" element={<CreateAccountForm />} />
+//           )}
+//           <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
+//           <Route path="/search" element={<SearchPage currentUser={currentUser}
+//           //  errorMsg={errorMsg} setErrorMsg={setErrorMsg}
+//            />}/>
+//           <Route path="*" element={<ErrorPage />} />
+//         </Routes>
+//         </main>
+//     </>
+//   );
+// }
+
+// export default App;
