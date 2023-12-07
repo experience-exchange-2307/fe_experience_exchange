@@ -1,10 +1,13 @@
 import "./Profile.css";
-import React from "react";
 import { CurrentUser } from "types";
 import frog from "../../images/Frog.png";
 interface ProfileProps {
   currentUser: CurrentUser | undefined;
 }
+
+// use params of dashboard for user id => 
+// on dashboard mount fetch user data (using userid from params)
+// pass user to profile as prop
 
 function Profile({ currentUser }: ProfileProps) {
   return (

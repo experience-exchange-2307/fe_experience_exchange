@@ -14,7 +14,7 @@ function SearchResultCard({
   last_name,
   is_remote,
   skills,
-  id
+  id,
 }: SearchResultCardProps) {
 
   const lastSkillIndex = skills.length - 1;
@@ -23,7 +23,7 @@ function SearchResultCard({
     <div className='result-card' key={id}>
       <div>
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>
-        <div className='result-card-skills-container'>
+        <div className='result-card-skills-container' >
           <p className='result-card-title' >Skills:</p>
          
             {skills.map((skill, index) => (

@@ -6,10 +6,12 @@ import { SearchResult, CurrentUser } from "types";
 interface ResultsContainerProps {
   searchResults: SearchResult[] | [];
   currentUser: CurrentUser | undefined;
-  errorMsg: string;
+  // errorMsg: string;
 }
 
-function ResultsContainer({ searchResults, currentUser, errorMsg }: ResultsContainerProps) {
+function ResultsContainer({ searchResults, currentUser
+  // , errorMsg 
+}: ResultsContainerProps) {
   useEffect(() => {
     console.log("ResultsContainer rendering with", searchResults);
   }, [searchResults]);
@@ -26,6 +28,7 @@ function ResultsContainer({ searchResults, currentUser, errorMsg }: ResultsConta
           is_remote={result.attributes.is_remote}
           id={result.id}
           skills={result.attributes.skills}
+      
         />
       ));
     }
@@ -34,11 +37,13 @@ function ResultsContainer({ searchResults, currentUser, errorMsg }: ResultsConta
   return (
     <div>
       {/* {!!searchResults.length && <h1>Showing {searchResults.length} Results</h1>} */}
-      {errorMsg ? (
+      {
+      // errorMsg ? (
     
-        <div className='results-container'><h3>No results yet, try searching by skill.</h3></div>
+      //   <div className='results-container'><h3>No results yet, try searching by skill.</h3></div>
        
-      ) : searchResults.length === 0 ? (
+      // ) : 
+      searchResults.length === 0 ? (
         <>
         <h1>No results found</h1>
         <div className='results-container'>Try a different search</div>

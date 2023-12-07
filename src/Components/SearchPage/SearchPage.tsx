@@ -8,11 +8,13 @@ import { CurrentUser, SearchResult } from "types";
 
 interface SearchPageProps {
   currentUser: CurrentUser | undefined;
-  errorMsg: string;
-  setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
+  // errorMsg: string;
+  // setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function SearchPage({ currentUser, errorMsg, setErrorMsg}: SearchPageProps) {
+function SearchPage({ currentUser
+  // , errorMsg, setErrorMsg
+}: SearchPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [remoteQuery, setRemoteQuery] = useState<string>("");
@@ -26,18 +28,22 @@ function SearchPage({ currentUser, errorMsg, setErrorMsg}: SearchPageProps) {
       .then((data) => {
         console.log("data", data);
         if (data.data) {
-          setErrorMsg("");
+          // setErrorMsg("");
           setSearchResults(data.data);
-        } else {
-          console.log("error.error", data.error);
-          setErrorMsg(data.error);
         }
+        // else {
+        //   console.log("error.error", data.error);
+        //   setErrorMsg(data.error);
+        // }
       })
       .catch((error) => {
-        // console.log('error.error', error.error)
+        console.log('error', error)
         // setErrorMsg(error.error)
       });
-  }, [searchQuery, remoteQuery, setErrorMsg]);
+  }, [searchQuery, remoteQuery
+    // , setErrorMsg
+  ]
+    );
 
   useEffect(() => {
     console.log("searchQuery is", searchQuery);
@@ -62,7 +68,9 @@ function SearchPage({ currentUser, errorMsg, setErrorMsg}: SearchPageProps) {
           </button>
         </div>
       </div>
-      <ResultsContainer searchResults={searchResults} currentUser={currentUser} errorMsg={errorMsg} />
+      <ResultsContainer searchResults={searchResults} currentUser={currentUser} 
+      // errorMsg={errorMsg}
+       />
     </div>
   );
 }
