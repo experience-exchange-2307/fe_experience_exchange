@@ -25,7 +25,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
   // useEffect(()=>{
   //     console.log(errorMsg, "errorMsg")
   // }, [errorMsg])
-  
+
 //   return (
 //     <>
 //       <main>
@@ -49,7 +49,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
 
 // export default App;
 
-  {/* const createNewUser = (newUserData: NewUserData) => {
+  const createNewUser = (newUserData: NewUserData) => {
     console.log("newUserData", newUserData)
     postNewUser(newUserData)
     .then(data => {
@@ -64,7 +64,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
       console.log(error)
       setServerError(error)
     })
-  } */}
+  } 
 
   return (
     <>
