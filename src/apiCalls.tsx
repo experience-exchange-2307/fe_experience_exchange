@@ -19,7 +19,7 @@ export const getSingleUser = () => {
 };
 
 export const getSearchResults = (query: string, remoteQuery:string) => {
-  console.log(`${BaseURLProd}/api/v1/search_skills?query=${query}${remoteQuery}`)
+  console.log(`${BaseURLProd}/api/v1/search_skills?query=${query}${remoteQuery}&user_id=1`)
   return fetch(
     `${BaseURLProd}/api/v1/search_skills?query=${query}${remoteQuery}&user_id=1`
 
