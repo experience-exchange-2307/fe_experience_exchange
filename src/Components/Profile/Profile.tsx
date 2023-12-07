@@ -1,6 +1,7 @@
 import "./Profile.css";
 import { CurrentUser } from "types";
 import frog from "../../images/Frog.png";
+import SkillForm from "Components/SkillForm/SkillForm";
 interface ProfileProps {
   currentUser: CurrentUser | undefined;
 }
@@ -32,6 +33,7 @@ function Profile({ currentUser }: ProfileProps) {
             <div className='profile-lower-right'>
               <article className="profile-list">
                 <p className='profile-header profile-skill-container'>Skills</p>
+                {<SkillForm />}
                 {currentUser?.attributes.skills.map((skill, index) => (
                   <p className='profile-skill' key={index}>
                     {skill.name}
