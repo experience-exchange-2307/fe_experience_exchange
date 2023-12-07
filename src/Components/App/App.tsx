@@ -1,4 +1,3 @@
-import Profile from 'Components/Profile/Profile';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { CurrentUser, NewUserData, ServerError } from 'types';
@@ -8,7 +7,7 @@ import Nav from 'Components/Nav/Nav';
 import ErrorPage from 'Components/ErrorPage/ErrorPage';
 import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 import SearchPage from 'Components/SearchPage/SearchPage';
-
+import Dashboard from 'Components/Dashboard/Dashboard';
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
 const [serverError, setServerError] = useState<ServerError | string>("")
@@ -40,7 +39,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
   return (
     <>
       <main>
-        <Nav />
+        {currentUser && <Nav currentUser={currentUser} />}
         {serverError ? (
           <ErrorPage />
         ) : (
@@ -52,8 +51,8 @@ const [serverError, setServerError] = useState<ServerError | string>("")
                 path="/"
                 element={<CreateAccountForm createNewUser={createNewUser} />}
               />
-            )}
-            <Route path="/dashboard" element={<Profile currentUser={currentUser} />} />
+              )}
+            {currentUser && <Route path="/dashboard/:id" element={<Dashboard currentUser={currentUser} />} />}
             <Route path="/search" element={<SearchPage currentUser={currentUser} />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
