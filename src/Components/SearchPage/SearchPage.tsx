@@ -8,13 +8,9 @@ import { CurrentUser, SearchResult } from "types";
 
 interface SearchPageProps {
   currentUser: CurrentUser | undefined;
-  // errorMsg: string;
-  // setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
 }
 
-function SearchPage({ currentUser
-  // , errorMsg, setErrorMsg
-}: SearchPageProps) {
+function SearchPage({ currentUser }: SearchPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [remoteQuery, setRemoteQuery] = useState<string>("");
@@ -24,37 +20,35 @@ function SearchPage({ currentUser
   };
 
   const submitQuery = useCallback(() => {
-    getSearchResults(searchQuery, remoteQuery)
+    if (!searchQuery ){
+      return
+    }
+    else {getSearchResults(searchQuery, remoteQuery)
       .then((data) => {
         console.log("data", data);
         if (data.data) {
-          // setErrorMsg("");
           setSearchResults(data.data);
         }
-        // else {
-        //   console.log("error.error", data.error);
-        //   setErrorMsg(data.error);
-        // }
       })
       .catch((error) => {
-        console.log('error', error)
-        // setErrorMsg(error.error)
-      });
-  }, [searchQuery, remoteQuery
-    // , setErrorMsg
-  ]
-    );
+        console.log("error", error);
+      })}
+  }, [searchQuery, remoteQuery]);
 
   useEffect(() => {
     console.log("searchQuery is", searchQuery);
     submitQuery();
   }, [searchQuery, remoteQuery, submitQuery]);
+
   return (
     <div className='search-page'>
       <p className='search-title'>Find people near you</p>
       <div className='search-menu'>
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
-        <CheckboxSkills searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <CheckboxSkills
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
         <div className='search-bar'>
           <input
             className='search-input'
@@ -68,9 +62,10 @@ function SearchPage({ currentUser
           </button>
         </div>
       </div>
-      <ResultsContainer searchResults={searchResults} currentUser={currentUser} 
-      // errorMsg={errorMsg}
-       />
+      <ResultsContainer
+        searchResults={searchResults}
+        currentUser={currentUser}
+      />
     </div>
   );
 }
