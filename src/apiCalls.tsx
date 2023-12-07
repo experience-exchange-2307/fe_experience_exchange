@@ -55,7 +55,7 @@ export const postNewUser = (newUserData: NewUserData) => {
 
 export const getMeetingsByUser = (userId: Number) => {
   return fetch(
-    `https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io/api/v1/meetings?user_id=${userId}`
+    `${BaseURLProd}/api/v1/meetings?user_id=${userId}`
   )
     .then((res) => {
       if (res.ok) {
@@ -74,7 +74,7 @@ const patchData = {
 };
 
 export const patchMeetings = (meetingId: number) => {
-  return fetch(`https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io/api/v1/meetings?user_id=${meetingId}`, {
+  return fetch(`${BaseURLProd}/api/v1/meetings?user_id=${meetingId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -96,7 +96,7 @@ export const patchMeetings = (meetingId: number) => {
 };
 
 export const deleteMeeting = (meetingId: number) => {
-  return fetch(`https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io/api/v1/meetings?user_id=${meetingId}`, {
+  return fetch(`${BaseURLProd}/api/v1/meetings?user_id=${meetingId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
