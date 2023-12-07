@@ -36,6 +36,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
               Time: {meeting.attributes.start_time} -{" "}
               {meeting.attributes.end_time}
             </p>
+            {/* do fetch for partner name? or ask BE if they can add a name to meeting data */}
             <p>Partner ID: {meeting.attributes.partner_id}</p>
           </div>
         );
