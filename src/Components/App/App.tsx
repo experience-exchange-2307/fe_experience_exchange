@@ -8,18 +8,29 @@ import ErrorPage from 'Components/ErrorPage/ErrorPage';
 import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 import SearchPage from 'Components/SearchPage/SearchPage';
 import Dashboard from 'Components/Dashboard/Dashboard';
-function App() {
+import Loading from 'Components/Loading/Loading';
 
-// const [errorMsg, setErrorMsg] = useState<string>("");
+function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
 const [serverError, setServerError] = useState<ServerError | string>("")
 
-  // on load => Get user (entire object)
+
   useEffect(() => {
-    getSingleUser().then((data) => {
-      console.log("data", data.data);
-      setCurrentUser(data.data);
-    })
+    if(!currentUser)
+    {
+      getSingleUser(14).then((data) => {
+        console.log("data", data.data);
+        setCurrentUser(data.data);
+      })
+    } 
+    else 
+      {
+        getSingleUser(currentUser.id).then((data) => {
+          console.log("data", data.data);
+          setCurrentUser(data.data);
+        })
+      } 
+    
   }, [])
 
 
@@ -49,7 +60,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
         ) : (
           <Routes>
             {!currentUser ? (
-              <Route path="/" element={<p>Loading...</p>} />
+              <Route path="/" element={<Loading />} />
             ) : (
               <Route
                 path="/"
@@ -58,6 +69,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
               )}
             {currentUser && <Route path="/dashboard/:id" element={<Dashboard currentUser={currentUser} />} />}
             <Route path="/search" element={<SearchPage currentUser={currentUser} />} />
+           
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         )}
@@ -67,30 +79,3 @@ const [serverError, setServerError] = useState<ServerError | string>("")
 }
 
 export default App;
-
-  // useEffect(()=>{
-  //     console.log(errorMsg, "errorMsg")
-  // }, [errorMsg])
-
-//   return (
-//     <>
-//       <main>
-//         <Nav />
-//         <Routes>
-//           {!currentUser ? (
-//             <Route path="/" element={<p>Loading...</p>} />
-//           ) : (
-//             <Route path="/" element={<CreateAccountForm />} />
-//           )}
-//           <Route path="/dashboard" element={<Profile currentUser={currentUser} />}/>
-//           <Route path="/search" element={<SearchPage currentUser={currentUser}
-//           //  errorMsg={errorMsg} setErrorMsg={setErrorMsg}
-//            />}/>
-//           <Route path="*" element={<ErrorPage />} />
-//         </Routes>
-//         </main>
-//     </>
-//   );
-// }
-
-// export default App;

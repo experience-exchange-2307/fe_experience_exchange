@@ -9,7 +9,6 @@ interface CheckboxLocationProps {
 function CheckboxLocation({ setRemoteQuery }: CheckboxLocationProps) {
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked){
-
       setRemoteQuery("&is_remote=true");
     }
     else{ setRemoteQuery("")

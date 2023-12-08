@@ -1,7 +1,6 @@
 import "./SearchPage.css";
 import { useState, useEffect, ChangeEvent, useCallback } from "react";
 import { getSearchResults } from "apiCalls";
-import CheckboxSkills from "./CheckboxSkills";
 import CheckboxLocation from "./CheckboxLocation";
 import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
 import { CurrentUser, SearchResult } from "types";
@@ -19,36 +18,45 @@ function SearchPage({ currentUser }: SearchPageProps) {
     setSearchQuery(event.target.value);
   };
 
+  const compareByDistance = (a: SearchResult, b: SearchResult) => {
+    const distanceA = a.attributes.distance;
+    const distanceB = b.attributes.distance;
+    if (distanceA < distanceB) {
+      return -1;
+    }
+    if (distanceA > distanceB) {
+      return 1;
+    }
+    return 0;
+  };
+ 
+  const sortedSearchResults = searchResults.sort(compareByDistance);
+  console.log('sortedSearchResults', sortedSearchResults);
+  
   const submitQuery = useCallback(() => {
     if (!searchQuery ){
       return
     }
-    else {getSearchResults(searchQuery, remoteQuery)
+    else if (currentUser) {getSearchResults(searchQuery, currentUser.id)
       .then((data) => {
         console.log("data", data);
         if (data.data) {
-          setSearchResults(data.data);
+          const sortedSearchResults =  data.data.sort(compareByDistance)
+          console.log('sortedSearchResults', sortedSearchResults);
+          setSearchResults(sortedSearchResults);
         }
       })
+     
       .catch((error) => {
         console.log("error", error);
       })}
-  }, [searchQuery, remoteQuery]);
-
-  useEffect(() => {
-    console.log("searchQuery is", searchQuery);
-    submitQuery();
-  }, [searchQuery, remoteQuery, submitQuery]);
+  }, [searchQuery]);
 
   return (
     <div className='search-page'>
       <p className='search-title'>Find people near you</p>
       <div className='search-menu'>
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
-        <CheckboxSkills
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
         <div className='search-bar'>
           <input
             className='search-input'
@@ -65,9 +73,13 @@ function SearchPage({ currentUser }: SearchPageProps) {
       <ResultsContainer
         searchResults={searchResults}
         currentUser={currentUser}
+        remoteQuery={remoteQuery}
+        searchQuery={searchQuery}
+        setSearchResults={setSearchResults}
       />
     </div>
   );
 }
 
 export default SearchPage;
+

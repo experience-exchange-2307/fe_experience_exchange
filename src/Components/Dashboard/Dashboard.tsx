@@ -26,6 +26,8 @@ function Dashboard({ currentUser }: CurrentUserProps) {
     //   console.log("data", data.data);
     //   setDashboardData(data.data)
     // })
+    if(currentUser){
+
       getMeetingsByUser(currentUser.id)
         .then((meetings) => {
           setUserMeetings(meetings.data);
@@ -33,6 +35,16 @@ function Dashboard({ currentUser }: CurrentUserProps) {
         .catch((error) => {
           console.error("Error fetching meetings:", error);
         })
+    }
+    // else {
+    //   getMeetingsByUser(14)
+    //   .then((meetings) => {
+    //     setUserMeetings(meetings.data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error fetching meetings:", error);
+    //   })
+    // }
     
   console.log('parsedUserId', userIdFromUrl);
 
