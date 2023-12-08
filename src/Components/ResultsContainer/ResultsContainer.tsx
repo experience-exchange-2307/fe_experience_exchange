@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Dispatch, SetStateAction} from "react";
 import "./ResultsContainer.css";
 import SearchResultCard from "Components/SearchResultsCard/SearchResultCard";
 import { SearchResult, CurrentUser } from "types";
@@ -6,20 +6,39 @@ import { SearchResult, CurrentUser } from "types";
 interface ResultsContainerProps {
   searchResults: SearchResult[] | [];
   currentUser: CurrentUser | undefined;
+  remoteQuery: string;
+  searchQuery:string;
+  setSearchResults: Dispatch<SetStateAction<SearchResult[]>>;
 }
 
-function ResultsContainer({ searchResults }: ResultsContainerProps) {
+
+function ResultsContainer({
+  searchResults,
+  currentUser,
+  remoteQuery,
+  searchQuery,
+  // setSearchResults
+}: ResultsContainerProps) {
   useEffect(() => {
     console.log("ResultsContainer rendering with", searchResults);
   }, [searchResults]);
 
   const renderResults = () => {
-    if (searchResults.length === 0) {
-      return <p>default result card element</p>;
+    let filteredResults = searchResults;
+
+    if (remoteQuery) {
+      filteredResults = searchResults.filter(result => result.attributes.is_remote === true);
+      console.log('filtered results', filteredResults)
+      // setSearchResults(filteredResults)
+    }
+  
+    if (!searchResults || searchResults.length === 0) {
+      return <p>Please enter a skill to search for.</p>;
     } else {
-      return searchResults.map((result, index) => (
+      return filteredResults.map((result, index) => (
         <SearchResultCard
           key={index}
+          distance={result.attributes.distance}
           first_name={result.attributes.first_name}
           last_name={result.attributes.last_name}
           is_remote={result.attributes.is_remote}
@@ -30,19 +49,21 @@ function ResultsContainer({ searchResults }: ResultsContainerProps) {
     }
   };
 
-  const resultCards = renderResults();
-
   return (
-    <>
-      {searchResults.length > 0 ? (
-        <div className='results-container'>{resultCards}</div>
+    <div>
+      {searchResults.length === 0 ? (
+        <>
+          <h1>No results found</h1>
+          <div className='results-container'>Try a different search</div>
+        </>
       ) : (
-        <p>no results</p>
+        <>
+          <h1>Showing {searchResults.length} Results for {searchQuery}</h1>
+          <div className='results-container'>{renderResults()}</div>
+        </>
       )}
-    </>
+    </div>
   );
 }
 
 export default ResultsContainer;
-
-

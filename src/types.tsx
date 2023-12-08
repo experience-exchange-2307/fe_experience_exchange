@@ -41,6 +41,7 @@ export interface CurrentUser{
 }
 
 export interface AttributesQuickView {
+  distance: number;
   first_name: string;
   is_remote: boolean;
   last_name: string;
