@@ -167,13 +167,13 @@ const isFormComplete = () => {
           />
       </label>
     </div>
-<Link to='/redirect'>
+
     <div className="create-account-container">
       <button className="create-account-btn" type="button" disabled={!isFormComplete()} onClick={handleSubmit}>
         Create Account
       </button>
     </div>
-</Link>
+
   </form>
   <div className="solid">
 

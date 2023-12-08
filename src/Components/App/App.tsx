@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CurrentUser, NewUserData, ServerError } from 'types';
 import { getSingleUser, postNewUser } from 'apiCalls';
 import {Routes, Route} from "react-router-dom"
@@ -16,7 +17,7 @@ import RedirectPage from 'Components/RedirectPage/RedirectPage';
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
 const [serverError, setServerError] = useState<ServerError | string>("")
-
+const navigate = useNavigate()
 
   useEffect(() => {
     if(!currentUser)
@@ -46,9 +47,15 @@ const [serverError, setServerError] = useState<ServerError | string>("")
       } else {
         console.log("posted user", data)
         setCurrentUser(data.data)
-        // navigate = useNavigate()
         
       }
+    })
+    .then (() => {
+      if (currentUser) {
+
+        navigate(`/dashboard/${currentUser.id}`);
+      }
+
     })
     .catch(error => {
       console.log(error)
