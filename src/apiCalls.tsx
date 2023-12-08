@@ -4,7 +4,7 @@ const BaseURLProd = 'https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com'
 
 export const getSingleUser = () => {
   return fetch(
-    `${BaseURLProd}/api/v1/users/1`
+    `${BaseURLProd}/api/v1/users/`
   )
     .then((res) => {
       if (res.ok) {
