@@ -4,7 +4,7 @@ const BaseURLProd = 'https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com'
 
 export const getSingleUser = () => {
   return fetch(
-    `${BaseURLProd}/api/v1/users/1`
+    `${BaseURLProd}/api/v1/users/13`
   )
     .then((res) => {
       if (res.ok) {
@@ -55,7 +55,7 @@ export const postNewUser = (newUserData: NewUserData) => {
 
 export const getMeetingsByUser = (userId: Number) => {
   return fetch(
-    `${BaseURLProd}/api/v1/meetings?user_id=${userId}`
+    `${BaseURLProd}/api/v1/users/${userId}/meetings`
   )
     .then((res) => {
       if (res.ok) {
