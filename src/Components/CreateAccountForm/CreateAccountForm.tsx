@@ -2,14 +2,14 @@ import "./CreateAccountForm.css"
 import React from 'react'
 import { useState } from 'react'
 import { NewUserData } from 'types';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 interface CreateAccountFormProps {
   createNewUser: (newUserData: NewUserData) => void
 }
 
 const CreateAccountForm: React.FC<CreateAccountFormProps> = ({ createNewUser }) => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const [formData, setFormData] = useState<NewUserData>({
     first_name: "",
@@ -49,7 +49,7 @@ const isFormComplete = () => {
       console.log('Submitting:', formData);
       // make POST request with formData here
       createNewUser(formData)
-      navigate("/dashboard")
+      // navigate("/dashboard")
     }
   };
 

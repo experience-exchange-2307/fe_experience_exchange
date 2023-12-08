@@ -2,6 +2,7 @@ import "./SearchResultCard.css";
 import { Skills } from "types";
 
 interface SearchResultCardProps {
+  distance: number;
   first_name: string;
   last_name: string;
   is_remote: boolean;
@@ -10,11 +11,12 @@ interface SearchResultCardProps {
 }
 
 function SearchResultCard({
+  distance,
   first_name,
   last_name,
   is_remote,
   skills,
-  id
+  id,
 }: SearchResultCardProps) {
 
   const lastSkillIndex = skills.length - 1;
@@ -23,7 +25,7 @@ function SearchResultCard({
     <div className='result-card' key={id}>
       <div>
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>
-        <div className='result-card-skills-container'>
+        <div className='result-card-skills-container' >
           <p className='result-card-title' >Skills:</p>
          
             {skills.map((skill, index) => (
@@ -37,7 +39,7 @@ function SearchResultCard({
       </div>
       <div>
         <p className='result-card-distance'>
-          {is_remote ? "Remote" : "X miles away"}
+          {is_remote ? "Remote" : `${distance} miles away`}
         </p>
       </div>
     </div>

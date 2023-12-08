@@ -41,6 +41,7 @@ export interface CurrentUser{
 }
 
 export interface AttributesQuickView {
+  distance: number;
   first_name: string;
   is_remote: boolean;
   last_name: string;
@@ -66,6 +67,5 @@ export interface NewUserData {
 }
 
 export interface ServerError {
-  message: string;
-  errorCode: number;
+  statusCode: number;
 }
