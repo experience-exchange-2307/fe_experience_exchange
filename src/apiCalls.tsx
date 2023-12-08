@@ -20,7 +20,7 @@ export const getSingleUser = () => {
 
 export const getSearchResults = (query: string) => {
   return fetch(
-    `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=1`  // this is hardcoded to the currentUser id.  we'll update it to be dynamic later. 
+    `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=`  // this is hardcoded to the currentUser id.  we'll update it to be dynamic later. 
   )
     .then((res) => {
       if (res.ok) {
