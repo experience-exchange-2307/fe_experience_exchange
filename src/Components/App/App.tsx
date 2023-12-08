@@ -79,7 +79,7 @@ function App() {
             )}
             <Route
               path='/search'
-              element={<SearchPage currentUser={currentUser} />}
+              element={<SearchPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
             />
             <Route path='*' element={<ErrorPage />} />
           </Routes>

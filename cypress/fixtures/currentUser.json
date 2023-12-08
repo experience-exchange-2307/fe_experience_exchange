@@ -1,0 +1,28 @@
+{
+  "data": {
+    "attributes": {
+      "about": "I am a also very good programmer",
+      "address": {
+        "street": "1234 Street",
+        "city": "Denver",
+        "state": "CO",
+        "zipcode": "12345"
+      },
+      "email": "Ethan@gmail.com",
+      "first_name": "Ethan",
+      "is_remote": true,
+      "last_name": "Bustamante",
+      "lat": 1.12,
+      "lon": 1.12,
+      "skills": [
+        { "name": "Ruby", "proficiency": 5 },
+
+        { "name": "Rails", "proficiency": 5 },
+
+        { "name": "knitting", "proficiency": 1 }
+      ]
+    }
+  },
+  "id": "14",
+  "type": "user"
+}

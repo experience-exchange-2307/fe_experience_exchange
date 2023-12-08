@@ -1,16 +1,17 @@
 import "./SearchPage.css";
-import { useState, ChangeEvent, useCallback } from "react";
+import { useEffect, useState, ChangeEvent, useCallback } from "react";
 import { getSearchResults } from "apiCalls";
 import CheckboxLocation from "./CheckboxLocation";
 import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
 import { CurrentUser, SearchResult } from "types";
-
+import { getSingleUser } from "apiCalls";
 
 interface SearchPageProps {
   currentUser: CurrentUser | undefined;
+  setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser | undefined>>;
 }
 
-function SearchPage({ currentUser }: SearchPageProps) {
+function SearchPage({ currentUser, setCurrentUser }: SearchPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [remoteQuery, setRemoteQuery] = useState<string>("");
@@ -18,6 +19,16 @@ function SearchPage({ currentUser }: SearchPageProps) {
   const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
+
+  useEffect(() => {
+    if (!currentUser) {
+      getSingleUser(14).then((data) => {
+        console.log("data", data.data);
+        setCurrentUser(data.data);
+      });
+    }
+    // eslint-disable-next-line
+  }, []);
 
   const compareByDistance = (a: SearchResult, b: SearchResult) => {
     const distanceA = a.attributes.distance;
@@ -30,27 +41,24 @@ function SearchPage({ currentUser }: SearchPageProps) {
     }
     return 0;
   };
- 
-  const sortedSearchResults = searchResults.sort(compareByDistance);
-  console.log('sortedSearchResults', sortedSearchResults);
-  
+
   const submitQuery = useCallback(() => {
-    if (!searchQuery ){
-      return
+    if (!searchQuery) {
+      return;
+    } else if (currentUser) {
+      getSearchResults(searchQuery, currentUser.id)
+        .then((data) => {
+          console.log("data", data);
+          if (data.data) {
+            const sortedSearchResults = data.data.sort(compareByDistance);
+            console.log("sortedSearchResults", sortedSearchResults);
+            setSearchResults(sortedSearchResults);
+          }
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
     }
-    else if (currentUser) {getSearchResults(searchQuery, currentUser.id)
-      .then((data) => {
-        console.log("data", data);
-        if (data.data) {
-          const sortedSearchResults =  data.data.sort(compareByDistance)
-          console.log('sortedSearchResults', sortedSearchResults);
-          setSearchResults(sortedSearchResults);
-        }
-      })
-     
-      .catch((error) => {
-        console.log("error", error);
-      })}
   }, [searchQuery, currentUser]);
 
   return (
@@ -60,6 +68,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
         <div className='search-bar'>
           <input
+            name='search'
             className='search-input'
             type='text'
             placeholder='Search..'
@@ -83,4 +92,3 @@ function SearchPage({ currentUser }: SearchPageProps) {
 }
 
 export default SearchPage;
-
