@@ -51,7 +51,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
         const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
     
         setIsCurrentUser(isCurrentUserDashboard);
-  }, [currentUser.id, userIdFromUrl]);
+  }, [currentUser.id,currentUser, userIdFromUrl]);
 
   return (
     <div className="dashboard-wrapper">

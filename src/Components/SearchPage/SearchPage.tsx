@@ -1,5 +1,5 @@
 import "./SearchPage.css";
-import { useState, useEffect, ChangeEvent, useCallback } from "react";
+import { useState, ChangeEvent, useCallback } from "react";
 import { getSearchResults } from "apiCalls";
 import CheckboxLocation from "./CheckboxLocation";
 import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
@@ -50,7 +50,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
       .catch((error) => {
         console.log("error", error);
       })}
-  }, [searchQuery]);
+  }, [searchQuery, currentUser]);
 
   return (
     <div className='search-page'>
