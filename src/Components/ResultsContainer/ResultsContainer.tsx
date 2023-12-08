@@ -37,7 +37,7 @@ function ResultsContainer({
     } else {
       return filteredResults.map((result, index) => (
         <SearchResultCard
-          key={index}
+          key={`result${index}`}
           distance={result.attributes.distance}
           first_name={result.attributes.first_name}
           last_name={result.attributes.last_name}

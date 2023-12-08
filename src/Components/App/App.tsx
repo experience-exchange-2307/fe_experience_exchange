@@ -14,7 +14,7 @@ function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
 const [serverError, setServerError] = useState<ServerError | string>("")
 
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     if(!currentUser)
     {
@@ -30,7 +30,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
           setCurrentUser(data.data);
         })
       } 
-    
+    // eslint-disable-next-line
   }, [])
 
 
