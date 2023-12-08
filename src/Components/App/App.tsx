@@ -33,7 +33,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
         })
       } 
     
-  }, [currentUser])
+  }, [])
 
 
   const createNewUser = (newUserData: NewUserData) => {
