@@ -2,6 +2,7 @@ import "./Profile.css";
 import { CurrentUser } from "types";
 import frog from "../../images/Frog.png";
 import SkillForm from "Components/SkillForm/SkillForm";
+import ProgressBar from "@ramonak/react-progress-bar";
 interface ProfileProps {
   currentUser: CurrentUser | undefined;
 }
@@ -35,9 +36,22 @@ function Profile({ currentUser }: ProfileProps) {
                 <p className='profile-header profile-skill-container'>Skills</p>
                 {<SkillForm />}
                 {currentUser?.attributes.skills.map((skill, index) => (
+                  <div key={`skill-wrapper-${index}`}>
                   <p className='profile-skill' key={index}>
                     {skill.name}
                   </p>
+                  <ProgressBar
+                    className='progress-bar'
+                    completed={skill.proficiency}
+                    bgColor="#3e3b40"
+                    height="7px"
+                    isLabelVisible={false}
+                    baseBgColor="#cecece"
+                    labelColor="#fa0000"
+                    animateOnRender
+                    maxCompleted={5}
+                  />
+              </div>
                 ))}
               </article>
               <article className="profile-list">
