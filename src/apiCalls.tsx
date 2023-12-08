@@ -56,9 +56,9 @@ export const postNewUser = (newUserData: NewUserData) => {
 }
 
 export const getMeetingsByUser = (userId: Number) => {
-  console.log('meetings endpoint',  `${BaseURLProd}/api/v1/meetings?user_id=${userId}`)
+  console.log('meetings endpoint',  `${BaseURLProd}/api/v1/users/${userId}/meetings`)
   return fetch(
-    `${BaseURLProd}/api/v1/meetings?user_id=${userId}`
+    `${BaseURLProd}/api/v1/users/${userId}/meetings`
   )
     .then((res) => {
       if (res.ok) {
