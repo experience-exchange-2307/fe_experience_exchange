@@ -5,6 +5,7 @@ import CheckboxLocation from "./CheckboxLocation";
 import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
 import { CurrentUser, SearchResult } from "types";
 
+
 interface SearchPageProps {
   currentUser: CurrentUser | undefined;
 }

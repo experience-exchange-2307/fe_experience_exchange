@@ -1,5 +1,6 @@
 import "./SearchResultCard.css";
 import { Skills } from "types";
+import {Link} from  'react-router-dom'
 
 interface SearchResultCardProps {
   distance: number;
@@ -22,6 +23,8 @@ function SearchResultCard({
   const lastSkillIndex = skills.length - 1;
 
   return (
+    <Link to={`/dashboard/${id}`}>
+   
     <div className='result-card' key={id}>
       <div>
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>
@@ -43,6 +46,7 @@ function SearchResultCard({
         </p>
       </div>
     </div>
+    </Link>
   );
 }
 
