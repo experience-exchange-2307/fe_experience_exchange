@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ramonak/react-progress-bar": "^5.1.1",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^29.5.10",
     "@types/node": "^20.10.1",
