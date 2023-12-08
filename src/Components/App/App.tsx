@@ -8,6 +8,8 @@ import ErrorPage from 'Components/ErrorPage/ErrorPage';
 import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 import SearchPage from 'Components/SearchPage/SearchPage';
 import Dashboard from 'Components/Dashboard/Dashboard';
+import { useNavigate } from "react-router-dom";
+
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
 const [serverError, setServerError] = useState<ServerError | string>("")
@@ -28,6 +30,8 @@ const [serverError, setServerError] = useState<ServerError | string>("")
       } else {
         console.log("posted user", data)
         setCurrentUser(data.data)
+        navigate = useNavigate()
+        
       }
     })
     .catch(error => {

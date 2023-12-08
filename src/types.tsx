@@ -66,6 +66,5 @@ export interface NewUserData {
 }
 
 export interface ServerError {
-  message: string;
-  errorCode: number;
+  statusCode: number;
 }
