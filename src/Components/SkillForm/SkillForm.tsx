@@ -1,6 +1,8 @@
 import "./SkillForm.css";
 import React, { useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
+import { postSkills } from "apiCalls";
+import { UserSkills } from "types";
 
 interface NewSkill {
   name: string;
@@ -8,41 +10,53 @@ interface NewSkill {
 }
 
 function SkillForm() {
-  const [skills, setSkills] = useState<NewSkill[]>([]);
-  const [currentTag, setCurrentTag] = useState('');
-  const [proficiency, setProficiency] = useState(0);
+  const [skills, setSkills] = useState<NewSkill[]>([])
+  const [currentTag, setCurrentTag] = useState('')
+  const [proficiency, setProficiency] = useState(0)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCurrentTag(e.target.value);
+    setCurrentTag(e.target.value)
   };
 
   const handleAddSkill = () => {
     if (currentTag.trim() !== '') {
-      // Check if the skill already exists
+      // check if skill already exists
       if (!skills.some((skill) => skill.name.toLowerCase() === currentTag.trim().toLowerCase())) {
         const newSkill: NewSkill = {
           name: currentTag.trim(),
           proficiency: Number(proficiency),
         };
 
-        setSkills((prevSkills) => [...prevSkills, newSkill]);
+        setSkills((prevSkills) => [...prevSkills, newSkill])
 
-        setCurrentTag('');
-        setProficiency(0);
+        setCurrentTag('')
+        setProficiency(0)
       } else {
-        alert('Skill already exists!');
+        alert('Skill already exists!')
       }
     }
   };
 
   const handleTagRemove = (skillToRemove: NewSkill) => {
-    const updatedSkills = skills.filter((skill) => skill !== skillToRemove);
-    setSkills(updatedSkills);
+    const updatedSkills = skills.filter((skill) => skill !== skillToRemove)
+    setSkills(updatedSkills)
   };
 
   const handleProficiencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedProficiency = parseInt(e.target.value, 10);
-    setProficiency(selectedProficiency);
+    const selectedProficiency = parseInt(e.target.value, 10)
+    setProficiency(selectedProficiency)
+  };
+
+  const handleSaveSkills = () => {
+    const userSkills: UserSkills = { skills };
+    postSkills( userSkills)
+      .then((data) => {
+        console.log('skills posted successfully:', data.data)
+        setSkills(data.data)
+      })
+      .catch((error) => {
+        console.error('error posting skills:', error)
+      });
   };
 
   return (
@@ -66,6 +80,9 @@ function SkillForm() {
         </select>
 
         <button onClick={handleAddSkill}>Add Skill</button>
+        <div>
+        <button onClick={handleSaveSkills}>Save Skills</button>
+        </div>
       </div>
 
       {skills.map((skill, index) => (

@@ -69,3 +69,12 @@ export interface NewUserData {
 export interface ServerError {
   statusCode: number;
 }
+
+interface Skill {
+  name: string;
+  proficiency: string;
+}
+
+export interface UserSkills {
+  skills: Skill[];
+}
