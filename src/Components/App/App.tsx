@@ -8,18 +8,33 @@ import ErrorPage from 'Components/ErrorPage/ErrorPage';
 import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 import SearchPage from 'Components/SearchPage/SearchPage';
 import Dashboard from 'Components/Dashboard/Dashboard';
+import Loading from 'Components/Loading/Loading';
+
 import { useNavigate } from "react-router-dom";
 
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
 const [serverError, setServerError] = useState<ServerError | string>("")
-  // on load => Get user (entire object)
+
+
   useEffect(() => {
-    getSingleUser().then((data) => {
-      console.log("data", data.data);
-      setCurrentUser(data.data);
-    })
-  }, [])
+    if(!currentUser)
+    {
+      getSingleUser(14).then((data) => {
+        console.log("data", data.data);
+        setCurrentUser(data.data);
+      })
+    } 
+    else 
+      {
+        getSingleUser(currentUser.id).then((data) => {
+          console.log("data", data.data);
+          setCurrentUser(data.data);
+        })
+      } 
+    
+  }, [currentUser])
+
 
   const createNewUser = (newUserData: NewUserData) => {
     console.log("newUserData", newUserData)
@@ -38,7 +53,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
       console.log(error)
       setServerError(error)
     })
-  }
+  } 
 
   return (
     <>
@@ -49,7 +64,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
         ) : (
           <Routes>
             {!currentUser ? (
-              <Route path="/" element={<p>Loading...</p>} />
+              <Route path="/" element={<Loading />} />
             ) : (
               <Route
                 path="/"
@@ -58,6 +73,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
               )}
             {currentUser && <Route path="/dashboard/:id" element={<Dashboard currentUser={currentUser} />} />}
             <Route path="/search" element={<SearchPage currentUser={currentUser} />} />
+           
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         )}

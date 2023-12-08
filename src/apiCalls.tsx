@@ -2,9 +2,9 @@ import { NewUserData } from 'types';
 // const BaseURLMock = 'https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io'
 const BaseURLProd = 'https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com'
 
-export const getSingleUser = () => {
+export const getSingleUser = (currentUserID: number) => {
   return fetch(
-    `${BaseURLProd}/api/v1/users/`
+    `${BaseURLProd}/api/v1/users/${currentUserID}`
   )
     .then((res) => {
       if (res.ok) {
@@ -18,9 +18,11 @@ export const getSingleUser = () => {
     .then((res) => res.json());
 };
 
-export const getSearchResults = (query: string) => {
+export const getSearchResults = (query: string, currentUserID:number) => {
+  console.log(`${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`)
   return fetch(
-    `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=`  // this is hardcoded to the currentUser id.  we'll update it to be dynamic later. 
+    `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`
+
   )
     .then((res) => {
       if (res.ok) {
@@ -54,8 +56,9 @@ export const postNewUser = (newUserData: NewUserData) => {
 }
 
 export const getMeetingsByUser = (userId: Number) => {
+  console.log('meetings endpoint',  `${BaseURLProd}/api/v1/users/${userId}/meetings`)
   return fetch(
-    `${BaseURLProd}/api/v1/meetings?user_id=${userId}`
+    `${BaseURLProd}/api/v1/users/${userId}/meetings`
   )
     .then((res) => {
       if (res.ok) {
