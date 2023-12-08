@@ -48,12 +48,15 @@
   gap: 10px;
   grid-template-columns: 1fr 1fr;
 }
-
+.demo-container,
 .create-account-container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
-.create-account-container button {
+.create-account-btn{
   background-color: #4c7faf;
   color: #fff;
   padding: 12px 25px;
