@@ -70,11 +70,9 @@ export interface ServerError {
   statusCode: number;
 }
 
-interface Skill {
-  name: string;
-  proficiency: string;
-}
 
-export interface UserSkills {
-  skills: Skill[];
-}
+
+export interface UserSkill {
+    name: string;
+    proficiency: number;
+} 

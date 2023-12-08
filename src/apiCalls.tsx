@@ -1,4 +1,4 @@
-import { NewUserData, UserSkills } from 'types';
+import { NewUserData, UserSkill } from 'types';
 // const BaseURLMock = 'https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io'
 const BaseURLProd = 'https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com'
 
@@ -120,10 +120,10 @@ export const deleteMeeting = (meetingId: number) => {
 };
 
 
-export const postSkills = (userSkills: UserSkills) => {
-  return fetch(`${BaseURLProd}/api/v1/users/14`, {
+export const postSkill = (userSkill: UserSkill, userId: string | undefined) => {
+  return fetch(`${BaseURLProd}/api/v1/users/${userId}`, {
     method: "POST",
-    body: JSON.stringify(userSkills),
+    body: JSON.stringify(userSkill),
     headers: {
       "Content-Type": "application/json"
     }
