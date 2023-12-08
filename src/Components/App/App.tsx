@@ -10,7 +10,7 @@ import SearchPage from 'Components/SearchPage/SearchPage';
 import Dashboard from 'Components/Dashboard/Dashboard';
 import Loading from 'Components/Loading/Loading';
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function App() {
 const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
@@ -32,7 +32,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
           setCurrentUser(data.data);
         })
       } 
-    
+    // eslint-disable-next-line
   }, [])
 
 
