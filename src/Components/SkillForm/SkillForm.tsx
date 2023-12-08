@@ -16,8 +16,8 @@ function SkillForm() {
     setCurrentTag(e.target.value);
   };
 
-  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter' && currentTag.trim() !== '') {
+  const handleAddSkill = () => {
+    if (currentTag.trim() !== '') {
       // Check if the skill already exists
       if (!skills.some((skill) => skill.name.toLowerCase() === currentTag.trim().toLowerCase())) {
         const newSkill: NewSkill = {
@@ -47,6 +47,27 @@ function SkillForm() {
 
   return (
     <div>
+      <div>
+        <input
+          type="text"
+          value={currentTag}
+          onChange={handleInputChange}
+          placeholder="Type skill name"
+        />
+
+        <label htmlFor="proficiency">Select Proficiency Level:</label>
+        <select name="proficiency" id="proficiency" onChange={handleProficiencyChange}>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <button onClick={handleAddSkill}>Add Skill</button>
+      </div>
+
       {skills.map((skill, index) => (
         <div key={index}>
           <div className="tags-container">
@@ -72,24 +93,6 @@ function SkillForm() {
           />
         </div>
       ))}
-
-      <input
-        type="text"
-        value={currentTag}
-        onChange={handleInputChange}
-        onKeyDown={handleInputKeyDown}
-        placeholder="Type and press Enter"
-      />
-
-      <label htmlFor="proficiency">Select Proficiency Level:</label>
-      <select name="proficiency" id="proficiency" onChange={handleProficiencyChange}>
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
     </div>
   );
 }
