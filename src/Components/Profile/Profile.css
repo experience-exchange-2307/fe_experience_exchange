@@ -1,6 +1,6 @@
 .profile-page {
   height: 100dvh;
-  width: 100%;
+  width: 81.5dvw;
   border-left: solid 2px blue;
   /* padding-left: 2rem; */
 }
@@ -81,7 +81,7 @@
 .profile-header {
   font-size: 1.2rem;
   font-weight: 700;
-  /* margin-bottom: 1rem; */
+  margin-bottom: .25rem;
 }
 .profile-skill-container {
   display:flex;

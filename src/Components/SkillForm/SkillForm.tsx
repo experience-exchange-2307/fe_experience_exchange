@@ -47,7 +47,7 @@ function SkillForm() {
 
   return (
     <div>
-      <div>
+      <div >
         <input
           type="text"
           value={currentTag}
@@ -65,15 +65,15 @@ function SkillForm() {
           <option value="5">5</option>
         </select>
 
-        <button onClick={handleAddSkill}>Add Skill</button>
+        <button className='add-skill-btn' onClick={handleAddSkill}>Add Skill</button>
       </div>
 
       {skills.map((skill, index) => (
-        <div key={index}>
+        <div key={index} className='skill-box'>
           <div className="tags-container">
             <span className="tag">
               <span className="tag-content">{skill.name}</span>
-              <button className="tag-removal" onClick={() => handleTagRemove(skill)}>
+              <button className="tag-removal-btn" onClick={() => handleTagRemove(skill)}>
                 x
               </button>
             </span>

@@ -36,20 +36,8 @@ function Dashboard({ currentUser }: CurrentUserProps) {
           console.error("Error fetching meetings:", error);
         })
     }
-    // else {
-    //   getMeetingsByUser(14)
-    //   .then((meetings) => {
-    //     setUserMeetings(meetings.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching meetings:", error);
-    //   })
-    // }
-    
   console.log('parsedUserId', userIdFromUrl);
-
         const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
-    
         setIsCurrentUser(isCurrentUserDashboard);
   }, [currentUser.id,currentUser, userIdFromUrl]);
 
