@@ -3,6 +3,7 @@ import { NewUserData } from 'types';
 const BaseURLProd = 'https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com'
 
 export const getSingleUser = (currentUserID: number) => {
+  console.log(`${BaseURLProd}/api/v1/users/${currentUserID}`)
   return fetch(
     `${BaseURLProd}/api/v1/users/${currentUserID}`
   )
