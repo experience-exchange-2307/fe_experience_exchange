@@ -2,6 +2,7 @@ import "./CreateAccountForm.css"
 import React from 'react'
 import { useState } from 'react'
 import { NewUserData } from 'types';
+import {Link} from 'react-router-dom'
 // import { useNavigate } from "react-router-dom";
 
 interface CreateAccountFormProps {
@@ -54,6 +55,7 @@ const isFormComplete = () => {
   };
 
   return (
+    <>
     <section className="sign-up-container">
   <h2>Let’s get you started with an Experience Exchange account</h2>
   <form className="form">
@@ -67,7 +69,7 @@ const isFormComplete = () => {
           name="first_name"
           value={formData.first_name}
           onChange={handleInputChange}
-        />
+          />
       </div>
 
       <div className="input-group">
@@ -79,7 +81,7 @@ const isFormComplete = () => {
           name="last_name"
           value={formData.last_name}
           onChange={handleInputChange}
-        />
+          />
       </div>
     </div>
 
@@ -92,7 +94,7 @@ const isFormComplete = () => {
         name="email"
         value={formData.email}
         onChange={handleInputChange}
-      />
+        />
     </div>
 
     <div className="address-container">
@@ -105,7 +107,7 @@ const isFormComplete = () => {
           name="street"
           value={formData.street}
           onChange={handleInputChange}
-        />
+          />
       </div>
 
       <div className="input-group">
@@ -117,7 +119,7 @@ const isFormComplete = () => {
           name="city"
           value={formData.city}
           onChange={handleInputChange}
-        />
+          />
       </div>
 
       <div className="input-group">
@@ -129,7 +131,7 @@ const isFormComplete = () => {
           name="state"
           value={formData.state}
           onChange={handleInputChange}
-        />
+          />
       </div>
 
       <div className="input-group">
@@ -141,7 +143,7 @@ const isFormComplete = () => {
           name="zipcode"
           value={formData.zipcode}
           onChange={handleInputChange}
-        />
+          />
       </div>
     </div>
 
@@ -151,7 +153,7 @@ const isFormComplete = () => {
         name="about"
         value={formData.about}
         onChange={handleInputChange}
-      ></textarea>
+        ></textarea>
     </div>
 
     <div className="input-group">
@@ -162,18 +164,29 @@ const isFormComplete = () => {
           name="is_remote"
           checked={formData.is_remote}
           onChange={handleRemoteChange}
-        />
+          />
       </label>
     </div>
-
+<Link to='/redirect'>
     <div className="create-account-container">
       <button className="create-account-btn" type="button" disabled={!isFormComplete()} onClick={handleSubmit}>
         Create Account
       </button>
     </div>
+</Link>
   </form>
-  <div className="solid"></div>
+  <div className="solid">
+
+</div>
+<div className="demo-container">
+  <Link to='/dashboard/14'>
+      <button className="create-account-btn" type="button" >
+        Login as a Demo User
+      </button>
+  </Link>
+  </div>
 </section>
+          </>
 
   );
 }

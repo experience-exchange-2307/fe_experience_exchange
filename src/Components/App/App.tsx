@@ -9,6 +9,7 @@ import CreateAccountForm from 'Components/CreateAccountForm/CreateAccountForm';
 import SearchPage from 'Components/SearchPage/SearchPage';
 import Dashboard from 'Components/Dashboard/Dashboard';
 import Loading from 'Components/Loading/Loading';
+import RedirectPage from 'Components/RedirectPage/RedirectPage';
 
 // import { useNavigate } from "react-router-dom";
 
@@ -73,7 +74,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
               )}
             {currentUser && <Route path="/dashboard/:id" element={<Dashboard currentUser={currentUser} />} />}
             <Route path="/search" element={<SearchPage currentUser={currentUser} />} />
-           
+            <Route path="/redirect" element={<RedirectPage currentUser={currentUser}/>} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         )}
