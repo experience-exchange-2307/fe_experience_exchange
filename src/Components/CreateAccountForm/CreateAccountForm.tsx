@@ -49,7 +49,7 @@ const isFormComplete = () => {
       console.log('Submitting:', formData);
       // make POST request with formData here
       createNewUser(formData)
-      navigate("/dashboard")
+      // navigate("/dashboard")
     }
   };
 
