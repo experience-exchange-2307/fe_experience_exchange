@@ -81,10 +81,6 @@ function App() {
               path='/search'
               element={<SearchPage currentUser={currentUser} />}
             />
-            <Route
-              path='/redirect'
-              element={<RedirectPage currentUser={currentUser} />}
-            />
             <Route path='*' element={<ErrorPage />} />
           </Routes>
         )}
