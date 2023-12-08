@@ -47,16 +47,31 @@ function SkillForm() {
 
   return (
     <div>
-      <div className="tags-container">
-        {skills.map((skill, index) => (
-          <span key={index} className="tag">
-            <span className="tag-content">{skill.name}</span>
-            <button className="tag-removal" onClick={() => handleTagRemove(skill)}>
-              x
-            </button>
-          </span>
-        ))}
-      </div>
+      {skills.map((skill, index) => (
+        <div key={index}>
+          <div className="tags-container">
+            <span className="tag">
+              <span className="tag-content">{skill.name}</span>
+              <button className="tag-removal" onClick={() => handleTagRemove(skill)}>
+                x
+              </button>
+            </span>
+          </div>
+
+          <ProgressBar
+            key={`progress-${index}`}
+            className='progress-bar'
+            completed={skill.proficiency}
+            bgColor="#3e3b40"
+            height="7px"
+            isLabelVisible={false}
+            baseBgColor="#cecece"
+            labelColor="#fa0000"
+            animateOnRender
+            maxCompleted={5}
+          />
+        </div>
+      ))}
 
       <input
         type="text"
@@ -64,18 +79,6 @@ function SkillForm() {
         onChange={handleInputChange}
         onKeyDown={handleInputKeyDown}
         placeholder="Type and press Enter"
-      />
-
-      <ProgressBar
-        className='progress-bar'
-        completed={proficiency}
-        bgColor="#3e3b40"
-        height="7px"
-        isLabelVisible={false}
-        baseBgColor="#cecece"
-        labelColor="#fa0000"
-        animateOnRender
-        maxCompleted={5}
       />
 
       <label htmlFor="proficiency">Select Proficiency Level:</label>
