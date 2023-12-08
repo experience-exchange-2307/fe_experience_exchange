@@ -20,7 +20,7 @@ jobs:
           command: npm run build
       - run:
           name: Cypress Headless
-          command: npm run cypress --headless
+          command: npm run cypress -- --headless
 workflows:
   version: 2
   build_and_test:
