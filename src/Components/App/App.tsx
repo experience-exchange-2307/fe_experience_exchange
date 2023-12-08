@@ -30,7 +30,7 @@ const [serverError, setServerError] = useState<ServerError | string>("")
       } else {
         console.log("posted user", data)
         setCurrentUser(data.data)
-        navigate = useNavigate()
+        // navigate = useNavigate()
         
       }
     })
