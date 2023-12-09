@@ -77,7 +77,27 @@
   width: 35%;
   border-radius: 10px;
   padding: 1rem;
+  overflow-y: scroll;
+  max-height: 400px;
+  scrollbar-width: thin; 
+  scrollbar-color: red transparent; 
+  background-color: white;
+
+  
+  &::-webkit-scrollbar {
+    width: 12px; 
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: red; 
+    border-radius: 10px; 
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
 }
+
 .profile-header {
   font-size: 1.5rem;
   font-weight: 700;

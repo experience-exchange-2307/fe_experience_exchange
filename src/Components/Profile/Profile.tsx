@@ -27,13 +27,9 @@ function Profile({ currentUser }: ProfileProps) {
         <div className='profile-lower-alignment'>
           <div className='profile-container-lower'>
             <div className='profile-lower-left'>
+            <article className="profile-list">
               <p className='profile-header'>About me</p>
               <p>{currentUser?.attributes.about}</p>
-            </div>
-            <div className='profile-lower-right'>
-              <article className="profile-list">
-                <p className='profile-header profile-skill-container'>Skills</p>
-                <Skill />
               </article>
               <article className="profile-list">
                 <p className='profile-header'>Location</p>
@@ -42,6 +38,12 @@ function Profile({ currentUser }: ProfileProps) {
               <article className="profile-list">
                 <p className='profile-header'>Email</p>
                 <p>{currentUser?.attributes.email}</p>
+              </article>
+            </div>
+            <div className='profile-lower-right'>
+              <article className="profile-list">
+                <p className='profile-header profile-skill-container'>Skills</p>
+                <Skill />
               </article>
             </div>
           </div>
