@@ -88,7 +88,7 @@
   flex-direction: row;
 
 }
-.profile-skill{
+/* .profile-skill{
   border: solid 2px darkgray;
   width: 5rem;
   border-radius: 10px;
@@ -96,7 +96,7 @@
   align-items: center;
   justify-content: center;
   margin: .5rem;
-}
+} */
 .profile-list{
   margin-bottom: 1.5rem;
 }
