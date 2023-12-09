@@ -8,20 +8,14 @@ import { stringify } from "querystring";
 import { getSingleUser } from "apiCalls";
 import { CurrentUser } from "types";
 
-// interface UserSkill {
-//   name: string;
-//   proficiency: number;
-// }
-
-// skills state in app?
 // GET request to tget skills
 
 function SkillForm() {
   const { id } = useParams()
-  const [skills, setSkills] = useState<UserSkill[]>([])
+  const [userSkills, setUserSkills] = useState<UserSkill[]>([])
   const [currentTag, setCurrentTag] = useState('')
   const [proficiency, setProficiency] = useState(0)
-  const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
+  const [alert, setAlert] = useState("");
 
   // const currentUserID = id
 
@@ -29,16 +23,15 @@ function SkillForm() {
         getSingleUser(14)
         .then((data) => {
           console.log("data", data.data);
-          setCurrentUser(data.data);
+          setUserSkills(data.data.attributes.skills);
         })
-    // eslint-disable-next-line
   }, [])
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const setInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentTag(e.target.value)
   };
 
-  const handleAddSkill = () => {
+  const submitNewSkill = () => {
 
 // skillForm and SkillList component 
 // then GET skills when you need it or GET current user and only take skills from it
@@ -50,54 +43,40 @@ function SkillForm() {
 
     if (currentTag.trim() !== '') {
       // check if skill already exists
-      if (!skills.some((skill) => skill.name.toLowerCase() === currentTag.trim().toLowerCase())) {
-        
+      if (!userSkills.some((skill) => skill.name.toLowerCase() === currentTag.trim().toLowerCase())) {
+
         const newSkill: UserSkill = {
           name: currentTag.trim(),
           proficiency: Number(proficiency),
         };
 
-        const combinedSkills = [...skills, newSkill]
-        // console.log("newSkill", newSkill)
+        const combinedSkills = [...userSkills, newSkill]
+
         postSkills(id, combinedSkills)
         .then((data) => {
                 console.log('skills posted successfully:', data.data.attributes.skills)
-                setSkills(data.data.attributes.skills)
+                setUserSkills(data.data.attributes.skills)
               })
               .catch((error) => {
                 console.error('error posting skills:', error)
               });
-
-        // setSkills((prevSkills) => [...prevSkills, newSkill])
         setCurrentTag('')
         setProficiency(0)
       } else {
-        alert('Skill already exists!')
+        setAlert('Skill already exists!')
       }
     }
   };
-
-  const handleTagRemove = (skillToRemove: UserSkill) => {
-    const updatedSkills = skills.filter((skill) => skill !== skillToRemove)
-    setSkills(updatedSkills)
-  };
-
+  
   const handleProficiencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedProficiency = parseInt(e.target.value, 10)
     setProficiency(selectedProficiency)
   };
 
-  // const handleSaveSkills = () => {
-  //   const userSkills: UserSkills = { skills };
-  //   postSkills( userSkills)
-  //     .then((data) => {
-  //       console.log('skills posted successfully:', data.data)
-  //       setSkills(data.data)
-  //     })
-  //     .catch((error) => {
-  //       console.error('error posting skills:', error)
-  //     });
-  // };
+  const handleTagRemove = (skillToRemove: UserSkill) => {
+    const updatedSkills = userSkills.filter((skill) => skill !== skillToRemove)
+    setUserSkills(updatedSkills)
+  };
 
   return (
     <div>
@@ -105,7 +84,7 @@ function SkillForm() {
         <input
           type="text"
           value={currentTag}
-          onChange={handleInputChange}
+          onChange={setInputValue}
           placeholder="Type skill name"
         />
 
@@ -118,21 +97,19 @@ function SkillForm() {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-
-        <button onClick={handleAddSkill}>Add Skill</button>
+        <p className="alert-message">{alert}</p>
+        <button onClick={submitNewSkill}>Add Skill</button>
       </div>
 
-      {skills.map((skill, index) => (
+      {userSkills.map((skill, index) => (
         <div key={index}>
-          <div className="tags-container">
-            <span className="tag">
-              <span className="tag-content">{skill.name}</span>
-              <button className="tag-removal" onClick={() => handleTagRemove(skill)}>
-                x
-              </button>
-            </span>
+          <div className="skill-list-container">
+            <p className='skill-name' 
+              key={`skill-name-${index}`}>
+              {skill.name}
+               <button className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
+            </p>
           </div>
-
           <ProgressBar
             key={`progress-${index}`}
             className='progress-bar'
