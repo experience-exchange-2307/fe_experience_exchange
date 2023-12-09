@@ -18,6 +18,10 @@ jobs:
           name: Build
           command: npm run build
       - run:
+          name: Start application
+          command: npm start
+          background: true
+      - run:
           name: Cypress Headless
           command: npm run cypress
 
