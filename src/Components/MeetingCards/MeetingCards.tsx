@@ -1,4 +1,5 @@
 import React from "react";
+import dayjs from "dayjs";
 import "./MeetingCards.css";
 import { Meeting } from "types";
 import { deleteMeeting, patchMeetings } from "apiCalls";
@@ -20,14 +21,15 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
   return (
     <div>
       {meetings.map((meeting) => {
+        const formattedDate = dayjs(meeting.attributes.date).format("MMM. D");
         return (
           <div key={meeting.id} className="meeting-card">
             {!meeting.attributes.is_accepted ? (
               <div className='meeting-card-request meeting-card-content'>
                 <h3>REQUEST</h3>
-                <p>{meeting.attributes.date}</p>
+                <p>{formattedDate}</p>
                 <p>
-                  Time: {meeting.attributes.start_time} -{" "}
+                  {meeting.attributes.start_time} -{" "}
                   {meeting.attributes.end_time}
                 </p>
                 {/* do fetch for partner name? or ask BE if they can add a name to meeting data */}
@@ -41,7 +43,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
               </div>
             ) : (
               <div className='meeting-card-content'>
-                <p>{meeting.attributes.date}</p>
+                <p>{formattedDate}</p>
                 <p>
                    {meeting.attributes.start_time} -{" "}
                   {meeting.attributes.end_time}
