@@ -49,7 +49,7 @@ export const postNewUser = (newUserData: NewUserData) => {
     if(res.ok) {
       return res
     } else {
-      throw new Error(`${res.status} Something went wrong, user not found.`)
+      throw new Error(`${res.status} Something went wrong, unable to create new account.`)
     }
   })
   .then(res => res.json())
