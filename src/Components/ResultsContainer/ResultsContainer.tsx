@@ -50,10 +50,10 @@ function ResultsContainer({
   };
 
   return (
-    <div className="search-page-lower">
+    <div>
       {searchResults.length === 0 ? (
         <>
-          <h1 className='search-results-qty'>No results found</h1>
+          <h1>No results found</h1>
           <div className='results-container'>Try a different search</div>
         </>
       ) : (

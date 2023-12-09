@@ -1,0 +1,42 @@
+.meeting-card {
+  border: solid, 2px, green;
+  width: 100%;
+  border-radius: 10px;
+  margin-right: 0.75rem;
+  padding: 1rem;
+}
+.meeting-card-requests {
+  border: solid, 2px, red;
+  height: 3rem;
+}
+.meeting-card-btn {
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+.meeting-card {
+  border: solid 2px red;
+  width: 40%;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem;
+}
+.meeting-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.meeting-card-request {
+  height: 20vh;
+}
+.meeting-card-btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 2vh;
+}
