@@ -2,6 +2,7 @@ import { postMeetingRequest } from "apiCalls";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
+// import { useParams } from "react-router-dom";
 
 interface FormData {
   user_id: string;
@@ -13,9 +14,13 @@ interface FormData {
   is_remote: boolean;
 }
 
-function RequestMeetingForm() {
+interface RequestMeetingFormProps {
+  currentUserId: number;
+}
+
+function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
   const [formData, setFormData] = useState<FormData>({
-    user_id: "13",
+    user_id: currentUserId.toString(),
     partner_id: "14",
     date: null ,
     start_time: "",

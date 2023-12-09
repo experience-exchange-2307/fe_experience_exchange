@@ -11,9 +11,6 @@ import { CurrentUser } from "types";
 interface CurrentUserProps {
   currentUser: CurrentUser;
 }
-// use params of dashboard for user id => 
-// on dashboard mount fetch user data (using userid from params)
-// pass user to profile as prop
 
 function Dashboard({ currentUser }: CurrentUserProps) {
   const { id } = useParams();
@@ -51,7 +48,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
       )}  
       {!isCurrentUser && (
         <div className="other-user-dash">
-          <RequestMeetingForm />
+          <RequestMeetingForm currentUserId={currentUser.id} />
         </div>
       )}
     </div>
