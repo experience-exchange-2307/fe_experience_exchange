@@ -58,7 +58,7 @@ function ResultsContainer({
         </>
       ) : (
         <>
-          <h1>Showing {searchResults.length} Results for {searchQuery}</h1>
+          <h1 className='search-results-qty'>Showing {searchResults.length} Results for {searchQuery}</h1>
           <div className='results-container'>{renderResults()}</div>
         </>
       )}
