@@ -22,7 +22,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
       {meetings.map((meeting) => {
         return (
           <div key={meeting.id} className="meeting-card">
-            {meeting.attributes.is_accepted === false && (
+            {!meeting.attributes.is_accepted && (
               <div>
                 <h3>REQUEST</h3>
                 <button onClick={() => handleAccept(meeting.id)}>Accept</button>

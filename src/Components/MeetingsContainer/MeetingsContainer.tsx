@@ -1,34 +1,41 @@
 import { useState } from "react";
 import "./MeetingsContainer.css";
-import MeetingCards from "Components/MeetingCards/MeetingCards";
 import { Meeting } from "types";
+import { AcceptedMeetings } from "Components/AcceptedMeetings/AcceptedMeetings";
+import { MeetingRequests } from "Components/MeetingRequests/MeetingRequests";
 
-interface MeetingsContainerProps {
+interface MeetingsProps {
   meetings: Meeting[];
 }
 
-function MeetingsContainer({meetings}: MeetingsContainerProps) {
+function MeetingsContainer({ meetings }: MeetingsProps) {
   const [isAccepted, setIsAccepted] = useState<boolean>(true);
-  const acceptedMeetings = meetings.filter(
-    (meeting) => meeting.attributes.is_accepted === true
-  );
-  const meetingRequests = meetings.filter(
-    (meeting) => meeting.attributes.is_accepted !== true
-  );
+  
+  const meetingText = (bool: Boolean) =>
+    bool ? "My Meetings" : "My Meeting Requests";
+
+  const MeetingComponent = () =>
+    !!isAccepted ? (
+      <AcceptedMeetings
+        meetings={meetings}
+      />
+    ) : (
+      <MeetingRequests meetings={meetings} />
+    );
+
+  const handleClick = () => setIsAccepted(!isAccepted);
 
   return (
     <div className="meetings-container">
-      <button onClick={() => setIsAccepted(true)}>My Meetings</button>
-      <button onClick={() => setIsAccepted(false)}>My Meeting Requests</button>
+      <h2>{meetingText(isAccepted)}</h2>
+
       {!!meetings.length ? (
-        isAccepted ? (
-          <MeetingCards meetings={acceptedMeetings} />
-        ) : (
-          <MeetingCards meetings={meetingRequests} />
-        )
+        <MeetingComponent />
       ) : (
         <h2>No meetings yet, add meetings!</h2>
       )}
+
+      <button className="meetings-toggle" onClick={handleClick}>{meetingText(!isAccepted)}</button>
     </div>
   );
 }
