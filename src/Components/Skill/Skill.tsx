@@ -18,8 +18,8 @@ function SkillForm() {
 
       getSingleUser(userId)
       .then((data) => {
-        console.log("data", data.data);
-        setUserSkills(data.data.attributes.skills);
+        console.log("data", data.data)
+        setUserSkills(data.data.attributes.skills)
       })
     }
   }, [])
