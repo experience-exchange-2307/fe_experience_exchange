@@ -22,6 +22,7 @@ function SkillForm() {
         setUserSkills(data.data.attributes.skills)
       })
     }
+        // eslint-disable-next-line
   }, [])
 
   const handleSkillInput = (e: React.ChangeEvent<HTMLInputElement>) => {
