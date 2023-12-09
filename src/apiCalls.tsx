@@ -123,19 +123,7 @@ export const postMeetingRequest = (data: any) => {
       "Content-Type": "application/json",
     },
   })
-    .then((res) => {
-      if (res.ok) {
-        return res;
-      } else {
-        throw new Error(
-          `${res.status} Something went wrong, unable to request meeting.`
-        );
-      }
-    })
-    .then((res) => res.json());
 };
-
-
 
 export const postSkills = (userId: string | undefined, skills: UserSkill[]) => {
 

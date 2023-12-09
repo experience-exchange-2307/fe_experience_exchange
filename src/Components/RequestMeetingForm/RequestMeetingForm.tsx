@@ -2,7 +2,7 @@ import { postMeetingRequest } from "apiCalls";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 interface FormData {
   user_id: string;
@@ -19,9 +19,10 @@ interface RequestMeetingFormProps {
 }
 
 function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
+  const { id } = useParams();
   const [formData, setFormData] = useState<FormData>({
     user_id: currentUserId.toString(),
-    partner_id: "14",
+    partner_id: id || "",
     date: null ,
     start_time: "",
     end_time: "",
@@ -59,11 +60,33 @@ function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
 
   const handleSubmit = () => {
     if (isFormComplete()) {
-      console.log("Submitting:", formData);
-      // make POST request with formData here
-      postMeetingRequest(formData);
+      postMeetingRequest(formData)
+        .then((response) => {
+          if (response.status >= 200 && response.status < 300) {
+            window.alert("Meeting requested successfully!");
+  
+            setFormData({
+              user_id: currentUserId.toString(),
+              partner_id: id || "",
+              date: null,
+              start_time: "",
+              end_time: "",
+              purpose: "",
+              is_remote: true,
+            });
+          } else {
+            throw new Error(
+              `${response.status} Something went wrong, unable to request meeting.`
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("Error submitting meeting request:", error);
+        });
     }
   };
+  
+  
   return (
     <>
       <section className="request-meeting-container">
