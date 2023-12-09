@@ -20,6 +20,7 @@ export const getSingleUser = (currentUserID: number) => {
 
 export const getSearchResults = (query: string, currentUserID:number) => {
   console.log(`${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`)
+  if (!currentUserID){currentUserID = 14}
   return fetch(
     `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`
 
@@ -49,7 +50,7 @@ export const postNewUser = (newUserData: NewUserData) => {
     if(res.ok) {
       return res
     } else {
-      throw new Error(`${res.status} Something went wrong, user not found.`)
+      throw new Error(`${res.status} Something went wrong, unable to create new account.`)
     }
   })
   .then(res => res.json())
@@ -77,7 +78,7 @@ const patchData = {
 };
 
 export const patchMeetings = (meetingId: number) => {
-  return fetch(`${BaseURLProd}/api/v1/meetings?user_id=${meetingId}`, {
+  return fetch(`${BaseURLProd}/api/v1/meetings/${meetingId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -99,7 +100,7 @@ export const patchMeetings = (meetingId: number) => {
 };
 
 export const deleteMeeting = (meetingId: number) => {
-  return fetch(`${BaseURLProd}/api/v1/meetings?user_id=${meetingId}`, {
+  return fetch(`${BaseURLProd}/api/v1/meetings/${meetingId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

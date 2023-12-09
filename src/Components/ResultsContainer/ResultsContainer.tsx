@@ -50,15 +50,15 @@ function ResultsContainer({
   };
 
   return (
-    <div>
+    <div className="search-page-lower">
       {searchResults.length === 0 ? (
         <>
-          <h1>No results found</h1>
+          <h1 className='search-results-qty'>No results found</h1>
           <div className='results-container'>Try a different search</div>
         </>
       ) : (
         <>
-          <h1>Showing {searchResults.length} Results for {searchQuery}</h1>
+          <h1 className='search-results-qty'>Showing {searchResults.length} Results for {searchQuery}</h1>
           <div className='results-container'>{renderResults()}</div>
         </>
       )}
