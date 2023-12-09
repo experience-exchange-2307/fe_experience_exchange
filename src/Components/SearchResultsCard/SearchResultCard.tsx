@@ -1,5 +1,6 @@
 import "./SearchResultCard.css";
 import { Skills } from "types";
+import { Link } from "react-router-dom";
 
 interface SearchResultCardProps {
   distance: number;
@@ -18,31 +19,30 @@ function SearchResultCard({
   skills,
   id,
 }: SearchResultCardProps) {
-
   const lastSkillIndex = skills.length - 1;
 
   return (
-    <div className='result-card' key={id}>
-      <div>
+    <Link to={`/dashboard/${id}`}>
+      <div className='result-card' key={id}>
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>
-        <div className='result-card-skills-container' >
-          <p className='result-card-title' >Skills:</p>
-         
-            {skills.map((skill, index) => (
-              <p key={index} className='result-card-skills'>
-                {skill.name}
-                {index === lastSkillIndex ? "" : ", "}
-              </p>
-            ))}
-          
+        <div className='result-card-skills-container'>
+          <p className='result-card-title'>Skills:</p>
+
+          {skills.map((skill, index) => (
+            <p key={index} className='result-card-skills'>
+              {skill.name}
+              {index === lastSkillIndex ? "" : ", "}
+            </p>
+          ))}
+        </div>
+
+        <div>
+          <p className='result-card-distance'>
+            {is_remote ? "Remote" : `${distance} miles away`}
+          </p>
         </div>
       </div>
-      <div>
-        <p className='result-card-distance'>
-          {is_remote ? "Remote" : `${distance} miles away`}
-        </p>
-      </div>
-    </div>
+    </Link>
   );
 }
 
