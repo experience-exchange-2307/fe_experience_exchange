@@ -105,11 +105,11 @@ function SkillForm() {
             key={`progress-${index}`}
             className='progress-bar'
             completed={skill.proficiency}
-            bgColor="#3e3b40"
+            bgColor="#f76a1e"
             height="7px"
             isLabelVisible={false}
             baseBgColor="#cecece"
-            labelColor="#fa0000"
+            labelColor="#f76a1e"
             animateOnRender
             maxCompleted={5}
           />

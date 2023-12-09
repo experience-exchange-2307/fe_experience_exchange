@@ -8,6 +8,8 @@ import {
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
+import ProfileHeader from '../ProfileHeader/ProfileHeader'
+import './Dashboard.css'
 
 interface CurrentUserProps {
   currentUser: CurrentUser;
@@ -38,7 +40,10 @@ function Dashboard({ currentUser }: CurrentUserProps) {
   }, [currentUser.id, userIdFromUrl]);
 
   return (
+    <div className='dashboard-outermost-wrapper'>
+
     <div className="dashboard-wrapper">
+      <ProfileHeader currentUser={currentUser} />
       <Profile currentUser={currentUser} />
       {isCurrentUser && (
         <div className="current-user-dash">
@@ -50,6 +55,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
           <RequestMeetingForm currentUserId={currentUser.id} />
         </div>
       )}
+    </div>
     </div>
   );
 }

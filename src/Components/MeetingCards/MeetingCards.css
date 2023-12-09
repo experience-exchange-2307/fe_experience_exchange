@@ -6,7 +6,7 @@
   padding: 1rem;
 }
 .meeting-card-requests {
-  border: solid, 2px, red;
+  border: solid, 2px, black;
   height: 3rem;
 }
 .meeting-card-btn {
@@ -17,7 +17,8 @@
   margin-right: 1rem;
 }
 .meeting-card {
-  border: solid 2px red;
+  border: solid 2px black;
+  background-color: var(--white);
   width: 40%;
   border-radius: 10px;
   padding: 1rem;

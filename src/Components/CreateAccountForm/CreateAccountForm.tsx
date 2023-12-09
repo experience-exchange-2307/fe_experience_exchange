@@ -163,6 +163,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
                 name='is_remote'
                 checked={formData.is_remote}
                 onChange={handleRemoteChange}
+                className='create-account-checkbox'
               />
             </label>
           </div>
