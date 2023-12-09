@@ -22,8 +22,9 @@ function SkillForm() {
         setUserSkills(data.data.attributes.skills)
       })
     }
-        // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [])
+  // put userId in dep array
 
   const handleSkillInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentTag(e.target.value)
@@ -39,9 +40,12 @@ function SkillForm() {
           proficiency: Number(proficiency),
         };
 
-        const combinedSkills = [...userSkills, newSkill]
+        // const combinedSkills = [...userSkills, newSkill]
+            // console.log("combinedSkills:", combinedSkills)
+           const addedSkill = [newSkill]
+           console.log("addedSkill:", addedSkill)
 
-        postSkills(id, combinedSkills)
+        postSkills(id, addedSkill)
           .then((data) => {
           console.log('skills posted successfully:', data.data.attributes.skills)
           setUserSkills(data.data.attributes.skills)
