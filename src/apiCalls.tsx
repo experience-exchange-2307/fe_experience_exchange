@@ -120,10 +120,16 @@ export const deleteMeeting = (meetingId: number) => {
 };
 
 
-export const postSkill = (userSkill: UserSkill, userId: string | undefined) => {
-  return fetch(`${BaseURLProd}/api/v1/users/${userId}`, {
+export const postSkills = (userId: string | undefined, skills: UserSkill[]) => {
+
+  const skillsData =  {
+    user_id: userId,
+    skills: skills
+  }
+
+  return fetch(`${BaseURLProd}/api/v1/add_skills`, {
     method: "POST",
-    body: JSON.stringify(userSkill),
+    body: JSON.stringify(skillsData),
     headers: {
       "Content-Type": "application/json"
     }

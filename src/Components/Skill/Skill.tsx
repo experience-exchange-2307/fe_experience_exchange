@@ -1,21 +1,38 @@
-import "./SkillForm.css";
-import React, { useState } from "react";
+import "./Skill.css";
+import React, { useState, useEffect } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
-import { postSkill } from "apiCalls";
+import { postSkills } from "apiCalls";
 import { UserSkill } from "types";
 import { useParams } from "react-router-dom";
 import { stringify } from "querystring";
+import { getSingleUser } from "apiCalls";
+import { CurrentUser } from "types";
 
 // interface UserSkill {
 //   name: string;
 //   proficiency: number;
 // }
 
+// skills state in app?
+// GET request to tget skills
+
 function SkillForm() {
   const { id } = useParams()
   const [skills, setSkills] = useState<UserSkill[]>([])
   const [currentTag, setCurrentTag] = useState('')
   const [proficiency, setProficiency] = useState(0)
+  const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(undefined);
+
+  // const currentUserID = id
+
+  useEffect(() => {
+        getSingleUser(14)
+        .then((data) => {
+          console.log("data", data.data);
+          setCurrentUser(data.data);
+        })
+    // eslint-disable-next-line
+  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentTag(e.target.value)
@@ -23,7 +40,13 @@ function SkillForm() {
 
   const handleAddSkill = () => {
 
+// skillForm and SkillList component 
+// then GET skills when you need it or GET current user and only take skills from it
+// only get the skills, 
 
+// currentUser.id === id
+
+// rename to Skills, contains skills form and skills list
 
     if (currentTag.trim() !== '') {
       // check if skill already exists
@@ -33,8 +56,10 @@ function SkillForm() {
           name: currentTag.trim(),
           proficiency: Number(proficiency),
         };
-        console.log("newSkill", newSkill)
-        postSkill(newSkill, id)
+
+        const combinedSkills = [...skills, newSkill]
+        // console.log("newSkill", newSkill)
+        postSkills(id, combinedSkills)
         .then((data) => {
                 console.log('skills posted successfully:', data.data.attributes.skills)
                 setSkills(data.data.attributes.skills)
