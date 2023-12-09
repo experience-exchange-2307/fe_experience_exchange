@@ -10,8 +10,7 @@ interface MeetingsProps {
 
 function MeetingsContainer({ meetings }: MeetingsProps) {
   const [isAccepted, setIsAccepted] = useState<boolean>(true);
-  const [hasAcceptedMeetings, setHasAcceptedMeetings] = useState<boolean>(true);
-  const showAccepted = isAccepted && hasAcceptedMeetings;
+  
   const meetingText = (bool: Boolean) =>
     bool ? "My Meetings" : "My Meeting Requests";
 
@@ -19,7 +18,6 @@ function MeetingsContainer({ meetings }: MeetingsProps) {
     !!isAccepted ? (
       <AcceptedMeetings
         meetings={meetings}
-        setHasAcceptedMeetings={setHasAcceptedMeetings}
       />
     ) : (
       <MeetingRequests meetings={meetings} />
