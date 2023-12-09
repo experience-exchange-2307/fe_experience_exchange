@@ -5,6 +5,8 @@ jobs:
   build:
     docker:
       - image: cypress/browsers:node14.17.0-chrome91-ff89
+    environment:
+      CYPRESS_VERSION: 13.1.0
     steps:
       - checkout
       - node/install-packages:
@@ -18,13 +20,6 @@ jobs:
       - run:
           name: Build
           command: npm run build
-      - run:
-          name: Debug Information
-          command: |
-            echo "Node.js version: $(node -v)"
-            echo "npm version: $(npm -v)"
-            echo "Cypress version: $(npx cypress -v)"
-            # Add more debugging commands as needed
       - run:
           name: Install Cypress dependencies
           command: npm install --save-dev cypress
