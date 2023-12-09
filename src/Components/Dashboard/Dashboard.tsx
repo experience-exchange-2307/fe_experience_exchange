@@ -1,9 +1,10 @@
 import MeetingsContainer from "Components/MeetingsContainer/MeetingsContainer";
 import Profile from "Components/Profile/Profile";
 import RequestMeetingForm from "Components/RequestMeetingForm/RequestMeetingForm";
-import { getMeetingsByUser, 
-        // getSingleUser 
-      } from "apiCalls";
+import {
+  getMeetingsByUser,
+  // getSingleUser
+} from "apiCalls";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
@@ -23,19 +24,17 @@ function Dashboard({ currentUser }: CurrentUserProps) {
     //   console.log("data", data.data);
     //   setDashboardData(data.data)
     // })
-      getMeetingsByUser(currentUser.id)
-        .then((meetings) => {
-          setUserMeetings(meetings.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching meetings:", error);
-        })
-    
-  console.log('parsedUserId', userIdFromUrl);
+    getMeetingsByUser(currentUser.id)
+      .then((meetings) => {
+        setUserMeetings(meetings.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching meetings:", error);
+      });
 
-        const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
-    
-        setIsCurrentUser(isCurrentUserDashboard);
+    const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
+
+    setIsCurrentUser(isCurrentUserDashboard);
   }, [currentUser.id, userIdFromUrl]);
 
   return (
@@ -45,7 +44,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
         <div className="current-user-dash">
           <MeetingsContainer meetings={userMeetings} />
         </div>
-      )}  
+      )}
       {!isCurrentUser && (
         <div className="other-user-dash">
           <RequestMeetingForm currentUserId={currentUser.id} />
