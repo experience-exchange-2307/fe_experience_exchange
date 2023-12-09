@@ -47,7 +47,7 @@
 .profile-name{
   margin-left: 1rem;
   font-weight: 600;
-  font-size:1.5rem;
+  font-size:2rem;
 }
 .profile-lower-alignment {
   display:flex;
@@ -77,9 +77,29 @@
   width: 35%;
   border-radius: 10px;
   padding: 1rem;
+  overflow-y: scroll;
+  max-height: 400px;
+  scrollbar-width: thin; 
+  scrollbar-color: red transparent; 
+  background-color: white;
+
+  
+  &::-webkit-scrollbar {
+    width: 12px; 
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: red; 
+    border-radius: 10px; 
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent; 
+  }
 }
+
 .profile-header {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   /* margin-bottom: 1rem; */
 }
@@ -88,7 +108,7 @@
   flex-direction: row;
 
 }
-.profile-skill{
+/* .profile-skill{
   border: solid 2px darkgray;
   width: 5rem;
   border-radius: 10px;
@@ -96,7 +116,7 @@
   align-items: center;
   justify-content: center;
   margin: .5rem;
-}
+} */
 .profile-list{
   margin-bottom: 1.5rem;
 }

@@ -1,8 +1,7 @@
 import "./Profile.css";
 import { CurrentUser } from "types";
 import frog from "../../images/Frog.png";
-import SkillForm from "Components/SkillForm/SkillForm";
-import ProgressBar from "@ramonak/react-progress-bar";
+import Skill from "Components/Skill/Skill";
 interface ProfileProps {
   currentUser: CurrentUser | undefined;
 }
@@ -28,31 +27,9 @@ function Profile({ currentUser }: ProfileProps) {
         <div className='profile-lower-alignment'>
           <div className='profile-container-lower'>
             <div className='profile-lower-left'>
+            <article className="profile-list">
               <p className='profile-header'>About me</p>
               <p>{currentUser?.attributes.about}</p>
-            </div>
-            <div className='profile-lower-right'>
-              <article className="profile-list">
-                <p className='profile-header profile-skill-container'>Skills</p>
-                {<SkillForm />}
-                {currentUser?.attributes.skills.map((skill, index) => (
-                  <div key={`skill-wrapper-${index}`}>
-                  <p className='profile-skill' key={index}>
-                    {skill.name}
-                  </p>
-                  <ProgressBar
-                    className='progress-bar'
-                    completed={skill.proficiency}
-                    bgColor="#3e3b40"
-                    height="7px"
-                    isLabelVisible={false}
-                    baseBgColor="#cecece"
-                    labelColor="#fa0000"
-                    animateOnRender
-                    maxCompleted={5}
-                  />
-              </div>
-                ))}
               </article>
               <article className="profile-list">
                 <p className='profile-header'>Location</p>
@@ -61,6 +38,12 @@ function Profile({ currentUser }: ProfileProps) {
               <article className="profile-list">
                 <p className='profile-header'>Email</p>
                 <p>{currentUser?.attributes.email}</p>
+              </article>
+            </div>
+            <div className='profile-lower-right'>
+              <article className="profile-list">
+                <p className='profile-header profile-skill-container'>Skills</p>
+                <Skill />
               </article>
             </div>
           </div>

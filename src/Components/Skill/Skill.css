@@ -1,0 +1,46 @@
+.skill-name {
+  border: solid 2px darkgray;
+  width: 7rem;
+  border-radius: 10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: .5rem;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding:0rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  padding-bottom: .25rem;
+ 
+}
+.skill-list-container{
+  margin-top: 1rem;
+}
+.tag-removal {
+  background-color: transparent;
+  border: none;
+  margin-left: 1rem;
+  margin-top: .25rem;
+  color: darkblue;
+}
+
+.skill-input {
+  height: 2rem;
+  font-size: 1rem;
+}
+.proficiency-input{
+  height: 1.6rem;
+  margin-left:.25rem;
+}
+.proficiency-label {
+  font-size: 1.5rem;
+}
+.add-skill-btn{
+  height: 2rem;
+  font-size: 1rem;
+  padding: .25rem;
+  border-radius: 10px;
+}

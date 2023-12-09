@@ -1,4 +1,4 @@
-import { NewUserData } from "types";
+import { NewUserData, UserSkill } from 'types';
 // const BaseURLMock = 'https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io'
 const BaseURLProd = "https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com";
 
@@ -14,10 +14,9 @@ export const getSingleUser = (currentUserID: number) => {
     .then((res) => res.json());
 };
 
-export const getSearchResults = (query: string, currentUserID: number) => {
-  console.log(
-    `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`
-  );
+export const getSearchResults = (query: string, currentUserID:number) => {
+  console.log(`${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`)
+  if (!currentUserID){currentUserID = 14}
   return fetch(
     `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`
   )
@@ -135,3 +134,29 @@ export const postMeetingRequest = (data: any) => {
     })
     .then((res) => res.json());
 };
+
+
+
+export const postSkills = (userId: string | undefined, skills: UserSkill[]) => {
+
+  const skillsData =  {
+    user_id: userId,
+    skills: skills
+  }
+
+  return fetch(`${BaseURLProd}/api/v1/add_skills`, {
+    method: "POST",
+    body: JSON.stringify(skillsData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => {
+    if(res.ok) {
+      return res
+    } else {
+      throw new Error(`${res.status} Something went wrong, user not found.`)
+    }
+  })
+  .then(res => res.json())
+}
