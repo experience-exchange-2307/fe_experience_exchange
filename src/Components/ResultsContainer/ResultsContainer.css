@@ -1,5 +1,5 @@
 .results-container {
-    border: solid 2px blue;
+    background-color: var(--lightgray);
     border-radius: 10px;
     height: auto;
     width: 97.5%;

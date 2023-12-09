@@ -1,6 +1,5 @@
 import "./Profile.css";
 import { CurrentUser } from "types";
-import frog from "../../images/Frog.png";
 import Skill from "Components/Skill/Skill";
 interface ProfileProps {
   currentUser: CurrentUser | undefined;
@@ -12,21 +11,11 @@ interface ProfileProps {
 
 function Profile({ currentUser }: ProfileProps) {
   return (
-    <div className='profile-page'>
-      <div className='profile-banner'></div>
+    
       <div className='profile-container'>
-        <div className='profile-container-upper'>
-          <div className='profile-icon-container'>
-            <img src={frog} alt='user icon' className='profile-icon'></img>
-          </div>
-          <p className='profile-name'>
-            {currentUser?.attributes.first_name}{" "}
-            {currentUser?.attributes.last_name}
-          </p>
-        </div>
-        <div className='profile-lower-alignment'>
+        <div className='profile-alignment'>
           <div className='profile-container-lower'>
-            <div className='profile-lower-left'>
+            <div className='profile-left'>
             <article className="profile-list">
               <p className='profile-header'>About me</p>
               <p>{currentUser?.attributes.about}</p>
@@ -40,7 +29,7 @@ function Profile({ currentUser }: ProfileProps) {
                 <p>{currentUser?.attributes.email}</p>
               </article>
             </div>
-            <div className='profile-lower-right'>
+            <div className='profile-right'>
               <article className="profile-list">
                 <p className='profile-header profile-skill-container'>Skills</p>
                 <Skill />
@@ -49,7 +38,7 @@ function Profile({ currentUser }: ProfileProps) {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }
 
