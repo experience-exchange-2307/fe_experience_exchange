@@ -1,7 +1,7 @@
 import "./Profile.css";
 import { CurrentUser } from "types";
-import frog from "../../images/Frog.png";
 import Skill from "Components/Skill/Skill";
+
 interface ProfileProps {
   currentUser: CurrentUser | undefined;
 }
@@ -12,18 +12,8 @@ interface ProfileProps {
 
 function Profile({ currentUser }: ProfileProps) {
   return (
-    <div className='profile-page'>
-      <div className='profile-banner'></div>
-      <div className='profile-container'>
-        <div className='profile-container-upper'>
-          <div className='profile-icon-container'>
-            <img src={frog} alt='user icon' className='profile-icon'></img>
-          </div>
-          <p className='profile-name'>
-            {currentUser?.attributes.first_name}{" "}
-            {currentUser?.attributes.last_name}
-          </p>
-        </div>
+
+      
         <div className='profile-lower-alignment'>
           <div className='profile-container-lower'>
             <div className='profile-lower-left'>
@@ -47,9 +37,7 @@ function Profile({ currentUser }: ProfileProps) {
               </article>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+          </div>
   );
 }
 

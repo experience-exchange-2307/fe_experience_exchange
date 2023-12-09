@@ -7,6 +7,8 @@ import { getMeetingsByUser,
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
+import ProfileHeader from '../ProfileHeader/ProfileHeader'
+import './Dashboard.css'
 
 interface CurrentUserProps {
   currentUser: CurrentUser;
@@ -43,6 +45,8 @@ function Dashboard({ currentUser }: CurrentUserProps) {
 
   return (
     <div className="dashboard-wrapper">
+    <div className='profile-container'>
+      <ProfileHeader currentUser={currentUser}/>
       <Profile currentUser={currentUser} />
       {isCurrentUser && (
         <div className="current-user-dash">
@@ -54,6 +58,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
           <RequestMeetingForm />
         </div>
       )}
+      </div>
     </div>
   );
 }

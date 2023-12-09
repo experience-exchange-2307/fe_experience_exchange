@@ -1,0 +1,16 @@
+.profile-banner {
+    border: solid 2px green;
+    height: 5rem;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+  }
+  .profile-container {
+    border: solid 2px blue;
+    padding: 2rem;
+    height: 70%;
+  }
+  .dashboard-wrapper {
+    padding: 2rem;
+    width: 70%;
+  }

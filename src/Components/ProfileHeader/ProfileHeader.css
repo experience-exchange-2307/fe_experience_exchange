@@ -1,0 +1,30 @@
+.profile-container-upper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .profile-icon-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid red;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-icon {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+  }
+  .profile-name{
+    margin-left: 1rem;
+    font-weight: 600;
+    font-size:2rem;
+  }
