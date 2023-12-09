@@ -35,24 +35,6 @@ function Profile({ currentUser }: ProfileProps) {
               <article className="profile-list">
                 <p className='profile-header profile-skill-container'>Skills</p>
                 <Skill />
-                {/* {currentUser?.attributes.skills.map((skill, index) => (
-                  <div key={`skill-wrapper-${index}`}>
-                  <p className='profile-skill' key={index}>
-                    {skill.name}
-                  </p>
-                  <ProgressBar
-                    className='progress-bar'
-                    completed={skill.proficiency}
-                    bgColor="#3e3b40"
-                    height="7px"
-                    isLabelVisible={false}
-                    baseBgColor="#cecece"
-                    labelColor="#fa0000"
-                    animateOnRender
-                    maxCompleted={5}
-                  />
-              </div>
-                ))} */}
               </article>
               <article className="profile-list">
                 <p className='profile-header'>Location</p>
