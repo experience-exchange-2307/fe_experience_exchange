@@ -47,7 +47,7 @@
 .profile-name{
   margin-left: 1rem;
   font-weight: 600;
-  font-size:1.5rem;
+  font-size:2rem;
 }
 .profile-lower-alignment {
   display:flex;
@@ -79,7 +79,7 @@
   padding: 1rem;
 }
 .profile-header {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   /* margin-bottom: 1rem; */
 }
