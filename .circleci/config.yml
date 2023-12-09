@@ -2,30 +2,33 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
 jobs:
-  build:
+  cypress-run:
     docker:
       - image: cypress/browsers:node14.17.0-chrome91-ff89
-    environment:
-      CYPRESS_VERSION: 13.1.0
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Install Cypress dependencies
+          command: npm install --save-dev cypress
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Start application
+          command: npm start
+          background: true
+      - run:
+          name: Run Cypress
+          command: npm run cypress
       - run:
           name: Run lint
           command: npm run lint
       - run:
           name: Run TypeScript compiler
           command: npm run tsc
-      - run:
-          name: Build
-          command: npm run build
-      - run:
-          name: Install Cypress dependencies
-          command: npm install --save-dev cypress
-      - run:
-          name: Cypress Headless
-          command: npm run cypress
 workflows:
   version: 2
   build_and_test:
