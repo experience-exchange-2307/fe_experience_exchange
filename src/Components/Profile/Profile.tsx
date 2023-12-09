@@ -2,7 +2,6 @@ import "./Profile.css";
 import { CurrentUser } from "types";
 import frog from "../../images/Frog.png";
 import Skill from "Components/Skill/Skill";
-import ProgressBar from "@ramonak/react-progress-bar";
 interface ProfileProps {
   currentUser: CurrentUser | undefined;
 }
