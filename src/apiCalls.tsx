@@ -1,18 +1,14 @@
 import { NewUserData, UserSkill } from 'types';
 // const BaseURLMock = 'https://52d193d3-3f59-4c9e-9d04-d920641190d0.mock.pstmn.io'
-const BaseURLProd = 'https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com'
+const BaseURLProd = "https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com";
 
 export const getSingleUser = (currentUserID: number) => {
-  return fetch(
-    `${BaseURLProd}/api/v1/users/${currentUserID}`
-  )
+  return fetch(`${BaseURLProd}/api/v1/users/${currentUserID}`)
     .then((res) => {
       if (res.ok) {
         return res;
       } else {
-        throw new Error(
-          `${res.status} Something went wrong, user not found.`
-        );
+        throw new Error(`${res.status} Something went wrong, user not found.`);
       }
     })
     .then((res) => res.json());
@@ -23,44 +19,39 @@ export const getSearchResults = (query: string, currentUserID:number) => {
   if (!currentUserID){currentUserID = 14}
   return fetch(
     `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`
-
   )
     .then((res) => {
       if (res.ok) {
         return res;
       } else {
-        throw new Error(
-          `${res.status} Something went wrong, user not found.`
-        );
+        throw new Error(`${res.status} Something went wrong, user not found.`);
       }
     })
-    .then((res) =>res.json());
+    .then((res) => res.json());
 };
-
 
 export const postNewUser = (newUserData: NewUserData) => {
   return fetch(`${BaseURLProd}/api/v1/users/`, {
     method: "POST",
     body: JSON.stringify(newUserData),
     headers: {
-      "Content-Type": "application/json"
-    }
+      "Content-Type": "application/json",
+    },
   })
-  .then(res => {
-    if(res.ok) {
-      return res
-    } else {
-      throw new Error(`${res.status} Something went wrong, unable to create new account.`)
-    }
-  })
-  .then(res => res.json())
-}
+    .then((res) => {
+      if (res.ok) {
+        return res;
+      } else {
+        throw new Error(
+          `${res.status} Something went wrong, unable to create new account.`
+        );
+      }
+    })
+    .then((res) => res.json());
+};
 
 export const getMeetingsByUser = (userId: Number) => {
-  console.log('meetings endpoint',  `${BaseURLProd}/api/v1/users/${userId}/meetings`)
-  return fetch(
-    `${BaseURLProd}/api/v1/users/${userId}/meetings`
-  )
+  return fetch(`${BaseURLProd}/api/v1/users/${userId}/meetings`)
     .then((res) => {
       if (res.ok) {
         return res;
@@ -120,6 +111,15 @@ export const deleteMeeting = (meetingId: number) => {
     });
 };
 
+export const postMeetingRequest = (data: any) => {
+  return fetch(`${BaseURLProd}/api/v1/meetings`, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+};
 
 export const postSkills = (userId: string | undefined, skills: UserSkill[]) => {
 
