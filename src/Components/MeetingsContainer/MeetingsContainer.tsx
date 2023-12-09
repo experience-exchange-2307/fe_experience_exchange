@@ -29,7 +29,7 @@ function MeetingsContainer({ meetings }: MeetingsProps) {
     <div className="meetings-container">
       <div className="meetings-container-top">
 
-      <h2>{meetingText(isAccepted)}</h2>
+      <h2 className='meetings-title'>{meetingText(isAccepted)}</h2>
       <button className="meetings-toggle meeting-card-btn" onClick={handleClick}>{meetingText(!isAccepted)}</button>
       </div>
 
