@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cypress/browsers:node16.15.1-chrome91-ff89
+      - image: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
       - checkout
       - node/install-packages:
