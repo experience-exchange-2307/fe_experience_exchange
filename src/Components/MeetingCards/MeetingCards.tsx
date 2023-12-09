@@ -23,10 +23,10 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
         return (
           <div key={meeting.id} className="meeting-card">
             {!meeting.attributes.is_accepted && (
-              <div>
+              <div className='meeting-card-requests'>
                 <h3>REQUEST</h3>
-                <button onClick={() => handleAccept(meeting.id)}>Accept</button>
-                <button onClick={() => handleReject(meeting.id)}>
+                <button onClick={() => handleAccept(meeting.id)} className='meeting-card-btn'>Accept</button>
+                <button onClick={() => handleReject(meeting.id)} className='meeting-card-btn'>
                   Decline
                 </button>
               </div>
@@ -39,6 +39,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
             {/* do fetch for partner name? or ask BE if they can add a name to meeting data */}
             <p>Partner ID: {meeting.attributes.partner_id}</p>
           </div>
+          
         );
       })}
     </div>

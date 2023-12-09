@@ -1,0 +1,18 @@
+.meeting-card {
+    border:solid,2px, green;
+    width: 100%;
+    border-radius: 10px;
+    margin-right: .75rem;
+    padding: 1rem;
+}
+.meeting-card-requests{
+    border:solid, 2px,red;
+    height: 3rem;
+}
+.meeting-card-btn{
+    height: 2rem;
+    font-size: 1rem;
+    padding: .25rem;
+    border-radius: 10px;
+    margin-right: 1rem;
+  }

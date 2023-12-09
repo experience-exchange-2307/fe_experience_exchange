@@ -1,0 +1,12 @@
+.meetings-container{
+    border: solid 2px blue;
+    width: 100%;
+    border-radius: 10px;
+    margin-right: .75rem;
+    padding: 1rem;
+}
+.meetings-container-top{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}

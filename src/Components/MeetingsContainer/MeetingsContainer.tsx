@@ -27,7 +27,11 @@ function MeetingsContainer({ meetings }: MeetingsProps) {
 
   return (
     <div className="meetings-container">
+      <div className="meetings-container-top">
+
       <h2>{meetingText(isAccepted)}</h2>
+      <button className="meetings-toggle meeting-card-btn" onClick={handleClick}>{meetingText(!isAccepted)}</button>
+      </div>
 
       {!!meetings.length ? (
         <MeetingComponent />
@@ -35,7 +39,6 @@ function MeetingsContainer({ meetings }: MeetingsProps) {
         <h2>No meetings yet, add meetings!</h2>
       )}
 
-      <button className="meetings-toggle" onClick={handleClick}>{meetingText(!isAccepted)}</button>
     </div>
   );
 }
