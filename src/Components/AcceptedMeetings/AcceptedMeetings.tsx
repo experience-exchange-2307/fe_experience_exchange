@@ -16,14 +16,12 @@ const filterAcceptedMeetings = (meetings: Meeting[]): Meeting[] => {
 
 export function AcceptedMeetings({
   meetings,
-  setHasAcceptedMeetings,
 }: AcceptedMeetingsProps) {
   const [acceptedMeetings, setAcceptedMeetings] = useState<Meeting[]>([]);
 
   useEffect(() => {
     setAcceptedMeetings(filterAcceptedMeetings(meetings));
-    setHasAcceptedMeetings(!!acceptedMeetings.length);
-  }, [meetings, setHasAcceptedMeetings]);
+  }, [meetings]);
 
   return <MeetingCards meetings={acceptedMeetings} />;
 }
