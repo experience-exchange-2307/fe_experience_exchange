@@ -1,0 +1,9 @@
+.skill-name {
+  border: solid 2px darkgray;
+  width: 5rem;
+  border-radius: 10px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: .5rem;
+}
