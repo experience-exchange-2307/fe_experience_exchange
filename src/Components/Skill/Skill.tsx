@@ -76,10 +76,11 @@ function SkillForm() {
           value={currentTag}
           onChange={handleSkillInput}
           placeholder="Type skill name"
+          className="skill-input"
         />
 
-        <label htmlFor="proficiency">Proficiency:</label>
-        <select name="proficiency" id="proficiency" onChange={handleProficiencyInput}>
+        <label htmlFor="proficiency" className='proficiency-label'>Proficiency:</label>
+        <select name="proficiency" id="proficiency" onChange={handleProficiencyInput} className='proficiency-input'>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -88,7 +89,7 @@ function SkillForm() {
           <option value="5">5</option>
         </select>
         <p className="alert-message">{alert}</p>
-        <button onClick={submitNewSkill}>Add Skill</button>
+        <button onClick={submitNewSkill} className='add-skill-btn'>Add Skill</button>
       </div>
 
       {userSkills.map((skill, index) => (
