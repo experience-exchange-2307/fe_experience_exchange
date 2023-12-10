@@ -6,6 +6,8 @@ import { getMeetingsByUser, getSingleUser } from "apiCalls";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
+import ProfileHeader from '../ProfileHeader/ProfileHeader'
+import './Dashboard.css'
 
 interface CurrentUserProps {
   currentUser: CurrentUser;
@@ -45,13 +47,15 @@ function Dashboard({ currentUser }: CurrentUserProps) {
     <div className="dashboard-wrapper">
       {!isCurrentUser && dashboardData ? (
         <div className="other-user-dash">
+          <ProfileHeader currentUser={dashboardData} />
           <Profile currentUser={dashboardData} />
           <RequestMeetingForm currentUserId={currentUser.id} />
         </div>
       ) : null}
 
-      {!!isCurrentUser && (
+      {isCurrentUser && (
         <div className="current-user-dash">
+          <ProfileHeader currentUser={currentUser} />
           <Profile currentUser={currentUser} />
           <MeetingsContainer meetings={userMeetings} />
         </div>

@@ -1,20 +1,37 @@
-
 @import url("https://use.typekit.net/pbb3mjr.css");
+/* color palette import */
+:root {
+  --yellowgreen: #f7f0b3;
+  --black: #000000;
+  --lavender: #c1b3f7;
+  --lightblue: #b3daf7;
+  --grayishlavender: #c6b7da;
+  --coolgray: #9196ab;
+  --orangered: #f76a1e;
+  --grayishyellowgreen: #c3bb9b;
+  --lightorange: #f7dcb3;
+  --grayishorange: #d9c6c2;
+  --white: #ffffff;
+  --lightgray: #C4C4D0;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 main {
   min-height: 100dvh;
   width: 100dvw;
   display: flex;
   overflow-x: hidden;
-    font-family: "quiet-sans", sans-serif;
-    font-size: 1.4rem;
+  font-family: "quiet-sans", sans-serif;
+  font-size: 1.4rem;
   font-weight: 400;
   font-style: normal;
+  background-color: #f7f0b3;
 }
-main>button {
-    font-size: 1.4rem;
+main > button {
+  font-size: 1.4rem;
 }

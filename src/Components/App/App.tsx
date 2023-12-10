@@ -1,6 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { CurrentUser, NewUserData, ServerError } from "types";
 import { postNewUser } from "apiCalls";
 import { Routes, Route } from "react-router-dom";
@@ -70,10 +70,11 @@ function App() {
   return (
     <>
       <main>
-        {currentUser && <Nav currentUser={currentUser} />}
-        {serverError ? (
+        {location.pathname !== "/" && currentUser && <Nav currentUser={currentUser} />}
+        {serverError && (
           <ErrorPage />
-        ) : (
+        )}
+        {!currentUser ? (<Loading/>) : (
           <Routes>
             {!currentUser ? (
               <Route path="/" element={<Loading />} />
