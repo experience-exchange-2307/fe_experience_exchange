@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { CurrentUser, NewUserData, ServerError } from "types";
 import { postNewUser } from "apiCalls";
@@ -47,6 +47,7 @@ function App() {
   });
   const [serverError, setServerError] = useState<ServerError | string>("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const createNewUser = (newUserData: NewUserData) => {
     console.log("newUserData", newUserData);

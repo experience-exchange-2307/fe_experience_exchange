@@ -1,4 +1,3 @@
-import Loading from "Components/Loading/Loading";
 import MeetingsContainer from "Components/MeetingsContainer/MeetingsContainer";
 import Profile from "Components/Profile/Profile";
 import RequestMeetingForm from "Components/RequestMeetingForm/RequestMeetingForm";
@@ -41,7 +40,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
       });
 
     setIsCurrentUser(isCurrentUserDashboard);
-  }, [userIdFromUrl]);
+  }, [userIdFromUrl, isCurrentUserDashboard, currentUser.id]);
 
   return (
     <div className="dashboard-wrapper">
