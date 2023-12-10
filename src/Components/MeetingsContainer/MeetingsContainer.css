@@ -13,3 +13,9 @@
 .meetings-title {
     margin-left: 1.5rem;
 }
+
+  .meeting-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }

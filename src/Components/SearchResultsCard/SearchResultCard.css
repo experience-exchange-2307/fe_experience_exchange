@@ -1,20 +1,24 @@
 .result-card {
-  height: auto;
+  height: 16vh;
   border: solid 2px black;
   border-radius: 10px;
-  padding: 1rem;
+  padding: .5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   margin-top: 1rem;
   display:flex;
-  flex-direction:row;
+  flex-direction:column;
   justify-content: space-between;
   background-color: white;
   color: black;
-  width: 60vw;
-  height: 15vh;
+  width: 25vw;
+    overflow: hidden;
 }
-.result-card-left{
+.result-card-top{
     display: flex;
-    flex-direction:column;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items:baseline;
 }
 
 .result-card-title {
@@ -24,14 +28,14 @@
     margin-right: .5rem;
 }
 .result-card-title2 {
- 
-    font-size:1.5rem;
-    font-weight: 600;
+    color: black;
+    font-size:1.4rem;
+    font-weight: 400;
     margin-right: .5rem;
 }
 .result-card-skills {
     font-weight: 300;
-    font-size:1.2rem;
+    font-size:1.4rem;
 }
 
 .result-card-distance {

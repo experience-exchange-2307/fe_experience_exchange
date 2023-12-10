@@ -33,11 +33,13 @@ function MeetingsContainer({ meetings }: MeetingsProps) {
       <button className="meetings-toggle meeting-card-btn" onClick={handleClick}>{meetingText(!isAccepted)}</button>
       </div>
 
+      
       {!!meetings.length ? (
-        <MeetingComponent />
-      ) : (
-        <h2>No meetings yet, add meetings!</h2>
-      )}
+          <MeetingComponent />
+          ) : (
+            <h2>No meetings yet, add meetings!</h2>
+            )}
+  
 
     </div>
   );
