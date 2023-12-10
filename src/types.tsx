@@ -66,9 +66,9 @@ export interface NewUserData {
   about: string,
 }
 
-export interface ServerError {
-  statusCode: number;
-}
+// export interface ServerError {
+//   error: string;
+// }
 
 
 
