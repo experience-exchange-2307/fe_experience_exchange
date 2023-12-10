@@ -7,13 +7,13 @@ import { getMeetingsByUser } from "apiCalls";
 
 interface MeetingsProps {
   meetings: Meeting[];
-  currentUser: CurrentUser; 
+  currentUser: CurrentUser;
 }
 
 function MeetingsContainer({ meetings, currentUser }: MeetingsProps) {
   const [isAccepted, setIsAccepted] = useState<boolean>(true);
   const [fetchedMeetings, setFetchedMeetings] = useState<Meeting[]>(meetings);
- 
+
   const fetchMeetings = () => {
     getMeetingsByUser(currentUser.id)
       .then((meetingsData) => {
@@ -36,7 +36,11 @@ function MeetingsContainer({ meetings, currentUser }: MeetingsProps) {
     !!isAccepted ? (
       <AcceptedMeetings meetings={fetchedMeetings} />
     ) : (
-      <MeetingRequests meetings={fetchedMeetings} onMeetingsUpdate={fetchMeetings} />
+      <MeetingRequests
+        meetings={fetchedMeetings}
+        onMeetingsUpdate={fetchMeetings}
+        updateIsAccepted={setIsAccepted}
+      />
     );
 
   const handleClick = () => setIsAccepted(!isAccepted);

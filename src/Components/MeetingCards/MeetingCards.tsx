@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import dayjs from "dayjs";
 import "./MeetingCards.css";
 import { Meeting } from "types";
