@@ -59,7 +59,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
         <div className="current-user-dash">
           <ProfileHeader currentUser={currentUser} />
           <Profile currentUser={currentUser} />
-          <MeetingsContainer meetings={userMeetings} />
+          <MeetingsContainer meetings={userMeetings} currentUser={currentUser}/>
         </div>
       )}
       </div>
