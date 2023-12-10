@@ -2,12 +2,15 @@ import MeetingsContainer from "Components/MeetingsContainer/MeetingsContainer";
 import Profile from "Components/Profile/Profile";
 import RequestMeetingForm from "Components/RequestMeetingForm/RequestMeetingForm";
 import { getMeetingsByUser, getSingleUser } from "apiCalls";
+import { createBrowserHistory } from "history"; 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
 import ProfileHeader from '../ProfileHeader/ProfileHeader'
+import BackButton from "Components/BackButton/BackButton";
 import './Dashboard.css'
-import { serialize } from "v8";
+
+const history = createBrowserHistory();
 
 interface CurrentUserProps {
   currentUser: CurrentUser; 
@@ -19,10 +22,13 @@ function Dashboard({ currentUser, setServerError }: CurrentUserProps) {
   const [userMeetings, setUserMeetings] = useState([]);
   const [isCurrentUser, setIsCurrentUser] = useState<Boolean>(true);
   const [dashboardData, setDashboardData] = useState<CurrentUser>();
+  const [showBackButton, setShowBackButton] = useState<Boolean>(false);
   const userIdFromUrl = Number(id);
   const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
 
   useEffect(() => {
+    setShowBackButton( history.location.pathname.includes("/search"));
+
     if (!isCurrentUserDashboard) {
       getSingleUser(userIdFromUrl)
         .then((data) => {
@@ -53,6 +59,7 @@ function Dashboard({ currentUser, setServerError }: CurrentUserProps) {
     <div className="dashboard-wrapper">
       {!isCurrentUser && dashboardData ? (
         <div className="other-user-dash">
+                {showBackButton && <BackButton />}
           <ProfileHeader currentUser={dashboardData} />
           <Profile currentUser={dashboardData} setServerError={setServerError}/>
           <RequestMeetingForm currentUserId={currentUser.id} setServerError={setServerError}/>
@@ -63,7 +70,7 @@ function Dashboard({ currentUser, setServerError }: CurrentUserProps) {
         <div className="current-user-dash">
           <ProfileHeader currentUser={currentUser} />
           <Profile currentUser={currentUser} setServerError={setServerError}/>
-          <MeetingsContainer meetings={userMeetings} />
+          <MeetingsContainer meetings={userMeetings} currentUser={currentUser}/>
         </div>
       )}
       </div>

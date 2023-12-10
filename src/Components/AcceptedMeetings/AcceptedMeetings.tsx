@@ -6,10 +6,6 @@ interface MeetingsProps {
   meetings: Meeting[];
 }
 
-// interface AcceptedMeetingsProps extends MeetingsProps {
-//   setHasAcceptedMeetings: Function;
-// }
-
 const filterAcceptedMeetings = (meetings: Meeting[]): Meeting[] => {
   return meetings.filter((meeting) => meeting.attributes.is_accepted === true);
 };

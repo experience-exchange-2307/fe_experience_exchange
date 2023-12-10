@@ -104,7 +104,12 @@ export const deleteMeeting = (meetingId: number) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      return response.json();
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        return response.json();
+      } else {
+        return { success: true, message: "Meeting deleted successfully." };
+      }
     })
     .then((data) => {
       console.log("Delete request successful:", data);
