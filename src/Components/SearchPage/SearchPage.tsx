@@ -1,17 +1,16 @@
 import "./SearchPage.css";
-import { useEffect, useState, ChangeEvent, useCallback } from "react";
+import { useState, ChangeEvent, useCallback } from "react";
 import { getSearchResults } from "apiCalls";
 import CheckboxLocation from "./CheckboxLocation";
 import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
 import { CurrentUser, SearchResult } from "types";
-import { getSingleUser } from "apiCalls";
 
 interface SearchPageProps {
-  currentUser: CurrentUser | undefined;
-  setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser | undefined>>;
+  currentUser: CurrentUser;
+  setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser>>;
 }
 
-function SearchPage({ currentUser, setCurrentUser }: SearchPageProps) {
+function SearchPage({ currentUser }: SearchPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [remoteQuery, setRemoteQuery] = useState<string>("");
@@ -19,16 +18,6 @@ function SearchPage({ currentUser, setCurrentUser }: SearchPageProps) {
   const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
-
-  useEffect(() => {
-    if (!currentUser) {
-      getSingleUser(14).then((data) => {
-        console.log("data", data.data);
-        setCurrentUser(data.data);
-      });
-    }
-    // eslint-disable-next-line
-  }, []);
 
   const compareByDistance = (a: SearchResult, b: SearchResult) => {
     const distanceA = a.attributes.distance;

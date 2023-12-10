@@ -1,10 +1,7 @@
 import MeetingsContainer from "Components/MeetingsContainer/MeetingsContainer";
 import Profile from "Components/Profile/Profile";
 import RequestMeetingForm from "Components/RequestMeetingForm/RequestMeetingForm";
-import {
-  getMeetingsByUser,
-  // getSingleUser
-} from "apiCalls";
+import { getMeetingsByUser, getSingleUser } from "apiCalls";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
@@ -19,13 +16,21 @@ function Dashboard({ currentUser }: CurrentUserProps) {
   const { id } = useParams();
   const [userMeetings, setUserMeetings] = useState([]);
   const [isCurrentUser, setIsCurrentUser] = useState<Boolean>(true);
-  // const [dashboardData, setDashboardData] = useState<CurrentUserProps>()
+  const [dashboardData, setDashboardData] = useState<CurrentUser>();
   const userIdFromUrl = Number(id);
+  const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
+
   useEffect(() => {
-    // getSingleUser(currentUser.id).then((data) => {
-    //   console.log("data", data.data);
-    //   setDashboardData(data.data)
-    // })
+    if (!isCurrentUserDashboard) {
+      getSingleUser(userIdFromUrl)
+        .then((data) => {
+          setDashboardData(data.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
+    }
+
     getMeetingsByUser(currentUser.id)
       .then((meetings) => {
         setUserMeetings(meetings.data);
@@ -34,28 +39,26 @@ function Dashboard({ currentUser }: CurrentUserProps) {
         console.error("Error fetching meetings:", error);
       });
 
-    const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
-
     setIsCurrentUser(isCurrentUserDashboard);
-  }, [currentUser.id, userIdFromUrl]);
+  }, [userIdFromUrl, isCurrentUserDashboard, currentUser.id]);
 
   return (
-    <div className='dashboard-outermost-wrapper'>
-
     <div className="dashboard-wrapper">
-      <ProfileHeader currentUser={currentUser} />
-      <Profile currentUser={currentUser} />
+      {!isCurrentUser && dashboardData ? (
+        <div className="other-user-dash">
+          <ProfileHeader currentUser={dashboardData} />
+          <Profile currentUser={dashboardData} />
+          <RequestMeetingForm currentUserId={currentUser.id} />
+        </div>
+      ) : null}
+
       {isCurrentUser && (
         <div className="current-user-dash">
+          <ProfileHeader currentUser={currentUser} />
+          <Profile currentUser={currentUser} />
           <MeetingsContainer meetings={userMeetings} />
         </div>
       )}
-      {!isCurrentUser && (
-        <div className="other-user-dash">
-          <RequestMeetingForm currentUserId={currentUser.id} />
-        </div>
-      )}
-    </div>
     </div>
   );
 }

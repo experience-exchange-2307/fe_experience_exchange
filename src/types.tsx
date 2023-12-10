@@ -30,7 +30,7 @@ interface Attributes {
   about: string;
   lat: number;
   lon: number;
-  isRemote: boolean;
+  is_remote: boolean;
   skills: Skills[];
 }
 
