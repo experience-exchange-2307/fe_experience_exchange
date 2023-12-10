@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { CurrentUser, NewUserData, ServerError } from "types";
+import { CurrentUser, NewUserData } from "types";
 import { postNewUser } from "apiCalls";
 import { Routes, Route } from "react-router-dom";
 import Nav from "Components/Nav/Nav";
@@ -45,7 +45,7 @@ function App() {
       ],
     },
   });
-  const [serverError, setServerError] = useState<ServerError | string>("");
+  const [serverError, setServerError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -73,7 +73,7 @@ function App() {
       <main>
         {location.pathname !== "/" && currentUser && <Nav currentUser={currentUser} />}
         {serverError && (
-          <ErrorPage />
+          <ErrorPage serverError={serverError}/>
         )}
         {!currentUser ? (<Loading/>) : (
           <Routes>
@@ -111,7 +111,7 @@ function App() {
                 />
               }
             />
-            <Route path="*" element={<ErrorPage />} />
+            <Route path="*" element={<ErrorPage message="Wrong path" />} />
           </Routes>
         )}
       </main>
