@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
 import ProfileHeader from '../ProfileHeader/ProfileHeader'
 import './Dashboard.css'
+import { serialize } from "v8";
 
 interface CurrentUserProps {
   currentUser: CurrentUser; 

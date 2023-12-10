@@ -11,7 +11,10 @@ export const getSingleUser = (currentUserID: number) => {
         throw new Error(`${res.status} Something went wrong, user not found.`);
       }
     })
-    .then((res) => res.json());
+    .then((res) => {
+      console.log("res", res)
+      return res.json()
+    });
 };
 
 export const getSearchResults = (query: string, currentUserID:number) => {
@@ -128,7 +131,7 @@ export const postSkills = (userId: string | undefined, skills: UserSkill[]) => {
     skills: skills
   }
 
-  return fetch(`${BaseURLProd}/api/v1/add_skills`, {
+  return fetch(`${BaseURLProd}/ap/v1/add_skills`, {
     method: "POST",
     body: JSON.stringify(skillsData),
     headers: {

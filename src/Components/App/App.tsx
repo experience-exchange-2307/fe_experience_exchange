@@ -71,6 +71,7 @@ function App() {
   return (
     <>
       <main>
+
         {location.pathname !== "/" && currentUser && <Nav currentUser={currentUser} />}
         {serverError && (
           <ErrorPage serverError={serverError}/>

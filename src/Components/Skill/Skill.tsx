@@ -33,7 +33,7 @@ function SkillForm({ currentUser, setServerError}: SkillProps): JSX.Element {
       })
       .catch(error => {
         console.log("skill error", error)
-        setServerError(error)
+        return setServerError(error)
       })
     }
         // eslint-disable-next-line
@@ -61,7 +61,6 @@ function SkillForm({ currentUser, setServerError}: SkillProps): JSX.Element {
         };
 
         const addedSkill = [newSkill]
-
         postSkills(id, addedSkill)
           .then((data) => {
             console.log(
