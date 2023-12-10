@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./MeetingsContainer.css";
 import { CurrentUser, Meeting } from "types";
 import { AcceptedMeetings } from "Components/AcceptedMeetings/AcceptedMeetings";
@@ -14,7 +14,7 @@ function MeetingsContainer({ meetings, currentUser }: MeetingsProps) {
   const [isAccepted, setIsAccepted] = useState<boolean>(true);
   const [fetchedMeetings, setFetchedMeetings] = useState<Meeting[]>(meetings);
 
-  const fetchMeetings = () => {
+  const fetchMeetings = useCallback(() => {
     getMeetingsByUser(currentUser.id)
       .then((meetingsData) => {
         const updatedMeetings = meetingsData.data;
@@ -23,7 +23,7 @@ function MeetingsContainer({ meetings, currentUser }: MeetingsProps) {
       .catch((error) => {
         console.error("Error fetching meetings:", error);
       });
-  };
+  }, [currentUser.id]);
 
   useEffect(() => {
     fetchMeetings();
