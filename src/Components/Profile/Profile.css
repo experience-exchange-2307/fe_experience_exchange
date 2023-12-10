@@ -7,7 +7,6 @@
 }
 .profile-container-lower{
   width: 100%;
-  border: solid 2px brown;
   height: 60%;
   border-radius: 10px;
   display:flex;
@@ -17,7 +16,7 @@
 .profile-left{
  border: solid 2px black;
  background-color: var(--white);
- width: 65%;
+ width: 60%;
  border-radius: 10px;
  margin-right: .75rem;
  padding: 1rem;
@@ -25,15 +24,15 @@
 }
 .profile-right{
   margin-bottom: .75rem;
-  border:solid 2px var(--coolgray);
-  width: 35%;
+  border:solid 2px var(--black);
+  width: 40%;
   border-radius: 10px;
   padding: 1rem;
   overflow-y: scroll;
   max-height: 400px;
   scrollbar-width: thin; 
   scrollbar-color: var(--coolgray) transparent; 
-  background-color: white;
+  background-color: var(--grayishorange);
 
   
   &::-webkit-scrollbar {
@@ -51,12 +50,13 @@
 }
 
 .profile-header {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
 }
 .profile-skill-container {
   display:flex;
   flex-direction: row;
+  margin-left:.5rem;
 }
 
 .profile-list{

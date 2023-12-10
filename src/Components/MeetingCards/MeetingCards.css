@@ -15,6 +15,7 @@
   padding: 0.25rem;
   border-radius: 10px;
   margin-right: 1rem;
+  background-color: var(--yellowgreen);
 }
 .meeting-card {
   border: solid 2px black;

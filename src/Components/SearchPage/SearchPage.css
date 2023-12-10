@@ -39,9 +39,10 @@
 .search-submit-btn {
   height: 3rem;
   width: 3rem;
-  background-color: var(--grayishlavender);
+  background-color: var(--coolgray);
   border: none;
   color: white;
+  cursor:pointer;
 }
 .search-bar {
   display: flex;

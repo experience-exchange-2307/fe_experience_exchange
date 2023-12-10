@@ -1,16 +1,31 @@
 .result-card {
   height: auto;
-  border: solid 2px red;
+  border: solid 2px black;
   border-radius: 10px;
   padding: 1rem;
   margin-top: 1rem;
   display:flex;
+  flex-direction:row;
   justify-content: space-between;
+  background-color: white;
+  color: black;
+  width: 60vw;
+  height: 15vh;
+}
+.result-card-left{
+    display: flex;
+    flex-direction:column;
 }
 
 .result-card-title {
     margin-bottom: .5rem;
-    font-size:1.3rem;
+    font-size:1.7rem;
+    font-weight: 600;
+    margin-right: .5rem;
+}
+.result-card-title2 {
+ 
+    font-size:1.5rem;
     font-weight: 600;
     margin-right: .5rem;
 }
@@ -18,6 +33,7 @@
     font-weight: 300;
     font-size:1.2rem;
 }
+
 .result-card-distance {
     color: darkblue;
     font-weight: 400;

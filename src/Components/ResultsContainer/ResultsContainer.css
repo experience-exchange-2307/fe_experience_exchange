@@ -1,9 +1,12 @@
 .results-container {
     background-color: var(--lightgray);
     border-radius: 10px;
-    height: auto;
-    width: 97.5%;
+    /* /* height: auto; */
+    width: 97.5%; 
     margin-top: 1rem;
     padding: 1rem;
     overflow-x: hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }

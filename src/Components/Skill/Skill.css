@@ -1,5 +1,6 @@
 .skill-name {
   border: solid 2px darkgray;
+  background-color: var(--white);
   width: 7rem;
   border-radius: 10px;
   display:flex;
@@ -30,6 +31,9 @@
 .skill-input {
   height: 2rem;
   font-size: 1rem;
+  border:solid, 3px, black;
+  border-radius: 10px;
+  padding-left: 1rem;
 }
 .proficiency-input{
   height: 1.6rem;
@@ -43,4 +47,18 @@
   font-size: 1rem;
   padding: .25rem;
   border-radius: 10px;
+  background-color: var(--yellowgreen);
+}
+
+.skill-form-wrapper {
+  height: auto;
+  width: 100%;
+  border-radius: 10px;
+  height: 15vh;
+
+  padding: .5rem;
+  background-color: var(--grayishorange);
+}
+.skill-list {
+  margin-left: .5rem;
 }
