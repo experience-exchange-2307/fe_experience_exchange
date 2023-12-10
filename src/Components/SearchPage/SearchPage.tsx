@@ -3,7 +3,7 @@ import { useState, ChangeEvent, useCallback } from "react";
 import { getSearchResults } from "apiCalls";
 import CheckboxLocation from "./CheckboxLocation";
 import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
-import { CurrentUser, SearchResult } from "types";
+import { CurrentUser, SearchResult, UserSkill} from "types";
 
 interface SearchPageProps {
   currentUser: CurrentUser;
@@ -37,13 +37,32 @@ function SearchPage({ currentUser }: SearchPageProps) {
     } else if (currentUser) {
       getSearchResults(searchQuery, currentUser.id)
         .then((data) => {
-          console.log("data", data);
-          if (data.data) {
-            const sortedSearchResults = data.data.sort(compareByDistance);
-            console.log("sortedSearchResults", sortedSearchResults);
-            setSearchResults(sortedSearchResults);
-          }
-        })
+        if (data.data) {
+          console.log(data.data, "data.data")
+          // Remove duplicates from the skills array
+          const uniqueSearchResults = data.data.map((searchResult: SearchResult) => {
+            const uniqueSkills: UserSkill[] = [];
+            const skillNamesSet = new Set<string>();
+            for (const skill of searchResult.attributes.skills) {
+              const lowercaseSkillName = skill.name.toLowerCase();
+              if (!skillNamesSet.has(lowercaseSkillName)) {
+                skillNamesSet.add(lowercaseSkillName);
+                uniqueSkills.push(skill);
+              }
+            }
+            return {
+              ...searchResult,
+              attributes: {
+                ...searchResult.attributes,
+                skills: uniqueSkills,
+              },
+            };
+          });
+          const sortedSearchResults = uniqueSearchResults.sort(compareByDistance);
+          console.log("sortedSearchResults", sortedSearchResults);
+          setSearchResults(sortedSearchResults);
+        }
+      })
         .catch((error) => {
           console.log("error", error);
         });
