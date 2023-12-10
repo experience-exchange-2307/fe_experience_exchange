@@ -3,13 +3,14 @@ import { CurrentUser } from "types";
 import Skill from "Components/Skill/Skill";
 interface ProfileProps {
   currentUser: CurrentUser;
+  setServerError: (error: string) => void;
 }
 
 // use params of dashboard for user id => 
 // on dashboard mount fetch user data (using userid from params)
 // pass user to profile as prop
 
-function Profile({ currentUser }: ProfileProps) {
+function Profile({ currentUser, setServerError }: ProfileProps) {
   return (
     
       <div className='profile-container'>
@@ -31,7 +32,7 @@ function Profile({ currentUser }: ProfileProps) {
             <div className='profile-right'>
               <article className="profile-list">
                 <p className='profile-header profile-skill-container'>Skills</p>
-                <Skill currentUser={currentUser}/>
+                <Skill currentUser={currentUser} setServerError={setServerError}/>
               </article>
             </div>
           </div>
