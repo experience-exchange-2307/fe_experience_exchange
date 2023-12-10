@@ -12,7 +12,7 @@ interface SkillProps {
 
 function SkillForm({ currentUser }: SkillProps): JSX.Element {
   const [userSkills, setUserSkills] = useState<UserSkill[]>([])
-  const [currentUserId, setCurrentUserId] = useState("")
+  // const [currentUserId, setCurrentUserId] = useState("")
   const [currentTag, setCurrentTag] = useState('')
   const [proficiency, setProficiency] = useState(0)
   const [alert, setAlert] = useState("");
@@ -27,7 +27,7 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
       getSingleUser(userId)
       .then((data) => {
         console.log("data", data.data)
-        setCurrentUserId(data.data.id)
+        // setCurrentUserId(data.data.id)
         setUserSkills(data.data.attributes.skills)
       })
     }
@@ -112,7 +112,9 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
             <p className='skill-name' 
               key={`skill-name-${index}`}>
               {skill.name}
+              {currentUser.id === userId  && (
                <button  type="button" className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
+               )}
             </p>
           </div>
           <ProgressBar
