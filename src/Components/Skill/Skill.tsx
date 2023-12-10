@@ -4,31 +4,45 @@ import { getSingleUser, postSkills } from "apiCalls";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { UserSkill } from "types";
 import { useParams } from "react-router-dom";
+import { CurrentUser } from 'types';
 
-function SkillForm() {
-  const [userSkills, setUserSkills] = useState<UserSkill[]>([]);
-  const [currentTag, setCurrentTag] = useState("");
-  const [proficiency, setProficiency] = useState(0);
+interface SkillProps {
+  currentUser: CurrentUser;
+}
+
+function SkillForm({ currentUser }: SkillProps): JSX.Element {
+  const [userSkills, setUserSkills] = useState<UserSkill[]>([])
+  // const [currentUserId, setCurrentUserId] = useState("")
+  const [currentTag, setCurrentTag] = useState('')
+  const [proficiency, setProficiency] = useState(0)
   const [alert, setAlert] = useState("");
-  const { id } = useParams<{ id: string | undefined }>();
-  const userId = id ? parseInt(id, 10) : undefined;
+  const { id } = useParams() // not source of truth for current user. but source of truth for skills we want to display. changes when search occurs
+  const userId = id ? parseInt(id) : undefined
 
+  // get the current user from the top. to get current user ID. 
+  // not the current user ID. need to pass from top of app
   useEffect(() => {
-    if (userId !== undefined && !isNaN(userId)) {
-      getSingleUser(userId).then((data) => {
-        console.log("data", data.data);
-        setUserSkills(data.data.attributes.skills);
-      });
+    if(userId !== undefined && !isNaN(userId)) {
+
+      getSingleUser(userId)
+      .then((data) => {
+        console.log("data", data.data)
+        // setCurrentUserId(data.data.id)
+        setUserSkills(data.data.attributes.skills)
+      })
     }
-    // eslint-disable-next-line
-  }, []);
+        // eslint-disable-next-line
+  }, [])
+
+  // different URL path on different pages.
 
   const handleSkillInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentTag(e.target.value);
   };
 
-  const submitNewSkill = () => {
-    if (currentTag.trim() !== "") {
+  const submitNewSkill = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault()
+    if (currentTag.trim() !== '') {
       // check if skill already exists
       if (
         !userSkills.some(
@@ -41,9 +55,9 @@ function SkillForm() {
           proficiency: Number(proficiency),
         };
 
-        const combinedSkills = [...userSkills, newSkill];
+        const addedSkill = [newSkill]
 
-        postSkills(id, combinedSkills)
+        postSkills(id, addedSkill)
           .then((data) => {
             console.log(
               "skills posted successfully:",
@@ -75,7 +89,8 @@ function SkillForm() {
 
   return (
     <div>
-      <div className='skill-form-wrapper'>
+        {currentUser.id === userId  && (
+      <form>
         <input
           type='text'
           value={currentTag}
@@ -83,41 +98,29 @@ function SkillForm() {
           placeholder='Type skill name'
           className='skill-input'
         />
-        <div>
-          <label htmlFor='proficiency' className='proficiency-label'>
-            Proficiency:
-          </label>
-          <select
-            name='proficiency'
-            id='proficiency'
-            onChange={handleProficiencyInput}
-            className='proficiency-input'
-          >
-            <option value='0'>0</option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-          </select>
-          <p className='alert-message'>{alert}</p>
-          <button onClick={submitNewSkill} className='add-skill-btn'>
-            Add Skill
-          </button>
-        </div>
-      </div>
 
+        <label htmlFor="proficiency" className='proficiency-label'>Proficiency:</label>
+        <select name="proficiency" id="proficiency" onChange={handleProficiencyInput} className='proficiency-input'>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <p className="alert-message">{alert}</p>
+        <button onClick={(e) => submitNewSkill(e)} className='add-skill-btn'>Add Skill</button>
+      </form>
+      )}
+<section className="skills-section">
       {userSkills.map((skill, index) => (
         <div key={index} className="skill-list">
           <div className='skill-list-container'>
             <p className='skill-name' key={`skill-name-${index}`}>
               {skill.name}
-              <button
-                className='tag-removal'
-                onClick={() => handleTagRemove(skill)}
-              >
-                x
-              </button>
+              {currentUser.id === userId  && (
+               <button  type="button" className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
+               )}
             </p>
           </div>
           <ProgressBar
@@ -134,6 +137,7 @@ function SkillForm() {
           />
         </div>
       ))}
+      </section>
     </div>
   );
 }
