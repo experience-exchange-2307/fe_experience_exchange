@@ -8,9 +8,10 @@ import { CurrentUser } from 'types';
 
 interface SkillProps {
   currentUser: CurrentUser;
+  setServerError: (error: string) => void;
 }
 
-function SkillForm({ currentUser }: SkillProps): JSX.Element {
+function SkillForm({ currentUser, setServerError}: SkillProps): JSX.Element {
   const [userSkills, setUserSkills] = useState<UserSkill[]>([])
   // const [currentUserId, setCurrentUserId] = useState("")
   const [currentTag, setCurrentTag] = useState('')
@@ -29,6 +30,10 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
         console.log("data", data.data)
         // setCurrentUserId(data.data.id)
         setUserSkills(data.data.attributes.skills)
+      })
+      .catch(error => {
+        console.log("skill error", error)
+        setServerError(error)
       })
     }
         // eslint-disable-next-line
