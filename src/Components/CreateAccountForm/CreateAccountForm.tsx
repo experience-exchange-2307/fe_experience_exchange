@@ -190,7 +190,6 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
             onClick={handleLoginDemoUser}>       
               Login as a Demo User
             </button>
-
         </div>
       </section>
     </>
