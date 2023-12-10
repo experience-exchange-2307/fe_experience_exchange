@@ -7,29 +7,36 @@ import { useParams } from "react-router-dom";
 
 function SkillForm() {
   const [userSkills, setUserSkills] = useState<UserSkill[]>([])
+  const [currentUserId, setCurrentUserId] = useState("")
   const [currentTag, setCurrentTag] = useState('')
   const [proficiency, setProficiency] = useState(0)
   const [alert, setAlert] = useState("");
-  const { id } = useParams<{id: string | undefined}>()
-  const userId = id ? parseInt(id, 10) : undefined;
+  const { id } = useParams() // not source of truth for current user. but source of truth for skills we want to display. changes when search occurs
+  const userId = id ? parseInt(id) : undefined
 
+  // get the current user from the top. to get current user ID. 
+  // not the current user ID. need to pass from top of app
   useEffect(() => {
     if(userId !== undefined && !isNaN(userId)) {
 
       getSingleUser(userId)
       .then((data) => {
         console.log("data", data.data)
+        setCurrentUserId(data.data.id)
         setUserSkills(data.data.attributes.skills)
       })
     }
         // eslint-disable-next-line
   }, [])
 
+  // different URL path on different pages.
+
   const handleSkillInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentTag(e.target.value)
   };
 
-  const submitNewSkill = () => {
+  const submitNewSkill = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault()
     if (currentTag.trim() !== '') {
       // check if skill already exists
       if (!userSkills.some((skill) => skill.name.toLowerCase() === currentTag.trim().toLowerCase())) {
@@ -39,9 +46,9 @@ function SkillForm() {
           proficiency: Number(proficiency),
         };
 
-        const combinedSkills = [...userSkills, newSkill]
+        const addedSkill = [newSkill]
 
-        postSkills(id, combinedSkills)
+        postSkills(id, addedSkill)
           .then((data) => {
           console.log('skills posted successfully:', data.data.attributes.skills)
           setUserSkills(data.data.attributes.skills)
@@ -70,7 +77,8 @@ function SkillForm() {
 
   return (
     <div>
-      <div>
+        {parseInt(currentUserId) === userId  && (
+      <form>
         <input
           type="text"
           value={currentTag}
@@ -89,16 +97,17 @@ function SkillForm() {
           <option value="5">5</option>
         </select>
         <p className="alert-message">{alert}</p>
-        <button onClick={submitNewSkill} className='add-skill-btn'>Add Skill</button>
-      </div>
-
+        <button onClick={(e) => submitNewSkill(e)} className='add-skill-btn'>Add Skill</button>
+      </form>
+      )}
+<section className="skills-section">
       {userSkills.map((skill, index) => (
         <div key={index}>
           <div className="skill-list-container">
             <p className='skill-name' 
               key={`skill-name-${index}`}>
               {skill.name}
-               <button className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
+               <button  type="button" className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
             </p>
           </div>
           <ProgressBar
@@ -115,6 +124,7 @@ function SkillForm() {
           />
         </div>
       ))}
+      </section>
     </div>
   );
 }
