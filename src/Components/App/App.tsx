@@ -10,37 +10,46 @@ import CreateAccountForm from "Components/CreateAccountForm/CreateAccountForm";
 import SearchPage from "Components/SearchPage/SearchPage";
 import Dashboard from "Components/Dashboard/Dashboard";
 import Loading from "Components/Loading/Loading";
+import { useParams } from "react-router-dom";
 
 function App() {
+
+
   const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(
     undefined
   );
   const [serverError, setServerError] = useState<ServerError | string>("");
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
+  const {id } = useParams()
+  // const userId = id ? parseInt(id) : undefined
+
 
   useEffect(() => {
-    if (!currentUser) {
-      getSingleUser(14).then((data) => {
-        console.log("data", data.data);
-        setCurrentUser(data.data);
-      });
-    } else {
-      getSingleUser(currentUser.id).then((data) => {
-        console.log("data", data.data);
-        setCurrentUser(data.data);
-      });
+    if(id) {
+      console.log("make it here?")
+      getSingleUser(Number(id))
+      .then((data) => {
+        console.log("data from params", data.data)
+      setCurrentUser(data.data)
+      })
+    .catch(error => console.log(error)) 
+    .finally(() => setLoading(false));
     }
-    // eslint-disable-next-line
-  }, []);
+  }, [id]);
+
+
+
+  
 
   const createNewUser = (newUserData: NewUserData) => {
-    console.log("newUserData", newUserData);
     postNewUser(newUserData)
       .then((data) => {
         if (data.error) {
           throw new Error(`${data.error}`);
         } else {
-          console.log("posted user", data);
+          console.log("POSTED user", data.data);
           setCurrentUser(data.data);
         }
       })
@@ -50,28 +59,52 @@ function App() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        console.log("error", error);
         setServerError(error);
       });
   };
+
+  const loginDemoUser = () => {
+
+    getSingleUser(14)
+      .then((data) => {
+        if (data.error) {
+          throw new Error(`${data.error}`);
+        } else {
+          console.log("GET 14", data.data)
+          setCurrentUser(data.data);
+          navigate(`/dashboard/${data.data.id}`);
+        }
+      })
+      .then(() => {
+        console.log("currentUser", currentUser)
+        if (currentUser) {
+    
+        }
+      })
+      .catch((error) => {
+        console.log("error", error);
+        setServerError(error);
+      });
+  };
+
 
   return (
     <>
       <main>
         {currentUser && <Nav currentUser={currentUser} />}
-        {serverError ? (
-          <ErrorPage />
-        ) : (
           <Routes>
             {!currentUser ? (
-              <Route path='/' element={<Loading />} />
-            ) : (
               <Route
                 path='/'
-                element={<CreateAccountForm createNewUser={createNewUser} />}
+                element={
+                  <CreateAccountForm
+                    createNewUser={createNewUser}
+                    loginDemoUser={loginDemoUser}
+                  />
+                }
               />
-            )}
-            {currentUser && (
+            ) : (
               <Route
                 path='/dashboard/:id'
                 element={<Dashboard currentUser={currentUser} />}
@@ -79,14 +112,22 @@ function App() {
             )}
             <Route
               path='/search'
-              element={<SearchPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
+              element={
+                <SearchPage
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
             />
-            <Route path='*' element={<ErrorPage />} />
+            {/* <Route path='*' element={<ErrorPage />} /> */}
           </Routes>
-        )}
+
       </main>
     </>
   );
 }
 
 export default App;
+
+// {!currentUser ? (
+//   <Route path='/' element={<Loading />} />
