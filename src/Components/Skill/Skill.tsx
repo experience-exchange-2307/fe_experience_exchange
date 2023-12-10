@@ -7,11 +7,12 @@ import { useParams } from "react-router-dom";
 
 function SkillForm() {
   const [userSkills, setUserSkills] = useState<UserSkill[]>([])
+  const [currentUserId, setCurrentUserId] = useState("")
   const [currentTag, setCurrentTag] = useState('')
   const [proficiency, setProficiency] = useState(0)
   const [alert, setAlert] = useState("");
-  const { id } = useParams<{id: string | undefined}>()
-  const userId = id ? parseInt(id, 10) : undefined;
+  const { id } = useParams()
+  const userId = id ? parseInt(id) : undefined
 
   useEffect(() => {
     if(userId !== undefined && !isNaN(userId)) {
@@ -19,6 +20,8 @@ function SkillForm() {
       getSingleUser(userId)
       .then((data) => {
         console.log("data", data.data)
+        console.log("data.data.userId", data.data.id)
+        setCurrentUserId(data.data.id)
         setUserSkills(data.data.attributes.skills)
       })
     }
@@ -30,20 +33,16 @@ function SkillForm() {
     setCurrentTag(e.target.value)
   };
 
-  const submitNewSkill = () => {
+  const submitNewSkill = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault()
     if (currentTag.trim() !== '') {
-      // check if skill already exists
       if (!userSkills.some((skill) => skill.name.toLowerCase() === currentTag.trim().toLowerCase())) {
 
         const newSkill: UserSkill = {
           name: currentTag.trim(),
           proficiency: Number(proficiency),
         };
-
-        // const combinedSkills = [...userSkills, newSkill]
-            // console.log("combinedSkills:", combinedSkills)
            const addedSkill = [newSkill]
-           console.log("addedSkill:", addedSkill)
 
         postSkills(id, addedSkill)
           .then((data) => {
@@ -74,14 +73,15 @@ function SkillForm() {
 
   return (
     <div>
-      <div>
+      {parseInt(currentUserId) === userId  && (
+      <form>
         <input
           type="text"
           value={currentTag}
           onChange={handleSkillInput}
           placeholder="Type skill name"
           className="skill-input"
-        />
+          />
 
         <label htmlFor="proficiency" className='proficiency-label'>Proficiency:</label>
         <select name="proficiency" id="proficiency" onChange={handleProficiencyInput} className='proficiency-input'>
@@ -93,16 +93,18 @@ function SkillForm() {
           <option value="5">5</option>
         </select>
         <p className="alert-message">{alert}</p>
-        <button onClick={submitNewSkill} className='add-skill-btn'>Add Skill</button>
-      </div>
-
+        <button onClick={(e) => submitNewSkill(e)} className='add-skill-btn'>Add Skill</button>
+        <></>
+      </form>
+)}
+      <section className="skills-section">
       {userSkills.map((skill, index) => (
         <div key={index}>
           <div className="skill-list-container">
             <p className='skill-name' 
               key={`skill-name-${index}`}>
               {skill.name}
-               <button className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
+               <button type="button" className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
             </p>
           </div>
           <ProgressBar
@@ -119,6 +121,8 @@ function SkillForm() {
           />
         </div>
       ))}
+      </section>
+
     </div>
   );
 }
