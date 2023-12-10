@@ -40,7 +40,7 @@ function Dashboard({ currentUser, setServerError }: CurrentUserProps) {
       })
       .catch((error) => {
         console.error("Error fetching meetings:", error);
-        setServerError(error)
+        return setServerError(error)
       });
 
     setIsCurrentUser(isCurrentUserDashboard);
