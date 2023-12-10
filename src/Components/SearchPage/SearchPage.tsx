@@ -8,9 +8,10 @@ import { CurrentUser, SearchResult, UserSkill } from "types";
 interface SearchPageProps {
   currentUser: CurrentUser;
   setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser>>;
+  setServerError: (error: string) => void;
 }
 
-function SearchPage({ currentUser }: SearchPageProps) {
+function SearchPage({ currentUser, setServerError }: SearchPageProps) {
   const { query } = useParams();
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -73,6 +74,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
           })
           .catch((error) => {
             console.log("error", error);
+            setServerError(error)
           });
       }
     },
