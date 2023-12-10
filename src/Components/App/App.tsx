@@ -100,6 +100,15 @@ function App() {
                 />
               }
             />
+            <Route
+              path="/search/:query"
+              element={
+                <SearchPage
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
+            />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         )}

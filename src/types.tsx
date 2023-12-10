@@ -45,7 +45,7 @@ export interface AttributesQuickView {
   first_name: string;
   is_remote: boolean;
   last_name: string;
-  skills: Skills[];
+  skills: UserSkill[];
 }
 
 export interface SearchResult {

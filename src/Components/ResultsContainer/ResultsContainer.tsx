@@ -1,41 +1,38 @@
-import React, { useEffect, Dispatch, SetStateAction} from "react";
+import React, { useEffect, useState} from "react";
 import "./ResultsContainer.css";
 import SearchResultCard from "Components/SearchResultsCard/SearchResultCard";
-import { SearchResult, CurrentUser } from "types";
+import { SearchResult} from "types";
 
 interface ResultsContainerProps {
   searchResults: SearchResult[] | [];
-  currentUser: CurrentUser | undefined;
-  remoteQuery: string;
-  searchQuery:string;
-  setSearchResults: Dispatch<SetStateAction<SearchResult[]>>;
+  remoteQuery: boolean;
+  searchQuery: string;
 }
-
 
 function ResultsContainer({
   searchResults,
-  currentUser,
   remoteQuery,
   searchQuery,
-  // setSearchResults
-}: ResultsContainerProps) {
+}: ResultsContainerProps) {  const [remoteResults, setRemoteResults] = useState<SearchResult[]>([]);
+
   useEffect(() => {
-    console.log("ResultsContainer rendering with", searchResults);
-  }, [searchResults]);
+    if (remoteQuery) {
+      const filteredResults = searchResults.filter(
+        (result) => result.attributes.is_remote === true
+      );
+      setRemoteResults(filteredResults);
+    } else {
+      setRemoteResults(searchResults);
+    }
+  }, [searchResults, remoteQuery]);
 
   const renderResults = () => {
-    let filteredResults = searchResults;
-
-    if (remoteQuery) {
-      filteredResults = searchResults.filter(result => result.attributes.is_remote === true);
-      console.log('filtered results', filteredResults)
-      // setSearchResults(filteredResults)
-    }
-  
     if (!searchResults || searchResults.length === 0) {
       return <p>Please enter a skill to search for.</p>;
     } else {
-      return filteredResults.map((result, index) => (
+      const resultsToRender = remoteQuery ? remoteResults : searchResults;
+
+      return resultsToRender.map((result, index) => (
         <SearchResultCard
           key={index}
           distance={result.attributes.distance}
@@ -52,15 +49,18 @@ function ResultsContainer({
 
   return (
     <div>
-      {searchResults.length === 0 ? (
+      { searchResults.length === 0 ? (
         <>
-          <h1>No results found</h1>
-          <div className='results-container'>Try a different search</div>
+          <div className="results-container"></div>
+          {/* <Loading />  */}
         </>
       ) : (
         <>
-          <h1 className='search-results-qty'>Showing {searchResults.length} Results for {searchQuery}</h1>
-          <div className='results-container'>{renderResults()}</div>
+          <h1 className="search-results-qty">
+            Showing {remoteQuery ? remoteResults.length : searchResults.length}{" "}
+            Results for {searchQuery}
+          </h1>
+          <div className="results-container">{renderResults()}</div>
         </>
       )}
     </div>
