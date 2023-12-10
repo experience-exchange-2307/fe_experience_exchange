@@ -1,5 +1,19 @@
+{"data":[
 {
-  "data": [{
+  "attributes": {
+    "distance": 1,
+    "first_name": "Ethan",
+    "is_remote": true,
+    "last_name": "Bustamante",
+    "skills": [
+      {"name": "felting", "proficiency": 3},
+      {"name": "piano", "proficiency": 5},
+      {"name": "felting", "proficiency": 5}
+    ]
+  },
+  "id": "14",
+  "type": "searched_user"
+},{
     "attributes": {
       "distance": 1,
       "first_name": "Tyler",
