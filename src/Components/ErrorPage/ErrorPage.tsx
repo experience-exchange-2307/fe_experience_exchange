@@ -1,5 +1,5 @@
 import React from 'react'
-
+// use serverError state 
 function ErrorPage() {
   return (
     <div>

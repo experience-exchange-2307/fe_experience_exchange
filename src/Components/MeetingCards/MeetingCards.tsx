@@ -1,23 +1,15 @@
-import React from "react";
 import dayjs from "dayjs";
 import "./MeetingCards.css";
 import { Meeting } from "types";
-import { deleteMeeting, patchMeetings } from "apiCalls";
 
 interface MeetingCardsProps {
   meetings: Meeting[];
+  onAccept?: (meetingId: number) => void;
+  onReject?: (meetingId: number) => void;
 }
 
-// accept handler => sends meetings patch
-const handleAccept = (meetingId: number) => {
-  patchMeetings(meetingId);
-};
-// deny handler => sends meeting delete
-const handleReject = (meetingId: number) => {
-  deleteMeeting(meetingId);
-};
+const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings, onAccept, onReject }) => {
 
-const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
   function trimLeadingZero(time: string): string {
     if (time.length > 0 && time.charAt(0) === "0") {
       return time.substring(1);
@@ -42,17 +34,16 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
                 <p>
                   {formattedStartTime} - {formattedEndTime}
                 </p>
-                {/* do fetch for partner name? or ask BE if they can add a name to meeting data */}
                 <p>Partner ID: {meeting.attributes.partner_id}</p>
                 <div className='meeting-card-btn-container'>
                   <button
-                    onClick={() => handleAccept(meeting.id)}
+                    onClick={() => onAccept?.(meeting.id)}
                     className='meeting-card-btn'
                   >
                     Accept
                   </button>
                   <button
-                    onClick={() => handleReject(meeting.id)}
+                    onClick={() => onReject?.(meeting.id)}
                     className='meeting-card-btn'
                   >
                     Decline
