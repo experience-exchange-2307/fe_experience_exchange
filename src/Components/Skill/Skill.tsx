@@ -71,6 +71,7 @@ function SkillForm({ currentUser, setServerError}: SkillProps): JSX.Element {
           })
           .catch((error) => {
             console.error("error posting skills:", error);
+            return setServerError(error)
           });
         setAlert("");
         setCurrentTag("");
