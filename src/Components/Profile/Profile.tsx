@@ -2,7 +2,7 @@ import "./Profile.css";
 import { CurrentUser } from "types";
 import Skill from "Components/Skill/Skill";
 interface ProfileProps {
-  currentUser: CurrentUser | undefined;
+  currentUser: CurrentUser;
 }
 
 // use params of dashboard for user id => 
@@ -32,7 +32,7 @@ function Profile({ currentUser }: ProfileProps) {
             <div className='profile-right'>
               <article className="profile-list">
                 <p className='profile-header profile-skill-container'>Skills</p>
-                <Skill />
+                <Skill currentUser={currentUser}/>
               </article>
             </div>
           </div>

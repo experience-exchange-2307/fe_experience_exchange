@@ -4,8 +4,13 @@ import { getSingleUser, postSkills } from "apiCalls";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { UserSkill } from "types";
 import { useParams } from "react-router-dom";
+import { CurrentUser } from 'types';
 
-function SkillForm() {
+interface SkillProps {
+  currentUser: CurrentUser;
+}
+
+function SkillForm({ currentUser }: SkillProps): JSX.Element {
   const [userSkills, setUserSkills] = useState<UserSkill[]>([])
   const [currentUserId, setCurrentUserId] = useState("")
   const [currentTag, setCurrentTag] = useState('')
@@ -77,7 +82,7 @@ function SkillForm() {
 
   return (
     <div>
-        {parseInt(currentUserId) === userId  && (
+        {currentUser.id === userId  && (
       <form>
         <input
           type="text"
