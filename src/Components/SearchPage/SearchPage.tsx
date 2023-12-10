@@ -15,7 +15,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [remoteQuery, setRemoteQuery] = useState<boolean>(false);
-  const [initialLoad, setInitialLoad] = useState(true); // State to track initial load
+  const [initialLoad, setInitialLoad] = useState(true); 
   const navigate = useNavigate();
 
   const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {

@@ -54,7 +54,7 @@ function Nav({ currentUser }: CurrentUserProps) {
 
           <p className='nav-bar-text'>
 
-          Search
+          New Search
           </p>
           </NavLink>
       </nav>
