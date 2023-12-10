@@ -1,8 +1,8 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { CurrentUser, NewUserData, ServerError } from "types";
-import { getSingleUser, postNewUser } from "apiCalls";
+import { postNewUser } from "apiCalls";
 import { Routes, Route } from "react-router-dom";
 import Nav from "Components/Nav/Nav";
 import ErrorPage from "Components/ErrorPage/ErrorPage";
@@ -12,43 +12,54 @@ import Dashboard from "Components/Dashboard/Dashboard";
 import Loading from "Components/Loading/Loading";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState<CurrentUser | undefined>(
-    undefined
-  );
+  const [currentUser, setCurrentUser] = useState<CurrentUser>({
+    id: 14,
+    type: "user",
+    attributes: {
+      first_name: "Ethan",
+      last_name: "Bustamante",
+      email: "Ethan@gmail.com",
+      address: {
+        street: "1234 Street",
+        city: "Denver",
+        state: "CO",
+        zipcode: "12345",
+      },
+      about: "I am a also very good programmer",
+      lat: 1.12,
+      lon: 1.12,
+      is_remote: true,
+      skills: [
+        {
+          name: "felting",
+          proficiency: 3,
+        },
+        {
+          name: "felting",
+          proficiency: 2,
+        },
+        {
+          name: "napping",
+          proficiency: 5,
+        },
+      ],
+    },
+  });
   const [serverError, setServerError] = useState<ServerError | string>("");
   const navigate = useNavigate();
-  let location = useLocation();
-
-  useEffect(() => {
-    if (!currentUser) {
-      getSingleUser(14).then((data) => {
-        console.log("data", data.data);
-        setCurrentUser(data.data);
-      });
-    } else {
-      getSingleUser(currentUser.id).then((data) => {
-        console.log("data", data.data);
-        setCurrentUser(data.data);
-      });
-    }
-
-    // eslint-disable-next-line
-  }, []);
+  const location = useLocation();
 
   const createNewUser = (newUserData: NewUserData) => {
     console.log("newUserData", newUserData);
     postNewUser(newUserData)
       .then((data) => {
-        if (data.error) {
+        if (data && data.error) {
           throw new Error(`${data.error}`);
-        } else {
+        } else if (data) {
           console.log("posted user", data);
           setCurrentUser(data.data);
-        }
-      })
-      .then(() => {
-        if (currentUser) {
-          navigate(`/dashboard/${currentUser.id}`);
+          console.log("currUser", currentUser);
+          navigate(`/dashboard/${data.data.id}`);
         }
       })
       .catch((error) => {
@@ -56,7 +67,7 @@ function App() {
         setServerError(error);
       });
   };
-
+  
   return (
     <>
       <main>
@@ -67,24 +78,29 @@ function App() {
         {!currentUser ? (<Loading/>) : (
           <Routes>
             {!currentUser ? (
-              <Route path='/' element={<Loading />} />
+              <Route path="/" element={<Loading />} />
             ) : (
               <Route
-                path='/'
+                path="/"
                 element={<CreateAccountForm createNewUser={createNewUser} />}
               />
             )}
             {currentUser && (
               <Route
-                path='/dashboard/:id'
+                path="/dashboard/:id"
                 element={<Dashboard currentUser={currentUser} />}
               />
             )}
             <Route
-              path='/search'
-              element={<SearchPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
+              path="/search"
+              element={
+                <SearchPage
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
             />
-            <Route path='*' element={<ErrorPage />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         )}
       </main>
