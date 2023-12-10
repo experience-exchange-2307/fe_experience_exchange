@@ -17,9 +17,10 @@ interface FormData {
 
 interface RequestMeetingFormProps {
   currentUserId: number;
+  setServerError: (error: string) => void;
 }
 
-function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
+function RequestMeetingForm({ currentUserId, setServerError }: RequestMeetingFormProps) {
   const { id } = useParams();
   const [formData, setFormData] = useState<FormData>({
     user_id: currentUserId.toString(),
@@ -83,6 +84,7 @@ function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
         })
         .catch((error) => {
           console.error("Error submitting meeting request:", error);
+          setServerError(error)
         });
     }
   };
