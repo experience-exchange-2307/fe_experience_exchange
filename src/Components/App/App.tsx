@@ -88,7 +88,7 @@ function App() {
             {currentUser && (
               <Route
                 path="/dashboard/:id"
-                element={<Dashboard currentUser={currentUser} />}
+                element={<Dashboard currentUser={currentUser} setServerError={setServerError}/>}
               />
             )}
             <Route
@@ -97,6 +97,7 @@ function App() {
                 <SearchPage
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setServerError={setServerError}
                 />
               }
             />
@@ -106,6 +107,7 @@ function App() {
                 <SearchPage
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  setServerError={setServerError}
                 />
               }
             />
