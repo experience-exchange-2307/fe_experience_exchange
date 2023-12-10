@@ -27,7 +27,7 @@ function MeetingsContainer({ meetings, currentUser }: MeetingsProps) {
 
   useEffect(() => {
     fetchMeetings();
-  }, [isAccepted, currentUser.id]);
+  }, [isAccepted, currentUser.id, fetchMeetings]);
 
   const meetingText = (bool: Boolean) =>
     bool ? "My Meetings" : "My Meeting Requests";
