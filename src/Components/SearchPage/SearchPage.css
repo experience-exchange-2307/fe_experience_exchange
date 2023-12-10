@@ -1,12 +1,12 @@
 .search-page {
   width: 100%;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   padding-top: 1rem;
-  background-color: var(--white);
-  overflow-x:hidden
+  /* background-color: var(#c6b7da); */
+  overflow-x:hidden;
 }
 .search-title {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 2rem;
 }
@@ -39,9 +39,10 @@
 .search-submit-btn {
   height: 3rem;
   width: 3rem;
-  background-color: var(--grayishlavender);
+  background-color: var(--orangered);
   border: none;
-  color: white;
+  color: var(--black);
+  cursor:pointer;
 }
 .search-bar {
   display: flex;
@@ -56,6 +57,7 @@
   width: 97.5%;
   height: 5rem;
   padding: 1rem;
+  border: solid 2px black;
 }
 .checkbox-grid {
   margin-left: 2rem;

@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import './RequestMeetingForm.css'
 
 interface FormData {
   user_id: string;
@@ -90,7 +91,7 @@ function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
   return (
     <>
       <section className="request-meeting-container">
-        <h2>Request A Meeting</h2>
+<h2 className='meetings-title'>Request A Meeting</h2>
         <form className="form">
         <div className="input-group">
             <label>Date</label>

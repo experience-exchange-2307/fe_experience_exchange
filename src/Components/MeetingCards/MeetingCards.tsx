@@ -25,7 +25,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({ meetings }) => {
     return time;
   }
   return (
-    <div>
+    <div  className='meeting-card-wrapper'>
       {meetings.map((meeting) => {
         const formattedDate = dayjs(meeting.attributes.date).format("MMM. D");
         const formattedStartTime = trimLeadingZero(
