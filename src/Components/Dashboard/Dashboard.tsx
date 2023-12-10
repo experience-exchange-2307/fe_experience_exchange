@@ -43,6 +43,9 @@ function Dashboard({ currentUser }: CurrentUserProps) {
   }, [userIdFromUrl, isCurrentUserDashboard, currentUser.id]);
 
   return (
+    <>
+    <div className="dashboard-outermost-wrapper">
+
     <div className="dashboard-wrapper">
       {!isCurrentUser && dashboardData ? (
         <div className="other-user-dash">
@@ -59,7 +62,9 @@ function Dashboard({ currentUser }: CurrentUserProps) {
           <MeetingsContainer meetings={userMeetings} />
         </div>
       )}
+      </div>
     </div>
+    </>
   );
 }
 

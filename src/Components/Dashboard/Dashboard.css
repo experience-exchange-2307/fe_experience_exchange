@@ -1,12 +1,11 @@
 .dashboard-outermost-wrapper {
     display:flex;
     justify-content: center;
-    width: 82vw;
-    background-color: var(--grayishlavender);
+    width: 82dvw;
+    background-color: var(--yellowgreen);
 }
 .dashboard-wrapper{
     width: 65vw;
-    background-color: var(--grayishlavender);
+    background-color: var(--yellowgreen);
     overflow-x: hidden;
-
 }
