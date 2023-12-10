@@ -29,7 +29,7 @@ describe("a user should be able to search by keyword", () => {
     .get('.result-card').first().contains('p', 'Skills:')
     .get('.result-card').first().contains('p', 'Ruby')
     .get('.result-card').first().contains('p', 'Piano')
-    .get('.result-card').first().contains('p', '1 miles away')
+    .get('.result-card').first().contains('p', '1 mi.')
     .get('.result-card').last().contains('p', 'Jen Ziel')
     .get('.result-card').last().contains('p', 'Skills:')
     .get('.result-card').last().contains('p', 'piano')

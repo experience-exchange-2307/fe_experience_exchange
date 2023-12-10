@@ -44,6 +44,7 @@ function ResultsContainer({
           is_remote={result.attributes.is_remote}
           id={result.id}
           skills={result.attributes.skills}
+          searchQuery={searchQuery}
         />
       ));
     }

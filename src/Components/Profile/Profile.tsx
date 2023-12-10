@@ -13,7 +13,6 @@ function Profile({ currentUser }: ProfileProps) {
   return (
     
       <div className='profile-container'>
-        <div className='profile-alignment'>
           <div className='profile-container-lower'>
             <div className='profile-left'>
             <article className="profile-list">
@@ -36,7 +35,6 @@ function Profile({ currentUser }: ProfileProps) {
               </article>
             </div>
           </div>
-        </div>
       </div>
 
   );

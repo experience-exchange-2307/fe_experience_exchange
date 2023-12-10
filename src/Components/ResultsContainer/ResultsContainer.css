@@ -1,9 +1,10 @@
 .results-container {
-    background-color: var(--lightgray);
     border-radius: 10px;
-    height: auto;
-    width: 97.5%;
+    width: 97.5%; 
     margin-top: 1rem;
-    padding: 1rem;
     overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr)); 
+    gap: 1rem;
+    justify-content: center;
 }
