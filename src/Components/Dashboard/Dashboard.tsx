@@ -2,12 +2,15 @@ import MeetingsContainer from "Components/MeetingsContainer/MeetingsContainer";
 import Profile from "Components/Profile/Profile";
 import RequestMeetingForm from "Components/RequestMeetingForm/RequestMeetingForm";
 import { getMeetingsByUser, getSingleUser } from "apiCalls";
+import { createBrowserHistory } from "history"; 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CurrentUser } from "types";
 import ProfileHeader from '../ProfileHeader/ProfileHeader'
 import BackButton from "Components/BackButton/BackButton";
 import './Dashboard.css'
+
+const history = createBrowserHistory();
 
 interface CurrentUserProps {
   currentUser: CurrentUser;
@@ -18,10 +21,13 @@ function Dashboard({ currentUser }: CurrentUserProps) {
   const [userMeetings, setUserMeetings] = useState([]);
   const [isCurrentUser, setIsCurrentUser] = useState<Boolean>(true);
   const [dashboardData, setDashboardData] = useState<CurrentUser>();
+  const [showBackButton, setShowBackButton] = useState<Boolean>(false);
   const userIdFromUrl = Number(id);
   const isCurrentUserDashboard = userIdFromUrl === Number(currentUser.id);
 
   useEffect(() => {
+    setShowBackButton( history.location.pathname.includes("/search"));
+
     if (!isCurrentUserDashboard) {
       getSingleUser(userIdFromUrl)
         .then((data) => {
@@ -50,7 +56,7 @@ function Dashboard({ currentUser }: CurrentUserProps) {
     <div className="dashboard-wrapper">
       {!isCurrentUser && dashboardData ? (
         <div className="other-user-dash">
-          <BackButton />
+                {showBackButton && <BackButton />}
           <ProfileHeader currentUser={dashboardData} />
           <Profile currentUser={dashboardData} />
           <RequestMeetingForm currentUserId={currentUser.id} />
