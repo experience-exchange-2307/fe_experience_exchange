@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 interface CreateAccountFormProps {
   createNewUser: (newUserData: NewUserData) => void;
+  loginDemoUser: () => void
 }
 
 const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
-  createNewUser,
+  createNewUser, loginDemoUser
 }) => {
   const [formData, setFormData] = useState<NewUserData>({
     first_name: "",
@@ -52,6 +53,10 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
       // navigate("/dashboard")
     }
   };
+
+  const handleLoginDemoUser = () => {
+    loginDemoUser()
+  }
 
   return (
     <>
@@ -180,11 +185,12 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
         </form>
         <div className='solid'></div>
         <div className='demo-container'>
-          <Link to='/dashboard/14'>
-            <button className='create-account-btn' type='button'>
+            <button className='create-account-btn'    
+            type="button"
+            onClick={handleLoginDemoUser}>       
               Login as a Demo User
             </button>
-          </Link>
+
         </div>
       </section>
     </>
