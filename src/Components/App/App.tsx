@@ -39,10 +39,6 @@ function App() {
     }
   }, [id]);
 
-
-
-  
-
   const createNewUser = (newUserData: NewUserData) => {
     postNewUser(newUserData)
       .then((data) => {
