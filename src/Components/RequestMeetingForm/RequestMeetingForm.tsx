@@ -84,7 +84,7 @@ function RequestMeetingForm({ currentUserId, setServerError }: RequestMeetingFor
         })
         .catch((error) => {
           console.error("Error submitting meeting request:", error);
-          setServerError(error)
+          return setServerError(error)
         });
     }
   };

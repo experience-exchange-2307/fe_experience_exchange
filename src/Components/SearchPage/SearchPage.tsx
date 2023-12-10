@@ -74,7 +74,7 @@ function SearchPage({ currentUser, setServerError }: SearchPageProps) {
           })
           .catch((error) => {
             console.log("error", error);
-            setServerError(error)
+            return setServerError(error)
           });
       }
     },

@@ -30,7 +30,7 @@ function Dashboard({ currentUser, setServerError }: CurrentUserProps) {
         })
         .catch((error) => {
           console.error("Error fetching user data:", error);
-          setServerError(error)
+          return setServerError(error)
         });
     }
 
