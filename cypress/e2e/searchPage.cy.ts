@@ -26,7 +26,7 @@ describe("a user should be able to search by keyword", () => {
     ).as("GetMyMeetings");
     cy.intercept(
       "GET",
-      "https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com/api/v1/search_skills?query=piano&user_id=14",
+      "https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com/api/v1/search_skills?query=piano&user_id=*",
       {
         status: 200,
         fixture: "searchResults",
