@@ -24,7 +24,8 @@ function Nav({ currentUser }: CurrentUserProps) {
       <h1 className='logo-text-h1'>Exchange</h1>
       </div>
       </div>
-      <nav className='nav-links-container'>    <NavLink
+      <nav className='nav-links-container'>   
+       <NavLink
           to={`/`}
           className='nav-bar-link'
           style={linkStyle}
