@@ -10,8 +10,10 @@ This application...
 ### Preview
 
 ### Contributors
+- [Jen Ziel](https://www.linkedin.com/in/jen-ziel-a02820278)
+- [Marisa Wyatt](https://www.linkedin.com/in/marisarwyatt/)
+- [Devin Altobello](https://www.linkedin.com/in/devin-altobello-2100036b/)
 
-- 
 
 
 ### Tech Stack
