@@ -97,7 +97,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
         <form className="form">
           <div className="name-container">
             <div className="input-group">
-              <label>First Name</label>
+              <label className="first-name-label">First Name</label>
               <input
                 className="create-account-input"
                 type="text"
@@ -109,7 +109,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
             </div>
 
             <div className="input-group">
-              <label>Last Name</label>
+             <label className="last-name-label">Last Name</label>
               <input
                 className="create-account-input"
                 type="text"
@@ -122,7 +122,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
           </div>
 
           <div className="input-group">
-            <label>Email</label>
+              <label className="email-label">Email</label>
             <input
               className="create-account-input"
               type="email"
@@ -135,7 +135,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
 
           <div className="address-container">
             <div className="input-group">
-              <label>Street</label>
+              <label className="street-label">Street</label>
               <input
                 className="create-account-input"
                 type="text"
@@ -147,7 +147,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
             </div>
 
             <div className="input-group">
-              <label>City</label>
+              <label className="city-label">City</label>
               <input
                 className="create-account-input"
                 type="text"
@@ -159,7 +159,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
             </div>
 
             <div className="input-group">
-              <label>State</label>
+              <label className="state-label">State</label>
               <input
                 className="create-account-input"
                 type="text"
@@ -171,7 +171,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
             </div>
 
             <div className="input-group">
-              <label>Zip Code</label>
+              <label className="zip-code-label">Zip Code</label>
               <input
                 className="create-account-input"
                 type="text"
@@ -184,7 +184,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
           </div>
 
           <div className="input-group">
-            <label htmlFor="about">Tell us about yourself</label>
+            <label className="about-label" htmlFor="about">Tell us about yourself</label>
             <textarea
               name="about"
               value={formData.about}
@@ -193,7 +193,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
           </div>
 
           <div className="input-group">
-            <label>
+            <label className="remote-label">
               Remote
               <input
                 type="checkbox"
@@ -219,7 +219,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
         <div className="solid"></div>
         <div className="demo-container">
           <Link to="/dashboard/14">
-            <button className="create-account-btn" type="button" onClick={() => setCurrentUser(demoUser)}>
+            <button className="demo-user-btn" type="button" onClick={() => setCurrentUser(demoUser)}>
               Login as a Demo User
             </button>
           </Link>
