@@ -1,0 +1,29 @@
+{
+  "data": {
+    "attributes": {
+      "about": "Hey there! I'm Jackson, and life's a garden – dig it! 🌱 When I'm not tending to my plants, you can find me crafting something beautiful with wood or tickling the ivories on the piano. 🪚🎶",
+      "address": {
+        "street": "402 Clinton St.",
+        "city": "Brooklyn",
+        "state": "New York",
+        "zipcode": "11217"
+      },
+      "email": "jwilliams@gmail.com",
+      "first_name": "Jackson",
+      "is_remote": true,
+      "last_name": "Williams",
+      "lat": 40.6782,
+      "lon": 73.9442,
+      "skills": [
+        { "name": "Woodworking", "proficiency": 5 },
+        { "name": "Gardening", "proficiency": 4 },
+        { "name": "Bird watching", "proficiency": 2 },
+        { "name": "Piano", "proficiency": 3 },
+        { "name": "Origami", "proficiency": 1 },
+        { "name": "Poetry", "proficiency": 3 }
+      ]
+    }
+  },
+  "id": "55231",
+  "type": "user"
+}
