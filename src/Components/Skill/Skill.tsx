@@ -91,7 +91,7 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
 console.log("skills cur user",currentUser.id);
   return (
     <div>
-        {currentUser.id === userId  && (
+        {currentUser.id !== userId  && (
       <form>
         <input
           type='text'
@@ -120,7 +120,7 @@ console.log("skills cur user",currentUser.id);
           <div className='skill-list-container'>
             <p className='skill-name' key={`skill-name-${index}`}>
               {skill.name}
-              {currentUser.id === userId  && (
+              {currentUser.id !== userId  && (
                <button  type="button" className="tag-removal" onClick={() => handleTagRemove(skill)}>x</button>
                )}
             </p>
