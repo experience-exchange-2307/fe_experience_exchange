@@ -14,7 +14,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [remoteQuery, setRemoteQuery] = useState<boolean>(false);
-  const [initialLoad, setInitialLoad] = useState(true); 
+  const [initialLoad, setInitialLoad] = useState(true);
   const navigate = useNavigate();
 
   const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {
@@ -43,8 +43,12 @@ function SearchPage({ currentUser }: SearchPageProps) {
           .then((data) => {
             if (data.data) {
               console.log(data.data, "data.data");
-              const uniqueSearchResults = data.data.map(
-                (searchResult: SearchResult) => {
+              const filteredResults = data.data
+              .filter((result: SearchResult) => {
+                
+                const resultNumberId = parseInt(result.id, 10); 
+                return resultNumberId  !== currentUser.id})
+                .map((searchResult: SearchResult) => {
                   const uniqueSkills: UserSkill[] = [];
                   const skillNamesSet = new Set<string>();
                   for (const skill of searchResult.attributes.skills) {
@@ -63,9 +67,8 @@ function SearchPage({ currentUser }: SearchPageProps) {
                   };
                 }
               );
-              const sortedSearchResults = uniqueSearchResults.sort(
-                compareByDistance
-              );
+              const sortedSearchResults =
+                filteredResults.sort(compareByDistance);
               setSearchResults(sortedSearchResults);
               navigate(`/search/${queryValue}`);
             }
@@ -90,24 +93,24 @@ function SearchPage({ currentUser }: SearchPageProps) {
   }, [initialLoad, query, submitQuery]);
 
   return (
-    <div className="search-page">
-      <p className="search-title">Find people near you</p>
-      <div className="search-menu">
+    <div className='search-page'>
+      <p className='search-title'>Find people near you</p>
+      <div className='search-menu'>
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
-        <div className="search-bar">
+        <div className='search-bar'>
           <input
-            name="search"
-            className="search-input"
-            type="text"
-            placeholder="Search.."
+            name='search'
+            className='search-input'
+            type='text'
+            placeholder='Search..'
             value={searchQuery}
             onChange={updateQuery}
           />
           <button
-            className="search-submit-btn"
+            className='search-submit-btn'
             onClick={() => submitQuery(searchQuery)}
           >
-            <div className="search-btn-symbol">⚲</div>
+            <div className='search-btn-symbol'>⚲</div>
           </button>
         </div>
       </div>
