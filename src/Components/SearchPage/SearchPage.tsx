@@ -6,8 +6,7 @@ import ResultsContainer from "Components/ResultsContainer/ResultsContainer";
 import { CurrentUser, SearchResult, UserSkill } from "types";
 
 interface SearchPageProps {
-  currentUser: CurrentUser;
-  setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser>>;
+  currentUser: CurrentUser | null;
 }
 
 function SearchPage({ currentUser }: SearchPageProps) {
