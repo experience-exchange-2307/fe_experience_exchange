@@ -8,9 +8,10 @@ import { CurrentUser } from "types";
 
 interface SkillProps {
   currentUser: CurrentUser;
+  currentUserId: number;
 }
 
-function SkillForm({ currentUser }: SkillProps): JSX.Element {
+function SkillForm({ currentUser, currentUserId }: SkillProps): JSX.Element {
   const [userSkills, setUserSkills] = useState<UserSkill[]>([]);
   const [currentTag, setCurrentTag] = useState("");
   const [proficiency, setProficiency] = useState(0);
@@ -84,9 +85,10 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
     setUserSkills(updatedSkills);
   };
   console.log("skills cur user", currentUser.id);
+  console.log("skills param user", id);
   return (
     <div>
-      {currentUser.id === userId && (
+      {Number(currentUserId) === userId && (
         <form>
           <input
             type="text"
@@ -124,7 +126,7 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
             <div className="skill-list-container">
               <p className="skill-name" key={`skill-name-${index}`}>
                 <span className="skill-text">{skill.name}</span>
-                {currentUser.id === userId && (
+                {Number(currentUserId) === userId && (
                   <button
                     type="button"
                     className="tag-removal"

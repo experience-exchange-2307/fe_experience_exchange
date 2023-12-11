@@ -3,9 +3,10 @@ import { CurrentUser } from "types";
 import Skill from "Components/Skill/Skill";
 interface ProfileProps {
   currentUser: CurrentUser;
+  currentUserId: number;
 }
 
-function Profile({ currentUser }: ProfileProps) {
+function Profile({ currentUser, currentUserId }: ProfileProps) {
   console.log('currentUser', currentUser);
   return (
     <div className="profile-container">
@@ -30,7 +31,7 @@ function Profile({ currentUser }: ProfileProps) {
         <div className="profile-right">
           <article className="profile-list">
             <p className="profile-header profile-skill-container">Skills</p>
-            <Skill currentUser={currentUser} />
+            <Skill currentUser={currentUser} currentUserId={currentUserId} />
           </article>
         </div>
       </div>

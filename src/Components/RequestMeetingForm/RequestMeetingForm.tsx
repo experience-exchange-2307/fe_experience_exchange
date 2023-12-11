@@ -30,7 +30,7 @@ function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
     purpose: "",
     is_remote: true,
   });
-
+  
   const handleDateChange = (date: Date | null) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
