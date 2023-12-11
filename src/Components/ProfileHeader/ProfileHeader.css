@@ -7,6 +7,7 @@
     padding-right: 1.5rem;
     background-color: var(--yellowgreen);
     margin-top: 1rem;
+    width: 100%;
     /* border-radius: 10px; */
   }
   .profile-icon-container {
@@ -19,7 +20,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
   }
   
   .profile-icon {
@@ -35,4 +35,21 @@
     font-family: "circe-rounded", sans-serif;
     font-weight: 700;
     font-style: normal;
+  }
+  @media (max-width: 500px) {
+    .profile-icon-container {
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 3px solid var(--grayishlavender);
+      background-color: var(--white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-container-upper{
+      padding-left: 1rem;
+      padding-right: .1rem;
+    }
   }

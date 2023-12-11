@@ -56,10 +56,10 @@ function ResultsContainer({
         </>
       ) : (
         <>
-          <h1 className="search-results-qty">
+          <h2 className="search-results-qty">
             Showing {remoteQuery ? remoteResults.length : searchResults.length}{" "}
             Results for {searchQuery}
-          </h1>
+          </h2>
           <div className="results-container">{renderResults()}</div>
         </>
       )}

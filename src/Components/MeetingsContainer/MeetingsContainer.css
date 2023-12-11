@@ -19,3 +19,27 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
+  @media (max-width: 500px) {
+    .meetings-title {
+      margin-left: 0rem;
+  }
+    .meetings-container-top{
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .meetings-container{
+    border: solid 2px black;
+    background-color: var(--lightgray);
+    width: 90%;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 8rem;
+}
+.meeting-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  padding-top:1rem;
+}
+  }

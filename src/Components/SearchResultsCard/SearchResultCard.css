@@ -46,3 +46,11 @@
     display: flex;
     align-items: baseline;
 }
+@media (max-width: 500px) {
+    .result-card {
+        height: 14vh;
+        width: 90dvw;
+          overflow: hidden;
+          margin-top: .75rem;
+      }
+}  
