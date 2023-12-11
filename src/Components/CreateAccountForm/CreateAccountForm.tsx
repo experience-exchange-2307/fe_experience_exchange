@@ -207,7 +207,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
 
           <div className="create-account-container">
             <button
-              className="create-account-btn"
+              className="create-account-btn post-user-btn"
               type="button"
               disabled={!isFormComplete()}
               onClick={handleSubmit}
@@ -219,7 +219,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
         <div className="solid"></div>
         <div className="demo-container">
           <Link to="/dashboard/14">
-            <button className="create-account-btn" type="button" onClick={() => setCurrentUser(demoUser)}>
+            <button className="create-account-btn demo-user-btn" type="button" onClick={() => setCurrentUser(demoUser)}>
               Login as a Demo User
             </button>
           </Link>
