@@ -17,24 +17,22 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
   const [proficiency, setProficiency] = useState(0)
   const [alert, setAlert] = useState("");
   const { id } = useParams() // not source of truth for current user. but source of truth for skills we want to display. changes when search occurs
-  const userId = Number(id);
+  const userId = id ? parseInt(id) : undefined
 
   // get the current user from the top. to get current user ID. 
   // not the current user ID. need to pass from top of app
   useEffect(() => {
-    const fetchUserSkills = async () => {
-      try {
-        if (userId !== undefined && !isNaN(userId)) {
-          const data = await getSingleUser(userId);
-          console.log(data)
-          setUserSkills(data.data.attributes.skills);
-        }
-      } catch (error) {
-        console.error("Error fetching user skills:", error);
-        // Handle error as needed
-      }}
-      fetchUserSkills();
-    }, [userId]);
+    if(userId !== undefined && !isNaN(userId)) {
+
+      getSingleUser(userId)
+      .then((data) => {
+        console.log("data", data.data)
+        // setCurrentUserId(data.data.id)
+        setUserSkills(data.data.attributes.skills)
+      })
+    }
+        // eslint-disable-next-line
+  }, [])
 
   // different URL path on different pages.
 
@@ -88,7 +86,7 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
     const updatedSkills = userSkills.filter((skill) => skill !== skillToRemove);
     setUserSkills(updatedSkills);
   };
-console.log("skills cur user",currentUser.id);
+
   return (
     <div>
         {currentUser.id === userId  && (

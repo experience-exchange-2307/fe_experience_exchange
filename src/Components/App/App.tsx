@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { CurrentUser, NewUserData } from "types";
+import { CurrentUser, NewUserData, ServerError } from "types";
 import { postNewUser } from "apiCalls";
 import { Routes, Route } from "react-router-dom";
 import Nav from "Components/Nav/Nav";
@@ -12,11 +12,40 @@ import Dashboard from "Components/Dashboard/Dashboard";
 import Loading from "Components/Loading/Loading";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
-  const [serverError, setServerError] = useState<{
-    status: number;
-    message: string;
-  } | null>(null);
+  const [currentUser, setCurrentUser] = useState<CurrentUser>({
+    id: 14,
+    type: "user",
+    attributes: {
+      first_name: "Ethan",
+      last_name: "Bustamante",
+      email: "Ethan@gmail.com",
+      address: {
+        street: "1234 Street",
+        city: "Denver",
+        state: "CO",
+        zipcode: "12345",
+      },
+      about: "I am a also very good programmer",
+      lat: 1.12,
+      lon: 1.12,
+      is_remote: true,
+      skills: [
+        {
+          name: "felting",
+          proficiency: 3,
+        },
+        {
+          name: "felting",
+          proficiency: 2,
+        },
+        {
+          name: "napping",
+          proficiency: 5,
+        },
+      ],
+    },
+  });
+  const [serverError, setServerError] = useState<ServerError | string>("");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,56 +58,58 @@ function App() {
         } else if (data) {
           console.log("posted user", data);
           setCurrentUser(data.data);
+          console.log("currUser", currentUser);
           navigate(`/dashboard/${data.data.id}`);
         }
       })
       .catch((error) => {
         console.log(error);
-        setServerError(error as { status: number; message: string } | null);
+        setServerError(error);
       });
   };
-  console.log('serverError', serverError)
+  
   return (
     <>
       <main>
-        {location.pathname !== "/" && <Nav currentUser={currentUser} />}
-        {(serverError && !currentUser) &&  <ErrorPage serverError={serverError} />}
-        {!currentUser && location.pathname === "/loading" ? (
-          <Loading />
-        ) : (
+        {location.pathname !== "/" &&  <Nav currentUser={currentUser} />}
+        {serverError && (
+          <ErrorPage />
+        )}
+        {!currentUser ? (<Loading/>) : (
           <Routes>
-            {!currentUser && (
+            {!currentUser ? (
+              <Route path="/" element={<Loading />} />
+            ) : (
               <Route
                 path="/"
-                element={
-                  <CreateAccountForm
-                    createNewUser={createNewUser}
-                    setCurrentUser={setCurrentUser}
-                  />
-                }
+                element={<CreateAccountForm createNewUser={createNewUser} />}
               />
             )}
             {currentUser && (
               <Route
                 path="/dashboard/:id"
-                element={
-                  <Dashboard
-                    currentUser={currentUser}
-                    errorFromServer={serverError}
-                    setServerError={setServerError}
-                  />
-                }
+                element={<Dashboard currentUser={currentUser} />}
               />
             )}
             <Route
               path="/search"
-              element={<SearchPage currentUser={currentUser} />}
+              element={
+                <SearchPage
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
             />
             <Route
               path="/search/:query"
-              element={<SearchPage currentUser={currentUser} />}
+              element={
+                <SearchPage
+                  currentUser={currentUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
             />
-            <Route path="*" element={<ErrorPage serverError={serverError} />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         )}
       </main>

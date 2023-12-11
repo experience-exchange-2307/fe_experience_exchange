@@ -6,14 +6,13 @@ export const getSingleUser = (currentUserID: number) => {
   return fetch(`${BaseURLProd}/api/v1/users/${currentUserID}`)
     .then((res) => {
       if (res.ok) {
-        return res.json();
+        return res;
       } else {
-        console.log('resjson', res)
-        return Promise.reject({ status: res.status, message: 'Something went wrong, user not found.' });
+        throw new Error(`${res.status} Something went wrong, user not found.`);
       }
-    });
+    })
+    .then((res) => res.json());
 };
-
 
 export const getSearchResults = (query: string, currentUserID:number) => {
   console.log(`${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`)

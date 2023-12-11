@@ -32,7 +32,6 @@ interface Attributes {
   lon: number;
   is_remote: boolean;
   skills: Skills[];
-  profile_picture: string | null;
 }
 
 export interface CurrentUser{
@@ -67,9 +66,9 @@ export interface NewUserData {
   about: string,
 }
 
-// export interface ServerError {
-//   statusCode: number;
-// }
+export interface ServerError {
+  statusCode: number;
+}
 
 
 
