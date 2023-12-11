@@ -25,15 +25,6 @@ describe("Page Load", () => {
       }
     )
       .as("GetMyMeetings")
-      // cy.intercept(
-      //   "GET",
-      //   "https://be-experience-exchange-b6ae91ef3c0f.herokuapp.com/api/v1/search_skills?query=piano&user_id=14",
-      //   {
-      //     status: 200,
-      //     fixture: "searchResults",
-      //   }
-      // )
-      // .as("searchPiano")
       .visit("http://localhost:3000/");
   });
   it("should navigate to the home page, and see a form and button to create a profile, and a button to use the App as a demo user", () => {
@@ -95,6 +86,7 @@ describe("Page Load", () => {
     cy.get('.profile-location-text').should('have.text', 'Denver, CO');
     cy.get('.profile-email').should('have.text', 'Email');
     cy.get('.profile-email-text').should('have.text', 'Ethan@gmail.com');
+    // skills component
     cy.get('.skills-section .skill-list').should('have.length', 3);
     cy.get('.tag-removal').should('have.length', 3);
     cy.get('.skill-input').should('have.attr', 'type', 'text');
@@ -116,5 +108,12 @@ describe("Page Load", () => {
         .invoke('trim')
         .should('eq', skill.name.trim());
     });
+    // Meetings component
+    cy.get(".meetings-container").should("exist");
+    cy.get(".meetings-title").should("have.text", "My Meetings");
+    cy.get(".meeting-card").should("have.length", 2);
+    cy.get(".meetings-toggle").click();
+    cy.get(".meetings-title").should("have.text", "My Meeting Requests");
+    cy.get(".meeting-card-request").should("have.length", 2); 
   });
 });
