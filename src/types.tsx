@@ -32,6 +32,7 @@ interface Attributes {
   lon: number;
   is_remote: boolean;
   skills: Skills[];
+  profile_picture: string | null;
 }
 
 export interface CurrentUser{

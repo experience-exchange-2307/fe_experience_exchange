@@ -155,3 +155,10 @@ function SkillForm({ currentUser }: SkillProps): JSX.Element {
 }
 
 export default SkillForm;
+
+
+
+
+
+
+

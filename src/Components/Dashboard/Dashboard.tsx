@@ -9,6 +9,7 @@ import ErrorPage from "Components/ErrorPage/ErrorPage";
 import MeetingsContainer from "Components/MeetingsContainer/MeetingsContainer";
 import Profile from "Components/Profile/Profile";
 import RequestMeetingForm from "Components/RequestMeetingForm/RequestMeetingForm";
+import './Dashboard.css';
 
 const history = createBrowserHistory();
 

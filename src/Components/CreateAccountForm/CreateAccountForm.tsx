@@ -57,6 +57,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
           proficiency: 5,
         },
       ],
+      profile_picture: null
     },
   }
 
