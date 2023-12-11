@@ -1,15 +1,16 @@
 import "./CreateAccountForm.css";
 import React from "react";
 import { useState } from "react";
-import { NewUserData } from "types";
+import { CurrentUser, NewUserData } from "types";
 import { Link, useNavigate } from "react-router-dom";
 
 interface CreateAccountFormProps {
   createNewUser: (newUserData: NewUserData) => void;
+  setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser | null>>;
 }
 
 const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
-  createNewUser,
+  createNewUser, setCurrentUser
 }) => {
   const [formData, setFormData] = useState<NewUserData>({
     first_name: "",
@@ -24,6 +25,40 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   });
 
   const navigate = useNavigate();
+
+  const demoUser = {
+    id: 14,
+    type: "user",
+    attributes: {
+      first_name: "Ethan",
+      last_name: "Bustamante",
+      email: "Ethan@gmail.com",
+      address: {
+        street: "1234 Street",
+        city: "Denver",
+        state: "CO",
+        zipcode: "12345",
+      },
+      about: "I am a also very good programmer",
+      lat: 1.12,
+      lon: 1.12,
+      is_remote: true,
+      skills: [
+        {
+          name: "felting",
+          proficiency: 3,
+        },
+        {
+          name: "felting",
+          proficiency: 2,
+        },
+        {
+          name: "napping",
+          proficiency: 5,
+        },
+      ],
+    },
+  }
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -183,7 +218,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
         <div className="solid"></div>
         <div className="demo-container">
           <Link to="/dashboard/14">
-            <button className="create-account-btn" type="button">
+            <button className="create-account-btn" type="button" onClick={() => setCurrentUser(demoUser)}>
               Login as a Demo User
             </button>
           </Link>

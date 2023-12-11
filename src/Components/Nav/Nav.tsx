@@ -3,7 +3,7 @@ import "./Nav.css";
 import { NavLink } from "react-router-dom";
 import logo from '../../images/logo1.png'
 interface CurrentUserProps {
-  currentUser: CurrentUser;
+  currentUser: CurrentUser | null;
 }
 
 function Nav({ currentUser }: CurrentUserProps) {
