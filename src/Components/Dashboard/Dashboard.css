@@ -1,6 +1,8 @@
 .dashboard-outermost-wrapper {
     display:flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width: 82dvw;
     background-color: var(--yellowgreen);
 }
@@ -8,4 +10,41 @@
     width: 65vw;
     background-color: var(--yellowgreen);
     overflow-x: hidden;
+}
+
+@media (max-width: 500px) {
+    .dashboard-outermost-wrapper {
+        width: 100dvw;
+        height:auto;
+    }
+    .dashboard-wrapper{
+        width: 100dvw;
+        overflow-x: hidden;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        min-height:100dvh;
+    }
+    .other-user-dash,
+    .current-user-dash{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        height:auto;
+    }
+  }
+  @media (max-width: 500px) {
+    .dashboard-outermost-wrapper {
+        width: 100dvw; 
+        height: auto;
+    }
+
+    .dashboard-wrapper {
+        width: 100dvw;
+        overflow-x: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 100dvh;
+    }
 }

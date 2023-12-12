@@ -1,7 +1,7 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./ResultsContainer.css";
 import SearchResultCard from "Components/SearchResultsCard/SearchResultCard";
-import { SearchResult} from "types";
+import { SearchResult } from "types";
 
 interface ResultsContainerProps {
   searchResults: SearchResult[] | [];
@@ -13,7 +13,8 @@ function ResultsContainer({
   searchResults,
   remoteQuery,
   searchQuery,
-}: ResultsContainerProps) {  const [remoteResults, setRemoteResults] = useState<SearchResult[]>([]);
+}: ResultsContainerProps) {
+  const [remoteResults, setRemoteResults] = useState<SearchResult[]>([]);
 
   useEffect(() => {
     if (remoteQuery) {
@@ -49,18 +50,18 @@ function ResultsContainer({
 
   return (
     <div>
-      { searchResults.length === 0 ? (
+      {searchResults.length === 0 ? (
         <>
-          <div className="results-container"></div>
+          <div className='results-container'></div>
           {/* <Loading />  */}
         </>
       ) : (
         <>
-          <h1 className="search-results-qty">
+          <h2 className='search-results-qty'>
             Showing {remoteQuery ? remoteResults.length : searchResults.length}{" "}
             Results for {searchQuery}
-          </h1>
-          <div className="results-container">{renderResults()}</div>
+          </h2>
+          <div className='results-container'>{renderResults()}</div>
         </>
       )}
     </div>
