@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Experience Exchange
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+### Abstract
+This application aims to bring people together over shared hobbies, skills, and experiences, serving as a solution to combat social isolation and foster genuine connections amd bridging generational divides.
 
-### `npm start`
+### Key Features:
+- **Profile Creation:** Users can create cutomized detailed profile.
+- **Skill Management:** Users can add and remove skills directly from their dashboard profiles, showcasing their evolving expertise.
+- **Skill-Based Search:** A comprehensive search feature enables users to find like-minded peers based on skills.
+- **Availability Filter:** Users can filter search results by remote availability and view results by proximity.
+- **Meeting Requests:** Once a potential match is found, users can submit meeting requests, providing an avenue for meaningful connections.
+- **Approval/Decline:** Meeting requests can be approved, adding the meeting to both users' schedules, or declined, removing the request.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Preview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Contributors
+- [Jen Ziel](https://www.linkedin.com/in/jen-ziel-a02820278)
+- [Marisa Wyatt](https://www.linkedin.com/in/marisarwyatt/)
+- [Devin Altobello](https://www.linkedin.com/in/devin-altobello-2100036b/)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![typescript](https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square)
 
-### `npm run eject`
+</br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Achievements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Leveraging TypeScript:** Successfully employed TypeScript to enhance the codebase's maintainability, readability, and overall robustness, contributing to a more reliable software solution.
+- **Collaborative Backend Integration:** Worked seamlessly with the backend team to tailor a JSON contract that effectively met the requirements of both parties, ensuring a unified and standardized communication protocol.
+- **Dynamic Component Rendering:** Implemented dynamic rendering strategies within components, fostering reusability across multiple views and enhancing the scalability of the application architecture.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Challenges
 
-## Learn More
+- **Asynchronous TypeScript/JavaScript Handling:** Overcame complexities associated with asynchronous TypeScript/JavaScript, particularly in scenarios where data was undefined, by implementing robust error handling mechanisms to ensure application stability.
+- **Asynchronous Component Coordination:** Addressed challenges associated with asynchronous development of components that needed to function cohesively and communicate seamlessly with one another, fostering a synchronized and efficient development process.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Setup
+1. Clone down this repository:
+  ```
+https://github.com/.....
+  ```
+2. `cd` into `experience-exchange` directory and run:
+  ```
+  npm install
+  npm start
+  ```
+3. Enter the following url in your browser: http://localhost:3000/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

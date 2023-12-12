@@ -207,7 +207,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
 
           <div className="create-account-container">
             <button
-              className="create-account-btn"
+              className="create-account-btn post-user-btn"
               type="button"
               disabled={!isFormComplete()}
               onClick={handleSubmit}

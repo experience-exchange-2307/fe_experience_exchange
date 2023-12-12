@@ -59,6 +59,7 @@ function App() {
               />
             )}
             {currentUser && (
+              
               <Route
                 path="/dashboard/:id"
                 element={
@@ -70,6 +71,15 @@ function App() {
                 }
               />
             )}
+            <Route
+                path="/"
+                element={
+                  <CreateAccountForm
+                    createNewUser={createNewUser}
+                    setCurrentUser={setCurrentUser}
+                  />
+                }
+              />
             <Route
               path="/search"
               element={<SearchPage currentUser={currentUser} />}
