@@ -1,38 +1,50 @@
 .dashboard-outermost-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 82vw; /* Corrected typo from 82dvw to 82vw */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 82dvw;
     background-color: var(--yellowgreen);
 }
-
-.dashboard-wrapper {
+.dashboard-wrapper{
     width: 65vw;
     background-color: var(--yellowgreen);
     overflow-x: hidden;
 }
 
-.current-user-dash,
-.other-user-dash {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%; /* Set height to 100% */
-    max-height: 100vh; /* Set a maximum height for the container */
-    overflow-y: auto; /* Allow vertical scrolling if content exceeds the maximum height */
-}
-
 @media (max-width: 500px) {
     .dashboard-outermost-wrapper {
-        width: 100vw; /* Corrected typo from 100dvw to 100vw */
+        width: 100dvw;
+        height:auto;
+    }
+    .dashboard-wrapper{
+        width: 100dvw;
+        overflow-x: hidden;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        min-height:100dvh;
+    }
+    .other-user-dash,
+    .current-user-dash{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        height:auto;
+    }
+  }
+  @media (max-width: 500px) {
+    .dashboard-outermost-wrapper {
+        width: 100dvw; 
         height: auto;
     }
 
     .dashboard-wrapper {
-        width: 100vw;
+        width: 100dvw;
         overflow-x: hidden;
         height: 100%;
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: 100dvh;
     }
 }
