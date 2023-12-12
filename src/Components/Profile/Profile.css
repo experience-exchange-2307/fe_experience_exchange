@@ -65,3 +65,28 @@
 .profile-list{
   margin-bottom: 1.5rem;
 }
+@media (max-width: 500px) {
+  .profile-container-lower{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    height:auto;
+    border-radius: 10px;
+    display:flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  .profile-left{
+    width: 90%;
+    margin-right: 0rem;
+   }
+   .profile-right{
+     border:solid 2px var(--black);
+     width: 90%;
+     overflow-y: scroll;
+     min-height: 80dvh;
+     &::-webkit-scrollbar {
+       width: 20px; 
+     }
+   }
+}

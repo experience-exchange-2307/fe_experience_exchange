@@ -8,3 +8,15 @@
     gap: 1rem;
     justify-content: center;
 }
+@media (max-width: 500px) {
+    .results-container {
+        border-radius: 10px;
+        width: 100%; 
+        margin-top: 0rem;
+        grid-template-columns: repeat(auto-fill, minmax(90vw, 1fr)); 
+        gap: 0rem; 
+    }
+    .search-results-qty{
+        font-size:1.6rem;
+    }
+}  
