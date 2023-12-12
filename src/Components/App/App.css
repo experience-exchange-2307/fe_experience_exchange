@@ -22,6 +22,7 @@
   box-sizing: border-box;
 }
 
+
 main {
   min-height: 100dvh;
   width: 100dvw;
@@ -35,4 +36,21 @@ main {
 }
 main > button {
   font-size: 1.4rem;
+}
+
+@media (max-width: 500px) {
+ 
+
+  main {
+    max-height: 20dvh;
+    width: 100dvw;
+    display: flex;
+    flex-direction:column;
+    overflow-x: hidden;
+    font-family: "quiet-sans", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--yellowgreen);
+  }
 }

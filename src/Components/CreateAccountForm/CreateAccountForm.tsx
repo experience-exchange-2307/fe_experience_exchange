@@ -91,7 +91,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   };
 
   return (
-    <>
+    <div className='sign-up-page'>
       <section className="sign-up-container">
         <h2>Let’s get you started with an Experience Exchange account</h2>
         <form className="form">
@@ -216,7 +216,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
             </button>
           </div>
         </form>
-        <div className="solid"></div>
+      </section>
         <div className="demo-container">
           <Link to="/dashboard/14">
             <button className="demo-user-btn" type="button" onClick={() => setCurrentUser(demoUser)}>
@@ -224,8 +224,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
             </button>
           </Link>
         </div>
-      </section>
-    </>
+    </div>
   );
 };
 
