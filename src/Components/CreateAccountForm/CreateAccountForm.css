@@ -57,7 +57,8 @@
   align-items: center
 }
 
-.create-account-btn{
+.create-account-btn,
+.demo-user-btn {
   background-color: #C1B3F7;
   color: black;
   border: none;
