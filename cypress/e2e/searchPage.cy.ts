@@ -44,7 +44,7 @@ describe("a user should be able to search by keyword", () => {
     cy.get(".search-submit-btn").click()
     .wait("@searchPiano");
     cy.url().should("include", "/search/piano");
-    cy.get(".search-results-qty").contains("h1", "Showing 2 Results for piano");
+    cy.get(".search-results-qty").contains("h2", "Showing 2 Results for piano");
     cy.get(".result-card")
       .should("have.length", 2)
       .get(".result-card")
@@ -82,7 +82,7 @@ describe("a user should be able to search by keyword", () => {
       .contains("p", "Remote");
     cy.get("#remote").click();
     cy.url().should("include", "/search/piano");
-    cy.get(".search-results-qty").contains("h1", "Showing 1 Results for piano");
+    cy.get(".search-results-qty").contains("h2", "Showing 1 Results for piano");
     cy.get(".result-card")
       .should("have.length", 1)
       .get(".result-card")
@@ -103,7 +103,7 @@ describe("a user should be able to search by keyword", () => {
     cy.get(".result-card").first().contains("p", "Remote");
     cy.get("#remote").click();
     cy.get(".result-card").should("have.length", 2);
-    cy.get(".search-results-qty").contains("h1", "Showing 2 Results for piano");
+    cy.get(".search-results-qty").contains("h2", "Showing 2 Results for piano");
     cy.get(".result-card").first().click();
     cy.url().should("include", "/dashboard/15");
     // cy.get('.back-to-search-btn').should('be.visible')
