@@ -37,12 +37,12 @@ describe("a user should be able to search by keyword", () => {
   });
 
   it("should have a controlled search form that displays results when submit button is clicked", () => {
-    cy.get('.create-account-btn').last().click()
+    cy.get('.demo-user-btn').click()
     cy.get('.nav-bar-text').last().click()
     cy.get(".search-title").contains("p", "Find people near you");
     cy.get(".search-input").type("piano");
     cy.get(".search-submit-btn").click()
-    // .wait("@searchPiano");
+    .wait("@searchPiano");
     cy.url().should("include", "/search/piano");
     cy.get(".search-results-qty").contains("h1", "Showing 2 Results for piano");
     cy.get(".result-card")
