@@ -18,9 +18,19 @@ This application aims to bring people together over shared hobbies, skills, and 
 
 
 ### Preview
+#### Sign up
+![Sign up Page](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/f09b7969-a880-40da-b6ab-8a019ae27c51)
+#### Profile
+![Profile](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/72687321-9736-4930-b5f5-b6d2f7df7291)
+
+#### Search 
+![Search](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/b02373b5-2f19-4e75-9250-2bef2c608a80)
+#### Another User's Profile
+![Steve Jobs Profile](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/b4c28321-6cef-4b77-a752-41dad7fcf5ca)
+
 
 ### Contributors
-- [Jen Ziel](https://www.linkedin.com/in/jen-ziel-a02820278)
+- [Jen Ziel](https://www.linkedin.com/in/jen-ziel-a02820278) 
 - [Marisa Wyatt](https://www.linkedin.com/in/marisarwyatt/)
 - [Devin Altobello](https://www.linkedin.com/in/devin-altobello-2100036b/)
 
@@ -28,8 +38,9 @@ This application aims to bring people together over shared hobbies, skills, and 
 
 ### Tech Stack
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=!%2361DAFB)
+![R![Screenshot 2023-12-12 at 2 27 44 PM](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/a90bbb88-62b2-45c9-b4bd-9231c7f5ec1f)
+eact Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
