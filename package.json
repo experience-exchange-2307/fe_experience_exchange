@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-datepicker": "^4.19.3",
     "cypress": "^13.1.0",
     "daisyui": "^4.5.0",
