@@ -9,6 +9,9 @@ jobs:
           name: Install Cypress dependencies
           command: npm ci
       - run:
+          name: Install missing Babel plugin
+          command: npm install --save-dev @babel/plugin-proposal-private-property-in-object
+      - run:
           name: Run lint
           command: npm run lint
       - run:
