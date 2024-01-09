@@ -1,19 +1,18 @@
 @import url("https://use.typekit.net/pbb3mjr.css");
 /* color palette import */
 :root {
-  --yellowgreen: #f7f0b3;
-  --black: #000000;
-  --lavender: #c1b3f7;
-  --lightblue: #b3daf7;
-  --grayishlavender: #c6b7da;
-  --coolgray: #9196ab;
-  --orangered: #f76a1e;
-  --grayishyellowgreen: #c3bb9b;
-  --lightorange: #f7dcb3;
-  --orange:#f0b660;
-  --grayishorange: #d9c6c2;
-  --white: #ffffff;
-  --lightgray: #C4C4D0;
+  --lightmodewhite: #ffffff;
+  --lightmodelightgray: #f9faff;
+  --lightmodelightgray2: #f2f3fa;
+  --lightmodelightgray3: #e8e9f4;
+  --lightmodelightgray4: #f3f5fc;  
+  --lightmodemediumgray: #becde7;
+  --lightmodedarkergray: #949db5;
+  --lightmodedarkestgray: #404d62;
+  --lightmodelightblue: #b8d4f9;
+  --lightmodeblue: #2c67d9;
+  --lightmodenavyblue:#384b73;
+
 }
 
 * {
@@ -32,25 +31,15 @@ main {
   font-size: 1.4rem;
   font-weight: 400;
   font-style: normal;
-  background-color: var(--yellowgreen);
+  background-color: var(--lightmodelightgray2);
 }
 main > button {
   font-size: 1.4rem;
 }
 
 @media (max-width: 500px) {
- 
-
   main {
     max-height: 20dvh;
-    width: 100dvw;
-    display: flex;
     flex-direction:column;
-    overflow-x: hidden;
-    font-family: "quiet-sans", sans-serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    font-style: normal;
-    background-color: var(--yellowgreen);
   }
 }

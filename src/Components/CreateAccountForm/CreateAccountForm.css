@@ -13,7 +13,7 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   height: auto;
-  border: solid 2px var(--black);
+  border: solid 2px var(--lightmodedarkestgray);
 }
 .sign-up-container h2 {
   font-size: 1.5rem;
@@ -50,6 +50,7 @@
   font-size: 1rem;
   border-width: 1px;
   border: solid 2px var(--coolgray);
+  background-color: var(--lightmodelightgray4);
 }
 
 .address-container {
@@ -69,18 +70,19 @@
   transform: scale(1.75);
   margin-left: 0.75rem;
 }
-.create-account-text-area {
-  border-radius: 5px;
-  border-color:solid 2px var(--coolgray);
-  padding: .25rem;
-}
 
+.input-group > textarea {
+  background-color: var(--lightmodelightgray3);
+  border-radius: 5px;
+  padding: .25rem;
+  border: none;
+}
 .create-account-btn,
 .demo-user-btn {
-  background-color: #C1B3F7;
-  color: black;
-  border: none;
-  border-radius: 20px;
+  background-color: var(--lightmodeblue);
+  color: white;
+  border: solid 2px var(--lightmodeblue);
+  border-radius: 8px;
   cursor: pointer;
   height: 3rem;
   font-size: 1.4rem;
@@ -89,14 +91,16 @@
 }
 
 .create-account-btn:disabled {
-  background-color: #dfdfdf;
+  background-color: var(--lightmodelightblue);
   cursor: not-allowed;
-  color: rgb(103, 103, 103);
+  color: white;
+  border: none;
 }
 
 .demo-user-btn:hover,
 .create-account-btn:hover:not(:disabled) {
-  background-color: var(--orangered);
+  background-color: var(--lightmodenavyblue);
+  color: white;
 }
 @media (max-width: 500px) {
   .sign-up-page {
