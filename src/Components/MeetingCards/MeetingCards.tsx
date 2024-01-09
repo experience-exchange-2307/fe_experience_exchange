@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import "./MeetingCards.css";
 import { Meeting } from "types";
+import { Link } from "react-router-dom";
 
 interface MeetingCardsProps {
   meetings: Meeting[];
@@ -43,7 +44,9 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   <p>
                     {formattedStartTime} - {formattedEndTime}
                   </p>
-                  <p>Partner: {meeting.attributes.partner_name}</p>
+                  <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
+                    <p>Partner: {meeting.attributes.partner_name}</p>
+                  </Link>
                   <p>Meeting pending, waiting on partner to respond</p>
                 </div>
               ) : (
@@ -53,7 +56,9 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   <p>
                     {formattedStartTime} - {formattedEndTime}
                   </p>
-                  <p>Partner: {meeting.attributes.partner_name}</p>
+                  <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
+                    <p>Partner: {meeting.attributes.partner_name}</p>
+                  </Link>
                   <div className="meeting-card-btn-container">
                     <button
                       onClick={() => onAccept?.(meeting.id)}
@@ -76,7 +81,9 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                 <p>
                   {formattedStartTime} - {formattedEndTime}
                 </p>
-                <p>Partner: {meeting.attributes.partner_name}</p>
+                  <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
+                    <p>Partner: {meeting.attributes.partner_name}</p>
+                  </Link>
               </div>
             )}
           </div>
