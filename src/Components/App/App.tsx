@@ -23,6 +23,7 @@ function App() {
   const location = useLocation();
   const {isDarkMode} = useTheme()
 
+  
   const createNewUser = (newUserData: NewUserData) => {
     console.log("newUserData", newUserData);
     postNewUser(newUserData)
