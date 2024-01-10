@@ -1,6 +1,7 @@
 .skill-name {
-  border: solid 2px darkgray;
-  background-color: var(--white);
+  border: none;
+  background-color: var(--lightmodelightgray4);
+  color: var(--lightmodedarkestgray);
   width: 7rem;
   border-radius: 10px;
   display:flex;
@@ -25,19 +26,26 @@
   border: none;
   margin-left: 1rem;
   margin-top: .25rem;
-  color: darkblue;
+  color: var(--lightmodedarkergray);
+  cursor:pointer;
 }
 
 .skill-input {
   height: 2rem;
   font-size: 1rem;
-  border:solid, 3px, black;
-  border-radius: 10px;
+  border:none;
+  background: var(--lightmodelightgray4);
+  border-radius: 5px;
   padding-left: 1rem;
 }
 .proficiency-input{
   height: 1.6rem;
   margin-left:.25rem;
+  cursor: pointer;
+  color: var(--lightmodedarkergray);
+  border: none;
+  border-radius: 8px;
+  background-color: var(--lightmodelightgray4);
 }
 .proficiency-label {
   font-size: 1.5rem;
@@ -47,7 +55,10 @@
   font-size: 1rem;
   padding: .25rem;
   border-radius: 10px;
-  background-color: var(--yellowgreen);
+  background-color: var(--lightmodewhite);
+  color: var(--lightmodedarkestgray);
+  border: solid 2px var(--lightmodedarkergray);
+  cursor: pointer;
 }
 
 .skill-form-wrapper {
@@ -61,4 +72,8 @@
 }
 .skill-list {
   margin-left: .5rem;
+}
+.proficiency-input:hover,
+.add-skill-btn:hover{
+  background-color: var(--lightmodelightgray3);
 }

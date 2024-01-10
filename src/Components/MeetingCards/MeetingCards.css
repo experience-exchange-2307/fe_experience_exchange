@@ -8,16 +8,20 @@
   padding: 0.25rem;
   border-radius: 10px;
   margin-right: 1rem;
-  background-color: var(--yellowgreen);
+  background-color: var(--lightmodewhite);
+  cursor: pointer;
+  color: var(--lightmodedarkestgray);
+  border: solid 2px var(--lightmodedarkergray);
 }
 .meeting-card {
-  border: solid 2px black;
-  background-color: var(--white);
+  border: none;
+  background-color: var(--lightmodelightgray3);
   width: 33%;
   border-radius: 10px;
   padding: .5rem;
   text-align: center;
   box-sizing: border-box;
+  margin-bottom: .25rem;
 }
 .meeting-card-content {
   display: flex;
@@ -40,4 +44,8 @@
   .meeting-card {
     width: 100%;
   }
+}
+
+.meeting-card-btn:hover {
+  background-color: var(--lightmodelightgray3);
 }

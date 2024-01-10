@@ -30,18 +30,18 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
     id: 14,
     type: "user",
     attributes: {
-      first_name: "Ethan",
-      last_name: "Bustamante",
-      email: "Ethan@gmail.com",
+      first_name: "Jackson",
+      last_name: "Williams",
+      email: "jwilliams@gmail.com",
       address: {
-        street: "1234 Street",
-        city: "Denver",
-        state: "CO",
-        zipcode: "12345",
+        street: "402 Clinton St.",
+        city: "Brooklyn",
+        state: "New York",
+        zipcode: "11217",
       },
-      about: "I am a also very good programmer",
-      lat: 1.12,
-      lon: 1.12,
+      about: "Hey there! I'm Jackson, and life's a garden – dig it! 🌱 When I'm not tending to my plants, you can find me crafting something beautiful with wood or tickling the ivories on the piano. 🪚🎶",
+      lat:40.6782,
+      lon:73.9442,
       is_remote: true,
       skills: [
         {

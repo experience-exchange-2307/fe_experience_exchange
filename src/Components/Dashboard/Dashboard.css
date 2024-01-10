@@ -4,11 +4,11 @@
     align-items: center;
     justify-content: flex-start;
     width: 82dvw;
-    background-color: var(--yellowgreen);
+    background-color: #e5e7eb;
 }
 .dashboard-wrapper{
     width: 65vw;
-    background-color: var(--yellowgreen);
+    background-color: #e5e7eb;
     overflow-x: hidden;
 }
 
