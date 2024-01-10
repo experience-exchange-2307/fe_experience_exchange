@@ -6,6 +6,9 @@ jobs:
       - image: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
       - checkout
+      - run:
+          name: Clear npm cache
+          command: npm cache clean --force
       - restore_cache:
           keys:
             - cypress-{{ .Branch }}-{{ checksum "package-lock.json" }}
