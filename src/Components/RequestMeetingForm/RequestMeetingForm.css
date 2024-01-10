@@ -1,16 +1,97 @@
-.request-meeting-container{
-    border: solid 2px black;
-    background-color: var(--lightgray);
+/* RequestMeetingForm.css */
+
+.request-meeting-container {
     width: 100%;
-    border-radius: 10px;
-    padding: 1rem;
-    margin-bottom: 8rem;
-}
-@media (max-width: 500px) {
-    .request-meeting-container{
-        width: 90%;
-        border-radius: 10px;
-        padding: 1rem;
-        margin-bottom: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: solid 2px var(--lightmodedarkestgray);
+  }
+  
+  .request-meeting-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .request-meeting-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .request-meeting-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .request-meeting-input-group label {
+    font-weight: bold;
+  }
+  
+  .request-meeting-input {
+    padding: 0.5em;
+    border-radius: 8px;
+    border: solid 2px var(--coolgray);
+    background-color: var(--lightmodelightgray4);
+    width: 100%;
+  }
+  
+  .request-meeting-checkbox {
+    transform: scale(1.75);
+    margin-left: 0.75rem;
+  }
+  
+  .time-input-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .request-meeting-btn {
+    background-color: var(--lightmodeblue);
+    color: white;
+    border: solid 2px var(--lightmodeblue);
+    border-radius: 8px;
+    cursor: pointer;
+    height: 3rem;
+    font-size: 1.4rem;
+    width: 100%;
+  }
+  
+  .request-meeting-btn:disabled {
+    background-color: var(--lightmodelightblue);
+    cursor: not-allowed;
+    color: white;
+    border: none;
+  }
+  
+  .request-meeting-btn:hover:not(:disabled) {
+    background-color: var(--lightmodenavyblue);
+    color: white;
+  }
+  
+  @media (max-width: 500px) {
+    .request-meeting-container {
+      padding: 0.5rem;
     }
-}  
+  
+    .request-meeting-container h2 {
+      text-align: center;
+    }
+  
+    .request-meeting-form {
+      gap: 5px;
+    }
+  
+    .request-meeting-input {
+      height: 2.5em;
+    }
+  }
+  
