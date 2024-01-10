@@ -10,6 +10,8 @@ import CreateAccountForm from "Components/CreateAccountForm/CreateAccountForm";
 import SearchPage from "Components/SearchPage/SearchPage";
 import Dashboard from "Components/Dashboard/Dashboard";
 import Loading from "Components/Loading/Loading";
+import ThemeSwitcher from "Components/ThemeSwitcher/ThemeSwitcher";
+import { useTheme } from "Contexts/ThemeContext";
 
 function App() {
   const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
@@ -19,6 +21,7 @@ function App() {
   } | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const {isDarkMode} = useTheme()
 
   const createNewUser = (newUserData: NewUserData) => {
     console.log("newUserData", newUserData);
@@ -40,7 +43,8 @@ function App() {
   console.log('serverError', serverError)
   return (
     <>
-      <main>
+      <main className={`${isDarkMode ? "dark" : "light"}`}>
+        <ThemeSwitcher />
         {location.pathname !== "/" && <Nav currentUser={currentUser} />}
         {(serverError && !currentUser) &&  <ErrorPage serverError={serverError} />}
         {!currentUser && location.pathname === "/loading" ? (
