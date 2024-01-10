@@ -1,13 +1,21 @@
 version: 2.1
+
 jobs:
   cypress-run:
     docker:
       - image: cypress/browsers:node14.17.0-chrome91-ff89
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - cypress-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
-          name: Install Cypress dependencies
+          name: Install dependencies
           command: npm ci
+      - save_cache:
+          key: cypress-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
       - run:
           name: Run lint
           command: npm run lint
@@ -17,10 +25,6 @@ jobs:
       - run:
           name: Build
           command: npm run build
-      - run:
-          name: Start application
-          command: npm start
-          background: true
       - run:
           name: Cypress Headless
           command: npm run cypress
