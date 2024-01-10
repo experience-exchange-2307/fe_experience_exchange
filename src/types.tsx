@@ -8,6 +8,7 @@ export interface Meeting {
   type: string;
   attributes: {
     partner_id: number;
+    partner_name: string;
     date: string;
     start_time: string;
     end_time: string;

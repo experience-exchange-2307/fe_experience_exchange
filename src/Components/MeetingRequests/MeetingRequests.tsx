@@ -14,9 +14,7 @@ export function MeetingRequests({
   updateIsAccepted,
 }: MeetingsProps) {
   const meetingRequests = meetings.filter(
-    (meeting) => (meeting.attributes.is_accepted !== true) && (meeting.attributes.is_host !== true)
-    // so there is already a filter, but I need to differentiate between if *on currentUser dash, if host !== currentUser*
-    // this could be where I use a 'pending' component as the else condition
+    (meeting) => meeting.attributes.is_accepted !== true
   );
   // accept handler => sends meetings patch
   const handleAccept = (meetingId: number) => {

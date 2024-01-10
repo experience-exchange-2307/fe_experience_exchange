@@ -1,0 +1,7 @@
+.light {
+  background-color: var(--lightmodelightgray2);
+}
+
+.dark {
+  background-color: rgb(18, 21, 27);
+}

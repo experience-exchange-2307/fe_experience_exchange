@@ -13,12 +13,11 @@
 .meeting-card {
   border: solid 2px black;
   background-color: var(--white);
-  width: 100%;
+  width: 33%;
   border-radius: 10px;
   padding: .5rem;
   text-align: center;
   box-sizing: border-box;
-
 }
 .meeting-card-content {
   display: flex;
