@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, ReactNode  } from "react"
-
+// eslint-disable-next-line 
 interface ThemeContextProps {
   isDarkMode: boolean,
   toggleTheme: () => void
