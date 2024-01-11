@@ -54,7 +54,7 @@ export interface SearchResult {
   id: string;
   type: string;
   attributes: AttributesQuickView;
-}
+} 
 
 export interface NewUserData {
   first_name: string,
