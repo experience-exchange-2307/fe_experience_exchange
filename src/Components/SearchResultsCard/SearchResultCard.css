@@ -9,10 +9,11 @@
   display:flex;
   flex-direction:column;
   justify-content: space-between;
-  background-color: var(--white);
+  background-color: var(--lightmodewhite);
   color: black;
   width: 25vw;
     overflow: hidden;
+    cursor: pointer;
 }
 .result-card-top{
     display: flex;
@@ -54,3 +55,6 @@
           margin-top: .75rem;
       }
 }  
+.result-card:hover {
+    background-color: var(--lightmodelightgray3);
+}

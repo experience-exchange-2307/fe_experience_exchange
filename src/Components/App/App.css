@@ -12,7 +12,10 @@
   --lightmodelightblue: #b8d4f9;
   --lightmodeblue: #2c67d9;
   --lightmodenavyblue:#384b73;
-
+  --darkmodedarkest: #111928;
+  --darkmodedarker: #1f2a37;
+  --darkmodedark: #2a3442;
+  --darkmodegraytext: #c8cdd2;
 }
 
 * {

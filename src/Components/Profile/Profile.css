@@ -15,8 +15,8 @@
   max-height: 400px;
 }
 .profile-left{
- border: solid 2px black;
- background-color: var(--white);
+ border: none;
+ background-color: var(--lightmodewhite);
  width: 60%;
  border-radius: 10px;
  margin-right: .75rem;
@@ -32,10 +32,9 @@
   padding: 1rem;
   overflow-y: scroll;
   max-height: 400px;
-  
   scrollbar-width: thin; 
-  scrollbar-color: var(--coolgray) transparent; 
-  background-color: var(--grayishorange);
+  scrollbar-color: var(--lightmodedarkestgray) transparent; 
+  background-color: var(--lightmodewhite);
 
   
   &::-webkit-scrollbar {
@@ -43,7 +42,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color:var(--coolgray); 
+    background-color:var(--lightmodedarkestgray); 
     border-radius: 10px; 
   }
 

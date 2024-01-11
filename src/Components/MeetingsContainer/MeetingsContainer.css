@@ -1,6 +1,6 @@
 .meetings-container {
-  border: solid 2px black;
-  background-color: var(--lightgray);
+  border: none;
+  background-color: var(--lightmodewhite);
   width: 100%;
   border-radius: 10px;
   padding: 1rem;
