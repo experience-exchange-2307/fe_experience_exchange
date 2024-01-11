@@ -16,7 +16,7 @@
 }
 .profile-left{
  border: none;
- background-color: var(--lightmodewhite);
+ /* background-color: var(--lightmodewhite); */
  width: 60%;
  border-radius: 10px;
  margin-right: .75rem;
@@ -33,8 +33,8 @@
   overflow-y: scroll;
   max-height: 400px;
   scrollbar-width: thin; 
-  scrollbar-color: var(--lightmodedarkestgray) transparent; 
-  background-color: var(--lightmodewhite);
+  scrollbar-color: var(--scrollBar) transparent; 
+  /* background-color: var(--lightmodewhite); */
 
   
   &::-webkit-scrollbar {
@@ -42,7 +42,7 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color:var(--lightmodedarkestgray); 
+    background-color:var(--scrollBar); 
     border-radius: 10px; 
   }
 
@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80vh; /* Corrected typo here */
+    height: 80vh;
     margin-bottom: 2rem;
   }
 
