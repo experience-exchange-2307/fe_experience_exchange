@@ -195,6 +195,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
         <div className='search-bar'>
           <Autosuggest
+            
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
             onSuggestionsClearRequested={onSuggestionsClearRequested}
