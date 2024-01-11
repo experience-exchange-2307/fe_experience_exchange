@@ -79,13 +79,13 @@ describe("Page Load", () => {
     cy.get(".demo-user-btn").click();
     cy.url().should("include", "/dashboard/14");
     cy.get(".current-user-dash .meetings-container").should("exist");
-    cy.get(".profile-name").should("have.text", "Ethan Bustamante");
+    cy.get(".profile-name").should("have.text", "Jackson Williams");
     cy.get('.profile-about').should('have.text', 'About me');
-    cy.get('.profile-about-text').should('have.text', 'I am a also very good programmer');
+    cy.get('.profile-about-text').should('have.text', `Hey there! I'm Jackson, and life's a garden – dig it! 🌱 When I'm not tending to my plants, you can find me crafting something beautiful with wood or tickling the ivories on the piano. 🪚🎶`);
     cy.get('.profile-location').should('have.text', 'Location');
-    cy.get('.profile-location-text').should('have.text', 'Denver, CO');
+    cy.get('.profile-location-text').should('have.text', 'Brooklyn, New York');
     cy.get('.profile-email').should('have.text', 'Email');
-    cy.get('.profile-email-text').should('have.text', 'Ethan@gmail.com');
+    cy.get('.profile-email-text').should('have.text', 'jwilliams@gmail.com');
     // skills component
     cy.get('.skills-section .skill-list').should('have.length', 3);
     cy.get('.tag-removal').should('have.length', 3);
