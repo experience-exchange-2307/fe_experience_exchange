@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "tsc": "tsc",
-    "cypress": "cypress run --headless"
+    "cypress": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +47,9 @@
   },
   "devDependencies": {
     "@types/react-datepicker": "^4.19.3",
-    "cypress": "^13.1.0"
+    "cypress": "^13.1.0",
+    "daisyui": "^4.5.0",
+    "postcss-nesting": "^12.0.2",
+    "tailwindcss": "^3.4.1"
   }
 }

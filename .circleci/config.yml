@@ -1,32 +1,8 @@
 version: 2.1
-jobs:
-  cypress-run:
-    docker:
-      - image: cypress/browsers:node14.17.0-chrome91-ff89
-    steps:
-      - checkout
-      - run:
-          name: Install Cypress dependencies
-          command: npm ci
-      - run:
-          name: Run lint
-          command: npm run lint
-      - run:
-          name: Run TypeScript compiler
-          command: npm run tsc
-      - run:
-          name: Build
-          command: npm run build
-      - run:
-          name: Start application
-          command: npm start
-          background: true
-      - run:
-          name: Cypress Headless
-          command: npm run cypress
-
+orbs:
+  cypress: cypress-io/cypress@3.1.1
 workflows:
-  version: 2
-  build_and_test:
+  build:
     jobs:
-      - cypress-run
+      - cypress/run:
+          start-command: 'npm run start'
