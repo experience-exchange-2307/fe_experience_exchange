@@ -70,7 +70,7 @@ This capstone project is a collaborative effort between front-end and back-end s
 
 - **Asynchronous TypeScript/JavaScript Handling:** Overcame complexities associated with asynchronous TypeScript/JavaScript, particularly in scenarios where data was undefined, by implementing robust error handling mechanisms to ensure application stability.
 - **Asynchronous Component Coordination:** Addressed challenges associated with asynchronous development of components that needed to function cohesively and communicate seamlessly with one another, fostering a synchronized and efficient development process.
-- **Autosuggest Library Not Maintained** We implemented a popular 3rd party [react autosuggest](https://react-autosuggest.js.org/) library.  Some of the errors we encountered were related to legacy class-based components.  This could have been avoided by reading the documentation fully before implementing it.
+- **Autosuggest Library Not Maintained** We implemented a popular 3rd party [react autosuggest](https://react-autosuggest.js.org/) library.  Some of the errors we encountered were related to legacy class-based components.  This could have been avoided by reading the documentation fully before implementing it, as the creator did update the README to share that it's no longer maintained.
 - **Transitioning from CSS to tailwind** - We added tailwind in the second iteration and had some issues with styling redundancy when switching from CSS to tailwind. We landed on a hybrid of the two and could improve legibility by omitting redundant CSS rules.
 
 ### Setup
