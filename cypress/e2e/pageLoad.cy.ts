@@ -114,6 +114,7 @@ describe("Page Load", () => {
     cy.get(".meeting-card").should("have.length", 2);
     cy.get(".meetings-toggle").click();
     cy.get(".meetings-title").should("have.text", "My Meeting Requests");
-    cy.get(".meeting-card-request").should("have.length", 2); 
+    cy.get(".meeting-card-request").should("have.length", 1); 
+    cy.get(".meeting-card-pending").should("have.length", 2); 
   });
 });
