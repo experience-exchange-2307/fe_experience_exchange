@@ -18,15 +18,15 @@ function Nav({ currentUser }: CurrentUserProps) {
   };
 
   return (
-    <aside className={`nav-wrapper`}>
+    <aside className={`nav-wrapper bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
       <div className='logo-wrapper'>
-        <img src={logo} alt='abstract weaving logo' className='nav-logo'></img>
+        <img src={logo} alt='abstract weaving logo' className='nav-logo fill-blue-500'></img>
         <div className='logo-text'>
           <h1 className='logo-text-h1'>Experience</h1>
           <h1 className='logo-text-h1'>Exchange</h1>
         </div>
       </div>
-      <nav className={`nav-links-container ${isDarkMode ? "light" : "dark"}`}>
+      <nav className={`nav-links-container ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
         <ThemeSwitcher />
         <NavLink to={`/`} className='nav-bar-link' style={linkStyle}>
           <svg
