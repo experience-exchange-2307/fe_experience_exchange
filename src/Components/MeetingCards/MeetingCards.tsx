@@ -84,7 +84,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   {formattedStartTime} - {formattedEndTime}
                 </p>
                   <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
-                    <p>Partner: {meeting.attributes.partner_name}</p>
+                    <p className="text-indigo-900 hover:text-blue-700">Partner: {meeting.attributes.partner_name}</p>
                   </Link>
               </div>
             )}
