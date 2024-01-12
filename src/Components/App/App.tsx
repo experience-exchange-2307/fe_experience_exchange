@@ -44,7 +44,6 @@ function App() {
   return (
     <>
       <main className={`${isDarkMode ? "light" : "dark"}`}>
-        {/* <ThemeSwitcher /> */}
         {location.pathname !== "/" && <Nav currentUser={currentUser} />}
         {(serverError && !currentUser) &&  <ErrorPage serverError={serverError} />}
         {!currentUser && location.pathname === "/loading" ? (
