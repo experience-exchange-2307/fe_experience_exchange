@@ -9,7 +9,7 @@
 Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can create a custom profile and connect with locals in their area to learn something new and form connections through skill sharing. 
 
 ### Key Features:
-- **Profile Creation:** Users can create a cutom profile.
+- **Profile Creation:** Users can create a custom profile.
 - **Skill Management:** Users can add and remove skills directly from their dashboard profiles, showcasing their evolving expertise.
 - **Search By Skill:** A comprehensive search feature enables users to find like-minded peers based on skills.
 - **Auto-Suggest Search:** Dropdown search suggestions offer relevant search queries to assist users in finding similar profiles.
