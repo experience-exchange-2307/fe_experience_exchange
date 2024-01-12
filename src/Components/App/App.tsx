@@ -10,7 +10,6 @@ import CreateAccountForm from "Components/CreateAccountForm/CreateAccountForm";
 import SearchPage from "Components/SearchPage/SearchPage";
 import Dashboard from "Components/Dashboard/Dashboard";
 import Loading from "Components/Loading/Loading";
-// import ThemeSwitcher from "Components/ThemeSwitcher/ThemeSwitcher";
 import { useTheme } from "Contexts/ThemeContext";
 
 function App() {
