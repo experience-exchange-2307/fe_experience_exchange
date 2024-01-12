@@ -10,7 +10,8 @@ Experience Exchange aims to bring people together over shared hobbies, skills, a
 ### Key Features:
 - **Profile Creation:** Users can create a cutom profile.
 - **Skill Management:** Users can add and remove skills directly from their dashboard profiles, showcasing their evolving expertise.
-- **Skill-Based Search:** A comprehensive search feature enables users to find like-minded peers based on skills.
+- **Search By Skill:** A comprehensive search feature enables users to find like-minded peers based on skills.
+- **Auto-Suggest Search:** Dropdown search suggestions offer relevant search queries to assist users in finding similar profiles.
 - **Availability Filter:** Users can filter search results by remote availability and view results by proximity.
 - **Meeting Requests:** Once a potential match is found, users can submit meeting requests, providing an avenue for meaningful connections.
 - **Approval/Decline:** Meeting requests can be approved, adding the meeting to both users' schedules, or declined, removing the request.
