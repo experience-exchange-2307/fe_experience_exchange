@@ -19,7 +19,7 @@ Experience Exchange aims to bring people together over shared hobbies, skills, a
 - **Dark Mode:** To enhance the user experience, light and dark mode can be toggled in the navigation.
 
 ### Context:
-This project fulfills the capstone requirements for graduation from Turing School of Software and Design. For more details, visit the [Capstone Project](https://mod4.turing.edu/projects/capstone/) page.
+This capstone project is a collaborative effort between front-end and back-end students and fulfills the requirements for graduation from Turing School of Software and Design. For more details, visit the [Capstone Project](https://mod4.turing.edu/projects/capstone/) page.
 
 ### Preview
 #### Sign up
