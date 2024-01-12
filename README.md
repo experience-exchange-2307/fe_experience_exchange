@@ -1,7 +1,7 @@
 <div align="center">
 
 # Experience Exchange
-### [Deployed Link](https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/)
+### [Deployed Link](https://experience-exchange.vercel.app/)
 
 </div>
 
