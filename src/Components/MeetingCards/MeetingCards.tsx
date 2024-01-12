@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import "./MeetingCards.css";
 import { Meeting } from "types";
 import { Link } from "react-router-dom";
+import { useTheme } from "Contexts/ThemeContext";
 
 interface MeetingCardsProps {
   meetings: Meeting[];
@@ -15,6 +16,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
   onReject,
 }) => {
   console.log(meetings);
+  const { isDarkMode } = useTheme();
 
   function trimLeadingZero(time: string): string {
     if (time.length > 0 && time.charAt(0) === "0") {
@@ -35,7 +37,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
 
         return (
           // Want to make Partner: {meeting.attributes.partner_name} a link to partner's
-          <div key={meeting.id} className="meeting-card">
+          <div key={meeting.id} className={`meeting-card ${isDarkMode ? "light" : "dark"} bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText`}>
             {!meeting.attributes.is_accepted ? (
               isPending ? (
                 <div className="meeting-card-pending meeting-card-content">
@@ -50,7 +52,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   <p>Meeting pending, waiting on partner to respond</p>
                 </div>
               ) : (
-                <div className="meeting-card-request meeting-card-content bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText">
+                <div className="meeting-card-request meeting-card-content ">
                   <h3>REQUEST</h3>
                   <p>{formattedDate}</p>
                   <p>
@@ -82,7 +84,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   {formattedStartTime} - {formattedEndTime}
                 </p>
                   <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
-                    <p>Partner: {meeting.attributes.partner_name}</p>
+                    <p className="text-indigo-900 hover:text-blue-700">Partner: {meeting.attributes.partner_name}</p>
                   </Link>
               </div>
             )}

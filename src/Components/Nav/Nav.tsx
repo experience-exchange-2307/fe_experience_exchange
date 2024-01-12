@@ -19,7 +19,7 @@ function Nav({ currentUser }: CurrentUserProps) {
   };
 
   return (
-    <aside className={`nav-wrapper bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
+    <aside className={`nav-wrapper bg-gray-100 dark:bg-DRKModeNav`}>
       <div className='logo-wrapper'>
         <img src={isDarkMode ? logo : logoWhite} alt='abstract weaving logo' className='nav-logo'></img>
         <div className='logo-text'>
@@ -27,7 +27,7 @@ function Nav({ currentUser }: CurrentUserProps) {
           <h1 className='logo-text-h1'>Exchange</h1>
         </div>
       </div>
-      <nav className={`nav-links-container ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
+      <nav className={`nav-links-container ${isDarkMode ? "light" : "dark"} bg-gray-100 dark:bg-DRKModeNav`}>
         <ThemeSwitcher />
         <NavLink to={`/`} className='nav-bar-link' style={linkStyle}>
           <svg
