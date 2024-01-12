@@ -6,7 +6,7 @@
 </div>
 
 ### Abstract
-Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can create a custom profile and connect with locals in their area to learn something new and form connections through skill sharing. 
+Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can create a custom profile and connect with locals in their area or virtually to learn something new and form connections through skill sharing. 
 
 This capstone project is a collaborative effort between front-end and back-end students and fulfills the requirements for graduation from Turing School of Software and Design. For more details, visit the [Capstone Project](https://mod4.turing.edu/projects/capstone/) page.
 
