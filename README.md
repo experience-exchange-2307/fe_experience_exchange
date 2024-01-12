@@ -20,14 +20,18 @@ deployed link : [https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/
 
 ### Preview
 #### Sign up
-![Sign up Page](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/f09b7969-a880-40da-b6ab-8a019ae27c51)
+![Sign up Page](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/6c3680b1-881a-46fb-bfd7-f2f9397c03d4)
 #### Profile
-![Profile](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/72687321-9736-4930-b5f5-b6d2f7df7291)
+![Profile](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/431e7618-8ded-44f5-abd4-aea86240527c)
+
 
 #### Search 
-![Search](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/b02373b5-2f19-4e75-9250-2bef2c608a80)
+![Search](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/8f826afc-5284-41ce-b554-9f28359ba9ec)
+
+![Search](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/cc6354c3-79e0-45c9-9a9b-daa8f5953571)
 #### Another User's Profile
-![Steve Jobs Profile](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/b4c28321-6cef-4b77-a752-41dad7fcf5ca)
+![Steve Jobs Profile](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/12b35f28-eb53-49b6-af72-519984527152)
+
 
 
 ### Contributors
