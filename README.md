@@ -47,8 +47,7 @@ This project fulfills the capstone requirements for graduation from Turing Schoo
 ### Tech Stack
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=!%2361DAFB)
-![R![Screenshot 2023-12-12 at 2 27 44 PM](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/a90bbb88-62b2-45c9-b4bd-9231c7f5ec1f)
-eact Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) 
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
