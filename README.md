@@ -5,7 +5,7 @@
 </div>
 
 ### Abstract
-Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can connect with locals in their area to learn something new and form connections through skill sharing. 
+Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can create a custom profile and connect with locals in their area to learn something new and form connections through skill sharing. 
 
 ### Key Features:
 - **Profile Creation:** Users can create a cutom profile.
