@@ -2,6 +2,7 @@ import { CurrentUser } from "types";
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
 import logo from "../../images/logo3.png";
+import logoWhite from "../../images/logo3white.png";
 import ThemeSwitcher from "Components/ThemeSwitcher/ThemeSwitcher";
 import { useTheme } from "Contexts/ThemeContext";
 
@@ -18,15 +19,15 @@ function Nav({ currentUser }: CurrentUserProps) {
   };
 
   return (
-    <aside className={`nav-wrapper`}>
+    <aside className={`nav-wrapper bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
       <div className='logo-wrapper'>
-        <img src={logo} alt='abstract weaving logo' className='nav-logo'></img>
+        <img src={isDarkMode ? logo : logoWhite} alt='abstract weaving logo' className='nav-logo'></img>
         <div className='logo-text'>
           <h1 className='logo-text-h1'>Experience</h1>
           <h1 className='logo-text-h1'>Exchange</h1>
         </div>
       </div>
-      <nav className={`nav-links-container ${isDarkMode ? "light" : "dark"}`}>
+      <nav className={`nav-links-container ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
         <ThemeSwitcher />
         <NavLink to={`/`} className='nav-bar-link' style={linkStyle}>
           <svg
