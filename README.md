@@ -15,7 +15,7 @@ This application aims to bring people together over shared hobbies, skills, and 
 - **Meeting Requests:** Once a potential match is found, users can submit meeting requests, providing an avenue for meaningful connections.
 - **Approval/Decline:** Meeting requests can be approved, adding the meeting to both users' schedules, or declined, removing the request.
 
-deployed link : https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/
+deployed link : [https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/](https://experience-exchange.vercel.app/)
 
 ### Preview
 #### Sign up
