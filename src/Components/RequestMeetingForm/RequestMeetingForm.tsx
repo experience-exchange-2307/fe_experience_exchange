@@ -3,7 +3,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import './RequestMeetingForm.css'; // Include the modified CSS file
+import './RequestMeetingForm.css';
+import { useTheme } from "Contexts/ThemeContext";
 
 interface FormData {
   user_id: string;
@@ -30,6 +31,7 @@ function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
     purpose: "",
     is_remote: true,
   });
+  const { isDarkMode } = useTheme();
 
   const handleDateChange = (date: Date | null) => {
     setFormData((prevFormData) => ({
@@ -90,7 +92,7 @@ function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
 
   return (
     <>
-      <section className="request-meeting-container">
+      <section className={`request-meeting-container ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText`}>
         <h2 className='meetings-title'>Request A Meeting</h2>
         <form className="request-meeting-form">
           <div className="request-meeting-input-group">
