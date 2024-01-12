@@ -1,7 +1,8 @@
 @import url("https://use.typekit.net/pbb3mjr.css");
 /* color palette import */
 :root {
-  --lightmodewhite: #ffffff;
+  --scrollBar: #adb5bd;
+  /* --lightmodewhite: #ffffff;
   --lightmodelightgray: #f9faff;
   --lightmodelightgray2: #f2f3fa;
   --lightmodelightgray3: #e8e9f4;
@@ -15,7 +16,7 @@
   --darkmodedarkest: #111928;
   --darkmodedarker: #1f2a37;
   --darkmodedark: #2a3442;
-  --darkmodegraytext: #c8cdd2;
+  --darkmodegraytext: #c8cdd2; */
 }
 
 * {

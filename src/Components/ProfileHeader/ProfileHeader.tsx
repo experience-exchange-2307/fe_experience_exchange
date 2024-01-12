@@ -7,7 +7,7 @@ interface ProfileHeaderProps {
 }
 function ProfileHeader({ currentUser }: ProfileHeaderProps) {
   return (
-    <div className='profile-container-upper'>
+    <div className='profile-container-upper dark:bg-DRKModePrimaryBG'>
       <div className='profile-icon-container'>
         {currentUser.attributes.profile_picture ? (
           <img
