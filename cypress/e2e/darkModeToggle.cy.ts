@@ -56,6 +56,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
     cy.get('main.dark').should('exist')
     cy.get('main.light').should('not.exist')
     cy.get('.toggle').click()
+    cy.wait(1000); 
     cy.get('main.light').should('exist')
     cy.get('main.dark').should('not.exist')
     // light-mode checks for current user profile
@@ -72,6 +73,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
     cy.url().should("include", "/search");
     // Switch from light to dark-mode on Search Page
     cy.get('.toggle').click()
+    cy.wait(1000); 
     cy.get('main.dark').should('exist')
     cy.get('main.light').should('not.exist')
    cy.get('.react-autosuggest__input').type('piano')
@@ -82,6 +84,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
    cy.get('main.light').should('not.exist')
    // Switch from dark to light-mode on Search Page
    cy.get('.toggle').click()
+   cy.wait(1000); 
     cy.get('main.light').should('exist')
     cy.get('main.dark').should('not.exist')
     // Navigate to another user's profile while in light-mode
@@ -100,6 +103,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
     cy.get('.request-meeting-container').should('have.css', 'color', 'oklch(0.278078 0.029596 256.848)')
     // Switch from light to dark mode on another user's profile
     cy.get('.toggle').click()
+    cy.wait(1000); 
     cy.get('main.dark').should('exist')
     cy.get('main.light').should('not.exist')
     cy.get('.profile-name').should('have.css', 'color', 'oklch(0.746477 0.0216 264.436)')
