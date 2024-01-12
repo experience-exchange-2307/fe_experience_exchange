@@ -46,7 +46,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
     // dark-mode checks for current user profile
     cy.get('.dashboard-outermost-wrapper').should('have.css', 'background-color', 'rgb(18, 21, 27)')
     cy.get('.profile-name').should('have.text', 'Jackson Williams');
-    cy.get('.profile-name').should('have.css', 'color', 'oklch(0.746477 0.0216 264.436)')
+    cy.get('.profile-name').should('have.css', 'color', 'oklch(0.278078 0.029596 256.848)')
     cy.get('.profile-left').should('have.css', 'background-color', 'rgb(73, 80, 87)')
     cy.get('.profile-left').should('have.css', 'color', 'rgb(222, 226, 230)')
     cy.get('.profile-right').should('have.css', 'background-color', 'rgb(73, 80, 87)')
