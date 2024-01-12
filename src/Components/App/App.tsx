@@ -48,7 +48,7 @@ function App() {
         {location.pathname !== "/" && <Nav currentUser={currentUser} />}
         {(serverError && !currentUser) &&  <ErrorPage serverError={serverError} />}
         {!currentUser && location.pathname === "/loading" ? (
-          <Loading />
+          <Loading/>
         ) : (
           <Routes>
             {!currentUser && (

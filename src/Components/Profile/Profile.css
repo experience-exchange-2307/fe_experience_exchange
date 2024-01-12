@@ -23,6 +23,9 @@
  padding: 1rem;
  margin-bottom: .75rem;
  max-height: 500px;
+ display:flex;
+ flex-direction: column;
+ align-items: flex-start;
 }
 .profile-right{
   margin-bottom: .75rem;
@@ -54,6 +57,10 @@
 .profile-header {
   font-size: 1.7rem;
   font-weight: 700;
+  margin-top: 0;
+}
+.profile-list{
+  margin-bottom: 0;
 }
 .profile-skill-container {
   display:flex;
@@ -62,7 +69,7 @@
 }
 
 .profile-list{
-  margin-bottom: 1.5rem;
+  margin-bottom: .5rem;
 }
 @media (max-width: 500px) {
   .profile-container {
