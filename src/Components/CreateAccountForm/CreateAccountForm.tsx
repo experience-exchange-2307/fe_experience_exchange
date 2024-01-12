@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CurrentUser, NewUserData } from "types";
 import { Link, useNavigate } from "react-router-dom";
 import bird from '../../images/bird.png'
+import { useTheme } from "Contexts/ThemeContext";
 interface CreateAccountFormProps {
   createNewUser: (newUserData: NewUserData) => void;
   setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser | null>>;
@@ -23,7 +24,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
     is_remote: false,
     about: "",
   });
-
+  const { isDarkMode } = useTheme();
   const navigate = useNavigate();
 
   const demoUser = {
@@ -91,7 +92,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   };
 
   return (
-    <div className='sign-up-page'>
+    <div className={`sign-up-page ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
       <section className="sign-up-container">
         <h2>Let’s get you started with an Experience Exchange account</h2>
         <form className="form">
