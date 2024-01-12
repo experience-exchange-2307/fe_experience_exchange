@@ -44,7 +44,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
     cy.wait('@GetMyMeetings')
     cy.url().should("include", "/dashboard/14");
     // dark-mode checks for current user profile
-    cy.get('.dashboard-outermost-wrapper').should('have.css', 'background-color', 'rgb(18, 21, 27)')
+    cy.get('.dashboard-outermost-wrapper').should('have.css', 'background-color', 'rgb(33, 37, 41)')
     cy.get('.profile-name').should('have.text', 'Jackson Williams');
     cy.get('.profile-name').should('have.css', 'color', 'oklch(0.278078 0.029596 256.848)')
     cy.get('.profile-left').should('have.css', 'background-color', 'rgb(73, 80, 87)')
