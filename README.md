@@ -8,13 +8,13 @@
 Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can connect with locals in their area to learn something new and form connections through skill sharing. 
 
 ### Key Features:
-- **Profile Creation:** Users can create cutomized detailed profile.
+- **Profile Creation:** Users can create a cutom profile.
 - **Skill Management:** Users can add and remove skills directly from their dashboard profiles, showcasing their evolving expertise.
 - **Skill-Based Search:** A comprehensive search feature enables users to find like-minded peers based on skills.
 - **Availability Filter:** Users can filter search results by remote availability and view results by proximity.
 - **Meeting Requests:** Once a potential match is found, users can submit meeting requests, providing an avenue for meaningful connections.
 - **Approval/Decline:** Meeting requests can be approved, adding the meeting to both users' schedules, or declined, removing the request.
-- **Dark Mode:** To enhance the user experience, a light and dark mode can be enabled.
+- **Dark Mode:** To enhance the user experience, light and dark mode can be toggled in the navigation.
 
 deployed link : [https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/](https://experience-exchange.vercel.app/)
 
