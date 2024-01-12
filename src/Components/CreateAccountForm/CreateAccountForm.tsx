@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { CurrentUser, NewUserData } from "types";
 import { Link, useNavigate } from "react-router-dom";
-
+import bird from '../../images/bird.png'
 interface CreateAccountFormProps {
   createNewUser: (newUserData: NewUserData) => void;
   setCurrentUser: React.Dispatch<React.SetStateAction<CurrentUser | null>>;
@@ -57,7 +57,7 @@ const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
           proficiency: 5,
         },
       ],
-      profile_picture: null
+      profile_picture: `${bird}`
     },
   }
 
