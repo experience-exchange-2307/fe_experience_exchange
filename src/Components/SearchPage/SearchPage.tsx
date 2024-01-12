@@ -12,6 +12,7 @@ import Autosuggest, {
 import "../AutosuggestDropdown/AutosuggestDropdown.css";
 import { InputProps } from "react-autosuggest";
 import Loading from "Components/Loading/Loading";
+import { useTheme } from "Contexts/ThemeContext";
 
 interface SearchPageProps {
   currentUser: CurrentUser | null;
@@ -53,6 +54,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [noResults, setNoResults] = useState<boolean>(false);
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
 
   function escapeRegexCharacters(str: string): string {
     return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -189,7 +191,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
     submitQuery(searchQuery);
   };
   return (
-    <div className='search-page'>
+    <div className={`search-page ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
       <p className='search-title'>Find people near you</p>
       <div className='search-menu sm:border-2 rounded-lg  border-black dark:border-gray-600'>
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
