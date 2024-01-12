@@ -40,6 +40,8 @@ describe('It should allow a user to toggle between light and dark mode', () => {
 
     cy.visit("http://localhost:3000/")
     cy.get('.demo-user-btn').click()
+    cy.wait('@GetCurrentUser')
+    cy.wait('@GetMyMeetings')
     cy.url().should("include", "/dashboard/14");
     // dark-mode checks for current user profile
     cy.get('.dashboard-outermost-wrapper').should('have.css', 'background-color', 'rgb(18, 21, 27)')
@@ -74,6 +76,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
     cy.get('main.light').should('not.exist')
    cy.get('.react-autosuggest__input').type('piano')
    cy.get('.search-submit-btn').click()
+   cy.wait('@searchPiano')
    cy.url().should("include", "/search/piano")
    cy.get('main.dark').should('exist')
    cy.get('main.light').should('not.exist')
@@ -83,6 +86,7 @@ describe('It should allow a user to toggle between light and dark mode', () => {
     cy.get('main.dark').should('not.exist')
     // Navigate to another user's profile while in light-mode
     cy.get('[href="/dashboard/15"] > .result-card').click()
+    cy.wait('@GetTylerProfile')
     cy.url().should("include", "/dashboard/15")
     cy.get('.profile-name').should('have.text', 'Tyler Blackmon');
     cy.get('main.light').should('exist')
