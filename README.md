@@ -14,6 +14,7 @@ This application aims to bring people together over shared hobbies, skills, and 
 - **Availability Filter:** Users can filter search results by remote availability and view results by proximity.
 - **Meeting Requests:** Once a potential match is found, users can submit meeting requests, providing an avenue for meaningful connections.
 - **Approval/Decline:** Meeting requests can be approved, adding the meeting to both users' schedules, or declined, removing the request.
+- **Dark Mode:** To enhance the user experience, a light and dark mode can be enabled.
 
 deployed link : [https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/](https://experience-exchange.vercel.app/)
 
