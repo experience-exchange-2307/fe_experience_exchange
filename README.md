@@ -5,7 +5,7 @@
 </div>
 
 ### Abstract
-This application aims to bring people together over shared hobbies, skills, and experiences, serving as a solution to combat social isolation and foster genuine connections amd bridging generational divides.
+Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can connect with locals in their area to learn something new and form connections through skill sharing. 
 
 ### Key Features:
 - **Profile Creation:** Users can create cutomized detailed profile.
