@@ -31,7 +31,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
         );
         const formattedEndTime = trimLeadingZero(meeting.attributes.end_time);
         const isPending =
-          !meeting.attributes.is_accepted && !meeting.attributes.is_host;
+          !meeting.attributes.is_accepted && meeting.attributes.is_host;
 
         return (
           // Want to make Partner: {meeting.attributes.partner_name} a link to partner's
