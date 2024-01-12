@@ -62,7 +62,7 @@ This project fulfills the capstone requirements for graduation from Turing Schoo
 
 ### Achievements
 
-- **Leveraging TypeScript:** Successfully employed TypeScript to enhance the codebase's maintainability, readability, and overall robustness, contributing to a more reliable software solution.
+- **Implementing TypeScript:** Successfully employed TypeScript to enhance the codebase's maintainability and readability, contributing to a more reliable code base.
 - **Collaborative Backend Integration:** Worked seamlessly with the backend team to tailor a JSON contract that effectively met the requirements of both parties, ensuring a unified and standardized communication protocol.
 - **Dynamic Component Rendering:** Implemented dynamic rendering strategies within components, fostering reusability across multiple views and enhancing the scalability of the application architecture.
 
