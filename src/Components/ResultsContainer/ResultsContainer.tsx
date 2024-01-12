@@ -53,7 +53,6 @@ function ResultsContainer({
       {searchResults.length === 0 ? (
         <>
           <div className='results-container'></div>
-          {/* <Loading />  */}
         </>
       ) : (
         <>

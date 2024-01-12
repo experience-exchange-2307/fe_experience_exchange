@@ -40,7 +40,7 @@ describe("a user should be able to search by keyword", () => {
     cy.get('.demo-user-btn').click()
     cy.get('.nav-bar-text').last().click()
     cy.get(".search-title").contains("p", "Find people near you");
-    cy.get(".search-input").type("piano");
+    cy.get(".react-autosuggest__input").type("piano");
     cy.get(".search-submit-btn").click()
     .wait("@searchPiano");
     cy.url().should("include", "/search/piano");
