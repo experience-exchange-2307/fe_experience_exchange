@@ -49,7 +49,7 @@
         "date": "2024-2-18",
         "start_time": "12:00 PM",
         "end_time": "02:00 AM",
-        "is_accepted": false,
+        "is_accepted": true,
         "purpose": "pattern testing",
         "partner_id": 412,
         "partner_name": "Buffy Spencer",

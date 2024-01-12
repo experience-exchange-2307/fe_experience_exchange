@@ -34,7 +34,6 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
           !meeting.attributes.is_accepted && meeting.attributes.is_host;
 
         return (
-          // Want to make Partner: {meeting.attributes.partner_name} a link to partner's
           <div key={meeting.id} className="meeting-card">
             {!meeting.attributes.is_accepted ? (
               isPending ? (
@@ -62,13 +61,13 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   <div className="meeting-card-btn-container">
                     <button
                       onClick={() => onAccept?.(meeting.id)}
-                      className="meeting-card-btn"
+                      className="meeting-card-btn-accept"
                     >
                       Accept
                     </button>
                     <button
                       onClick={() => onReject?.(meeting.id)}
-                      className="meeting-card-btn"
+                      className="meeting-card-btn-reject"
                     >
                       Decline
                     </button>
