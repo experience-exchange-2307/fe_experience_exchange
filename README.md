@@ -18,6 +18,9 @@ This application aims to bring people together over shared hobbies, skills, and 
 
 deployed link : [https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/](https://experience-exchange.vercel.app/)
 
+### Context:
+This project fulfills the capstone requirements for graduation from Turing School of Software and Design. For more details, visit the [Capstone Project](https://mod4.turing.edu/projects/capstone/) page.
+
 ### Preview
 #### Sign up
 ![Sign up Page](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/6c3680b1-881a-46fb-bfd7-f2f9397c03d4)
