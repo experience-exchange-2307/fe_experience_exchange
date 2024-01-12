@@ -18,8 +18,6 @@ Experience Exchange aims to bring people together over shared hobbies, skills, a
 - **Approval/Decline:** Meeting requests can be approved, adding the meeting to both users' schedules, or declined, removing the request.
 - **Dark Mode:** To enhance the user experience, light and dark mode can be toggled in the navigation.
 
-deployed link : [https://experience-exchange-3qv7968dv-2307-capstone.vercel.app/](https://experience-exchange.vercel.app/)
-
 ### Context:
 This project fulfills the capstone requirements for graduation from Turing School of Software and Design. For more details, visit the [Capstone Project](https://mod4.turing.edu/projects/capstone/) page.
 
