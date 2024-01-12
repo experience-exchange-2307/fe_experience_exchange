@@ -1,35 +1,34 @@
 import { CurrentUser } from "types";
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
-import logo from '../../images/logo3.png'
+import logo from "../../images/logo3.png";
+import ThemeSwitcher from "Components/ThemeSwitcher/ThemeSwitcher";
+import { useTheme } from "Contexts/ThemeContext";
+
 interface CurrentUserProps {
   currentUser: CurrentUser | null;
 }
 
 function Nav({ currentUser }: CurrentUserProps) {
+  const { isDarkMode } = useTheme();
+  
   const linkStyle = {
     color: "inherit",
     textDecoration: "none",
-   
   };
 
   return (
     <aside className='nav-wrapper'>
       <div className='logo-wrapper'>
-
-      <img src={logo} alt='abstract weaving logo' className='nav-logo'></img>
-      <div className='logo-text'>
-
-      <h1 className='logo-text-h1'>Experience</h1>
-      <h1 className='logo-text-h1'>Exchange</h1>
+        <img src={logo} alt='abstract weaving logo' className='nav-logo'></img>
+        <div className='logo-text'>
+          <h1 className='logo-text-h1'>Experience</h1>
+          <h1 className='logo-text-h1'>Exchange</h1>
+        </div>
       </div>
-      </div>
-      <nav className='nav-links-container'>   
-       <NavLink
-          to={`/`}
-          className='nav-bar-link'
-          style={linkStyle}
-        >
+      <nav className='nav-links-container'>
+        <ThemeSwitcher />
+        <NavLink to={`/`} className='nav-bar-link' style={linkStyle}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -68,17 +67,24 @@ function Nav({ currentUser }: CurrentUserProps) {
           </svg>
           <p className='nav-bar-text'>My Dashboard</p>
         </NavLink>
-        <NavLink to={"/search"}   className='nav-bar-link'
-          style={linkStyle}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-</svg>
+        <NavLink to={"/search"} className='nav-bar-link' style={linkStyle}>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            strokeWidth={1.5}
+            stroke='currentColor'
+            className='w-6 h-6'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'
+            />
+          </svg>
 
-          <p className='nav-bar-text'>
-
-          New Search
-          </p>
-          </NavLink>
+          <p className='nav-bar-text'>New Search</p>
+        </NavLink>
       </nav>
     </aside>
   );
