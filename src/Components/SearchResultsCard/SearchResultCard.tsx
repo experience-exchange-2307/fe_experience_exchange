@@ -30,7 +30,7 @@ function SearchResultCard({
     const {isDarkMode} = useTheme()
   return (
     <Link to={`/dashboard/${id}`} style={linkStyle}>
-      <div className={`result-card bg-LHTModeMeetingCardBG dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText dark:hover:bg-gray-500 key=${id} ${isDarkMode ? "light" : "dark"}`}>
+      <div className={`result-card bg-LHTModeMeetingCardBG hover:bg-gray-300 dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText dark:hover:bg-gray-500 key=${id} ${isDarkMode ? "light" : "dark"}`}>
         <div className='result-card-top'>
 
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>

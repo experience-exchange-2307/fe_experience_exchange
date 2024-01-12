@@ -191,7 +191,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
   return (
     <div className='search-page'>
       <p className='search-title'>Find people near you</p>
-      <div className='search-menu'>
+      <div className='search-menu sm:border-2 rounded-lg  border-black dark:border-gray-600'>
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
         <div className='search-bar'>
           <Autosuggest
