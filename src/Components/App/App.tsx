@@ -43,8 +43,8 @@ function App() {
   console.log('serverError', serverError)
   return (
     <>
-      <main className={`${isDarkMode ? "dark" : "light"}`}>
-        <ThemeSwitcher />
+      <main className={`${isDarkMode ? "light" : "dark"}`}>
+        {/* <ThemeSwitcher /> */}
         {location.pathname !== "/" && <Nav currentUser={currentUser} />}
         {(serverError && !currentUser) &&  <ErrorPage serverError={serverError} />}
         {!currentUser && location.pathname === "/loading" ? (

@@ -11,14 +11,14 @@ interface CurrentUserProps {
 
 function Nav({ currentUser }: CurrentUserProps) {
   const { isDarkMode } = useTheme();
-  
+
   const linkStyle = {
     color: "inherit",
     textDecoration: "none",
   };
 
   return (
-    <aside className='nav-wrapper'>
+    <aside className={`nav-wrapper`}>
       <div className='logo-wrapper'>
         <img src={logo} alt='abstract weaving logo' className='nav-logo'></img>
         <div className='logo-text'>
@@ -26,7 +26,7 @@ function Nav({ currentUser }: CurrentUserProps) {
           <h1 className='logo-text-h1'>Exchange</h1>
         </div>
       </div>
-      <nav className='nav-links-container'>
+      <nav className={`nav-links-container ${isDarkMode ? "light" : "dark"}`}>
         <ThemeSwitcher />
         <NavLink to={`/`} className='nav-bar-link' style={linkStyle}>
           <svg
