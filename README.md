@@ -8,6 +8,8 @@
 ### Abstract
 Experience Exchange aims to bring people together over shared hobbies, skills, and experiences. Users can create a custom profile and connect with locals in their area to learn something new and form connections through skill sharing. 
 
+This capstone project is a collaborative effort between front-end and back-end students and fulfills the requirements for graduation from Turing School of Software and Design. For more details, visit the [Capstone Project](https://mod4.turing.edu/projects/capstone/) page.
+
 ### Key Features:
 - **Profile Creation:** Users can create a custom profile.
 - **Skill Management:** Users can add and remove skills directly from their dashboard profiles, showcasing their evolving expertise.
@@ -17,9 +19,6 @@ Experience Exchange aims to bring people together over shared hobbies, skills, a
 - **Meeting Requests:** Once a potential match is found, users can submit meeting requests, providing an avenue for meaningful connections.
 - **Approval/Decline:** Meeting requests can be approved, adding the meeting to both users' schedules, or declined, removing the request.
 - **Dark Mode:** To enhance the user experience, light and dark mode can be toggled in the navigation.
-
-### Context:
-This capstone project is a collaborative effort between front-end and back-end students and fulfills the requirements for graduation from Turing School of Software and Design. For more details, visit the [Capstone Project](https://mod4.turing.edu/projects/capstone/) page.
 
 ### Preview
 #### Sign up
