@@ -1,6 +1,7 @@
 import "./SearchResultCard.css";
 import { Skills } from "types";
 import { Link } from "react-router-dom";
+import { useTheme } from "Contexts/ThemeContext";
 
 interface SearchResultCardProps {
   distance: number;
@@ -25,11 +26,11 @@ function SearchResultCard({
   const linkStyle = {
     color: "inherit",
     textDecoration: "none",
-   
   };
+    const {isDarkMode} = useTheme()
   return (
     <Link to={`/dashboard/${id}`} style={linkStyle}>
-      <div className='result-card' key={id}>
+      <div className={`result-card bg-LHTModeMeetingCardBG dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText dark:hover:bg-gray-500 key=${id} ${isDarkMode ? "light" : "dark"}`}>
         <div className='result-card-top'>
 
         <p className='result-card-title'>{`${first_name} ${last_name}`}</p>
@@ -38,7 +39,7 @@ function SearchResultCard({
           </p>
           </div>
         <div className='result-card-skills-container'>
-          <p className='result-card-title2'>Skills:</p>
+          <p className='result-card-title2 dark:text-DRKModePrimaryText'>Skills:</p>
 
           {skills.map((skill, index) => (
             <p key={index} className='result-card-skills' style={{ fontWeight: skill.name === searchQuery ? 600 : 300 }}>
