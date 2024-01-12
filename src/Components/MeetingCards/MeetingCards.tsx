@@ -50,7 +50,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   <p>Meeting pending, waiting on partner to respond</p>
                 </div>
               ) : (
-                <div className="meeting-card-request meeting-card-content">
+                <div className="meeting-card-request meeting-card-content bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText">
                   <h3>REQUEST</h3>
                   <p>{formattedDate}</p>
                   <p>

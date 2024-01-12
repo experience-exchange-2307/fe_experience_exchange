@@ -66,7 +66,7 @@ function Dashboard({
   
 
   return (
-    <div className="dashboard-outermost-wrapper dark:bg-DRKModePrimaryBG">
+    <div className="dashboard-outermost-wrapper bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG">
       {errorFromServer ? (
         <ErrorPage serverError={errorFromServer} />
       ) : (
