@@ -11,7 +11,7 @@ function Profile({ currentUser, currentUserId }: ProfileProps) {
   return (
     <div className="profile-container">
       <div className="profile-container-lower">
-        <div className="profile-left">
+        <div className="profile-left bg-LHTModeSecondaryBG dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText">
           <article className="profile-list">
             <p className="profile-header profile-about">About me</p>
             <p className="profile-about-text">{currentUser?.attributes.about}</p>
@@ -28,7 +28,7 @@ function Profile({ currentUser, currentUserId }: ProfileProps) {
             <p className="profile-email-text">{currentUser?.attributes.email}</p>
           </article>
         </div>
-        <div className="profile-right">
+        <div className="profile-right bg-LHTModeSecondaryBG dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText">
           <article className="profile-list">
             <p className="profile-header profile-skill-container">Skills</p>
             <Skill currentUser={currentUser} currentUserId={currentUserId} />

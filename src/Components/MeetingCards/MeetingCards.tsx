@@ -76,7 +76,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                 </div>
               )
             ) : (
-              <div className="meeting-card-content">
+              <div className="meeting-card-content bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText">
                 <p>{formattedDate}</p>
                 <p>
                   {formattedStartTime} - {formattedEndTime}

@@ -66,11 +66,11 @@ function Dashboard({
   
 
   return (
-    <div className="dashboard-outermost-wrapper">
+    <div className="dashboard-outermost-wrapper dark:bg-DRKModePrimaryBG">
       {errorFromServer ? (
         <ErrorPage serverError={errorFromServer} />
       ) : (
-        <div className="dashboard-wrapper">
+        <div className="dashboard-wrapper dark:bg-DRKModePrimaryBG">
           {!isCurrentUser && dashboardData ? (
             <div className="other-user-dash">
               {showBackButton && <BackButton />}
