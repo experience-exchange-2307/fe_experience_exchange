@@ -22,13 +22,14 @@ This capstone project is a collaborative effort between front-end and back-end s
 
 ### Preview
 #### Sign up
-![Sign up Page](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/6c3680b1-881a-46fb-bfd7-f2f9397c03d4)
+![Sign up Page](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/c37884e2-eb95-42d4-8267-7010da1e4d55)
+
 #### Profile
 ![Profile](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/431e7618-8ded-44f5-abd4-aea86240527c)
 
 
 #### Search 
-![Search](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/8f826afc-5284-41ce-b554-9f28359ba9ec)
+![Search](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/24a101dc-9939-47bd-8b84-2fd1c7368c26)
 
 ![Search](https://github.com/experience-exchange-2307/fe_experience_exchange/assets/130857864/cc6354c3-79e0-45c9-9a9b-daa8f5953571)
 #### Another User's Profile
