@@ -16,7 +16,6 @@ export const getSingleUser = (currentUserID: number) => {
 
 
 export const getSearchResults = (query: string, currentUserID:number) => {
-  console.log(`${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`)
   if (!currentUserID){currentUserID = 14}
   return fetch(
     `${BaseURLProd}/api/v1/search_skills?query=${query}&user_id=${currentUserID}`
