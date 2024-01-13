@@ -23,7 +23,6 @@ function SkillForm({ currentUser, currentUserId }: SkillProps): JSX.Element {
       try {
         if (userId !== undefined && !isNaN(userId)) {
           const data = await getSingleUser(userId);
-          console.log(data);
           setUserSkills(data.data.attributes.skills);
         }
       } catch (error) {
@@ -57,10 +56,6 @@ function SkillForm({ currentUser, currentUserId }: SkillProps): JSX.Element {
 
         postSkills(id, addedSkill)
           .then((data) => {
-            console.log(
-              "skills posted successfully:",
-              data.data.attributes.skills
-            );
             setUserSkills(data.data.attributes.skills);
           })
           .catch((error) => {
@@ -84,52 +79,50 @@ function SkillForm({ currentUser, currentUserId }: SkillProps): JSX.Element {
     const updatedSkills = userSkills.filter((skill) => skill !== skillToRemove);
     setUserSkills(updatedSkills);
   };
-  console.log("skills cur user", currentUser.id);
-  console.log("skills param user", id);
   return (
     <div>
       {Number(currentUserId) === userId && (
         <form>
           <input
-            type="text"
+            type='text'
             value={currentTag}
             onChange={handleSkillInput}
-            placeholder="Type skill name"
-            className="skill-input"
+            placeholder='Type skill name'
+            className='skill-input'
           />
 
-          <label htmlFor="proficiency" className="proficiency-label">
+          <label htmlFor='proficiency' className='proficiency-label'>
             Proficiency:
           </label>
           <select
-            name="proficiency"
-            id="proficiency"
+            name='proficiency'
+            id='proficiency'
             onChange={handleProficiencyInput}
-            className="proficiency-input"
+            className='proficiency-input'
           >
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value='0'>0</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
           </select>
-          <p className="alert-message">{alert}</p>
-          <button onClick={(e) => submitNewSkill(e)} className="add-skill-btn">
+          <p className='alert-message'>{alert}</p>
+          <button onClick={(e) => submitNewSkill(e)} className='add-skill-btn'>
             Add Skill
           </button>
         </form>
       )}
-      <section className="skills-section">
+      <section className='skills-section'>
         {userSkills.map((skill, index) => (
-          <div key={index} className="skill-list">
-            <div className="skill-list-container">
-              <p className="skill-name" key={`skill-name-${index}`}>
-                <span className="skill-text">{skill.name}</span>
+          <div key={index} className='skill-list'>
+            <div className='skill-list-container'>
+              <p className='skill-name' key={`skill-name-${index}`}>
+                <span className='skill-text'>{skill.name}</span>
                 {Number(currentUserId) === userId && (
                   <button
-                    type="button"
-                    className="tag-removal"
+                    type='button'
+                    className='tag-removal'
                     onClick={() => handleTagRemove(skill)}
                   >
                     x
@@ -139,13 +132,13 @@ function SkillForm({ currentUser, currentUserId }: SkillProps): JSX.Element {
             </div>
             <ProgressBar
               key={`progress-${index}`}
-              className="progress-bar"
+              className='progress-bar'
               completed={skill.proficiency}
-              bgColor="#f76a1e"
-              height="7px"
+              bgColor='#f76a1e'
+              height='7px'
               isLabelVisible={false}
-              baseBgColor="#ffffff"
-              labelColor="#f76a1e"
+              baseBgColor='#ffffff'
+              labelColor='#f76a1e'
               animateOnRender
               maxCompleted={5}
             />
@@ -157,10 +150,3 @@ function SkillForm({ currentUser, currentUserId }: SkillProps): JSX.Element {
 }
 
 export default SkillForm;
-
-
-
-
-
-
-

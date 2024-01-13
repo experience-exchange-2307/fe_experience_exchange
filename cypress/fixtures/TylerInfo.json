@@ -1,31 +1,31 @@
 {
-"data": {
-"id": "15",
-"type": "user",
-"attributes": {
-"first_name": "Tyler",
-"last_name": "Blackmon",
-"email": "tyler#gmail.com",
-"address": {
-"street": "1234 Street",
-"city": "CO springs",
-"state": "CO",
-"zipcode": "12345"
-},
-"about": "I enjoy long walks on the beach",
-"lat": 1.12,
-"lon": 1.12,
-"is_remote": false,
-"skills": [
-{
-"name": "Ruby",
-"proficiency": 5
-},
-{
-"name": "Piano",
-"proficiency": 5
-}
-]
-}
-}
+  "data": {
+    "id": "15",
+    "type": "user",
+    "attributes": {
+      "first_name": "Tyler",
+      "last_name": "Blackmon",
+      "email": "tyler#gmail.com",
+      "address": {
+        "street": "1234 Street",
+        "city": "CO springs",
+        "state": "CO",
+        "zipcode": "12345"
+      },
+      "about": "I enjoy long walks on the beach",
+      "lat": 1.12,
+      "lon": 1.12,
+      "is_remote": false,
+      "skills": [
+        {
+          "name": "Ruby",
+          "proficiency": 5
+        },
+        {
+          "name": "Piano",
+          "proficiency": 5
+        }
+      ]
+    }
+  }
 }

@@ -7,7 +7,6 @@ interface ProfileProps {
 }
 
 function Profile({ currentUser, currentUserId }: ProfileProps) {
-  console.log('currentUser', currentUser);
   return (
     <div className="profile-container">
       <div className="profile-container-lower">

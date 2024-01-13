@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect, useCallback} from "react";
+import { useState, useEffect, useCallback } from "react";
 import { getSearchResults } from "apiCalls";
 import { useParams, useNavigate } from "react-router-dom";
 import CheckboxLocation from "./CheckboxLocation";
@@ -80,7 +79,6 @@ function SearchPage({ currentUser }: SearchPageProps) {
     onChange: (event, { newValue }: AutosuggestChangeEvent) => {
       setValue(newValue);
       setSearchQuery(newValue);
-      console.log("new value is ", newValue);
     },
   };
 
@@ -112,7 +110,6 @@ function SearchPage({ currentUser }: SearchPageProps) {
   const submitQuery = useCallback(
     (queryToSubmit?: string) => {
       const queryValue = searchQuery || queryToSubmit;
-      console.log(`queryValue is ${queryValue}`);
       if (!queryValue) {
         return;
       } else if (currentUser) {
@@ -176,17 +173,20 @@ function SearchPage({ currentUser }: SearchPageProps) {
     }
   }, [initialLoad, query, submitQuery]);
 
-  
   useEffect(() => {
     onSuggestionsFetchRequested({ value, reason: "input-changed" });
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, [value]);
 
   const handleButtonClick = () => {
     submitQuery(searchQuery);
   };
   return (
-    <div className={`search-page ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}>
+    <div
+      className={`search-page ${
+        isDarkMode ? "light" : "dark"
+      } bg-LHTModePrimaryBG dark:bg-DRKModePrimaryBG`}
+    >
       <p className='search-title'>Find people near you</p>
       <div className='search-menu sm:border-2 rounded-lg  border-black dark:border-gray-600'>
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
@@ -207,7 +207,9 @@ function SearchPage({ currentUser }: SearchPageProps) {
       </div>
       {isLoading && <Loading />}
       {noResults ? (
-        <h3 className='no-results-msg'>No Results for your search. Try searching for something else.</h3>
+        <h3 className='no-results-msg'>
+          No Results for your search. Try searching for something else.
+        </h3>
       ) : (
         <ResultsContainer
           searchResults={searchResults}

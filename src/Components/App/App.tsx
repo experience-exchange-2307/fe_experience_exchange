@@ -20,38 +20,34 @@ function App() {
   } | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const {isDarkMode} = useTheme()
+  const { isDarkMode } = useTheme();
 
   const createNewUser = (newUserData: NewUserData) => {
-    console.log("newUserData", newUserData);
     postNewUser(newUserData)
       .then((data) => {
         if (data && data.error) {
           throw new Error(`${data.error}`);
         } else if (data) {
-          console.log("posted user", data);
           setCurrentUser(data.data);
           navigate(`/dashboard/${data.data.id}`);
         }
       })
       .catch((error) => {
-        console.log(error);
         setServerError(error as { status: number; message: string } | null);
       });
   };
-  console.log('serverError', serverError)
   return (
     <>
       <main className={`${isDarkMode ? "light" : "dark"}`}>
         {location.pathname !== "/" && <Nav currentUser={currentUser} />}
-        {(serverError && !currentUser) &&  <ErrorPage serverError={serverError} />}
+        {serverError && !currentUser && <ErrorPage serverError={serverError} />}
         {!currentUser && location.pathname === "/loading" ? (
-          <Loading/>
+          <Loading />
         ) : (
           <Routes>
             {!currentUser && (
               <Route
-                path="/"
+                path='/'
                 element={
                   <CreateAccountForm
                     createNewUser={createNewUser}
@@ -61,9 +57,8 @@ function App() {
               />
             )}
             {currentUser && (
-              
               <Route
-                path="/dashboard/:id"
+                path='/dashboard/:id'
                 element={
                   <Dashboard
                     currentUser={currentUser}
@@ -74,23 +69,23 @@ function App() {
               />
             )}
             <Route
-                path="/"
-                element={
-                  <CreateAccountForm
-                    createNewUser={createNewUser}
-                    setCurrentUser={setCurrentUser}
-                  />
-                }
-              />
+              path='/'
+              element={
+                <CreateAccountForm
+                  createNewUser={createNewUser}
+                  setCurrentUser={setCurrentUser}
+                />
+              }
+            />
             <Route
-              path="/search"
+              path='/search'
               element={<SearchPage currentUser={currentUser} />}
             />
             <Route
-              path="/search/:query"
+              path='/search/:query'
               element={<SearchPage currentUser={currentUser} />}
             />
-            <Route path="*" element={<ErrorPage serverError={serverError} />} />
+            <Route path='*' element={<ErrorPage serverError={serverError} />} />
           </Routes>
         )}
       </main>

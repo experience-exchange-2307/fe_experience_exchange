@@ -1,6 +1,5 @@
-// CheckboxLocation.tsx
 import React from "react";
-import './SearchPage.css';
+import "./SearchPage.css";
 
 interface CheckboxLocationProps {
   setRemoteQuery: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,11 +7,10 @@ interface CheckboxLocationProps {
 
 function CheckboxLocation({ setRemoteQuery }: CheckboxLocationProps) {
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.checked){
+    if (event.target.checked) {
       setRemoteQuery(true);
-    }
-    else{ setRemoteQuery(false)
-
+    } else {
+      setRemoteQuery(false);
     }
   };
 

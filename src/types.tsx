@@ -1,5 +1,5 @@
 export interface Skills {
-  name: string
+  name: string;
   proficiency: number;
 }
 
@@ -13,15 +13,15 @@ export interface Meeting {
     start_time: string;
     end_time: string;
     is_host: Boolean;
-    is_accepted: Boolean
+    is_accepted: Boolean;
   };
 }
 
 interface Address {
-  street: string,
-  city: string,
-  state: string,
-  zipcode: string
+  street: string;
+  city: string;
+  state: string;
+  zipcode: string;
 }
 interface Attributes {
   first_name: string;
@@ -36,7 +36,7 @@ interface Attributes {
   profile_picture: string | null;
 }
 
-export interface CurrentUser{
+export interface CurrentUser {
   id: number;
   type: string;
   attributes: Attributes;
@@ -54,27 +54,25 @@ export interface SearchResult {
   id: string;
   type: string;
   attributes: AttributesQuickView;
-} 
+}
 
 export interface NewUserData {
-  first_name: string,
-  last_name: string,
-  email: string,
-  street: string,
-  city: string,
-  state: string,
-  zipcode: string,
-  is_remote: boolean,
-  about: string,
+  first_name: string;
+  last_name: string;
+  email: string;
+  street: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  is_remote: boolean;
+  about: string;
 }
 
 // export interface ServerError {
 //   statusCode: number;
 // }
 
-
-
 export interface UserSkill {
-    name: string;
-    proficiency: number;
-} 
+  name: string;
+  proficiency: number;
+}

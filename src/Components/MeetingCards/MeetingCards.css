@@ -18,17 +18,17 @@
   /* background-color: var(--lightmodelightgray3); */
   width: 33%;
   border-radius: 10px;
-  padding: .5rem;
+  padding: 0.5rem;
   text-align: center;
   box-sizing: border-box;
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 .meeting-card-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align:center;
+  text-align: center;
 }
 .meeting-card-request {
   height: 18vh;
@@ -38,7 +38,6 @@
   justify-content: space-between;
   margin-left: 3vw;
   margin-right: 3vw;
-
 }
 @media (max-width: 600px) {
   .meeting-card {
