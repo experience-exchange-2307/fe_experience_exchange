@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "attributes": {
+        "distance": 14,
+        "first_name": "Jen",
+        "is_remote": true,
+        "last_name": "Ziel",
+        "skills": [
+          { "name": "piano", "proficiency": 1 },
+          { "name": "knitting", "proficiency": 3 },
+          { "name": "juggling", "proficiency": 2 }
+        ]
+      },
+      "id": "20",
+      "type": "searched_user"
+    }
+  ]
+}
