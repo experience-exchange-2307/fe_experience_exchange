@@ -97,11 +97,6 @@ function SearchPage({ currentUser }: SearchPageProps) {
     setSuggestions([]);
   };
 
-  // const updateQuery = (event: ChangeEvent<HTMLInputElement>) => {
-  //   setSearchQuery(event.target.value);
-  //   setValue(event.target.value);
-  // };
-
   const compareByDistance = (a: SearchResult, b: SearchResult) => {
     const distanceA = a.attributes.distance;
     const distanceB = b.attributes.distance;
@@ -197,7 +192,6 @@ function SearchPage({ currentUser }: SearchPageProps) {
         <CheckboxLocation setRemoteQuery={setRemoteQuery} />
         <div className='search-bar'>
           <Autosuggest
-            
             suggestions={suggestions}
             onSuggestionsFetchRequested={onSuggestionsFetchRequested}
             onSuggestionsClearRequested={onSuggestionsClearRequested}
@@ -213,7 +207,7 @@ function SearchPage({ currentUser }: SearchPageProps) {
       </div>
       {isLoading && <Loading />}
       {noResults ? (
-        <h3>No Results for your search. Try searching for something else.</h3>
+        <h3 className='no-results-msg'>No Results for your search. Try searching for something else.</h3>
       ) : (
         <ResultsContainer
           searchResults={searchResults}
