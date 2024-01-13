@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  color: var(--lightmodedarkestgray);
+  color: var(--lightmodedarkergray3);
 }
 .sign-up-container {
   max-width: 29em;
@@ -102,6 +102,10 @@
 .create-account-btn:hover:not(:disabled) {
   background-color: var(--lightmodenavyblue);
   color: white;
+}
+.create-account-input::placeholder,
+textarea::placeholder {
+  color: var(--lightmodedarkergray3);
 }
 @media (max-width: 500px) {
   .sign-up-page {
