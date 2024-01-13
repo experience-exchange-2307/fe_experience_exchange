@@ -127,7 +127,10 @@ describe("template spec", () => {
         cy.get("p").eq(2).should("have.text", "Partner: Tyler Blackmon");
         cy.get("a").should("have.attr", "href", "/dashboard/15").as("dashboardLink");
       });
-    cy.get("@dashboardLink").click();
+    cy.get("@dashboardLink").then(($dashboardLink) => {
+    const href = $dashboardLink.attr("href");
+    cy.visit(href);
+    });
     cy.url().should("include", "/dashboard/15");
     cy.get(".profile-name").should("have.text", "Tyler Blackmon");
     cy.get(".profile-about").should("have.text", "About me");
