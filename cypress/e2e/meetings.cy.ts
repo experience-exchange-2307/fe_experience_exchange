@@ -123,7 +123,7 @@ describe("template spec", () => {
   it("can navigate to meeting partners dashboard from meeting cards", () => {
     cy.get(".meeting-card")
       .eq(1).as("meetingCard");
-    cy.get("@meeting-card").within(() => {
+    cy.get("@meetingCard").within(() => {
         cy.get("p").eq(2).should("have.text", "Partner: Tyler Blackmon");
         cy.get("a").should("have.attr", "href", "/dashboard/15").as("dashboardLink");
       });
