@@ -10,9 +10,7 @@ const filterAcceptedMeetings = (meetings: Meeting[]): Meeting[] => {
   return meetings.filter((meeting) => meeting.attributes.is_accepted === true);
 };
 
-export function AcceptedMeetings({
-  meetings,
-}: MeetingsProps) {
+export function AcceptedMeetings({ meetings }: MeetingsProps) {
   const [acceptedMeetings, setAcceptedMeetings] = useState<Meeting[]>([]);
 
   useEffect(() => {

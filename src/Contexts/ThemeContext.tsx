@@ -1,29 +1,29 @@
-import { createContext, useContext, useState, ReactNode  } from "react"
-// eslint-disable-next-line 
+import { createContext, useContext, useState, ReactNode } from "react";
+// eslint-disable-next-line
 interface ThemeContextProps {
-  isDarkMode: boolean,
-  toggleTheme: () => void
+  isDarkMode: boolean;
+  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext({
   isDarkMode: false,
-  toggleTheme: () => {}
-})
+  toggleTheme: () => {},
+});
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleTheme = () => {
-    setIsDarkMode((prevMode) => !prevMode)
-  }
+    setIsDarkMode((prevMode) => !prevMode);
+  };
 
   return (
-   <ThemeContext.Provider value={{isDarkMode, toggleTheme}}>
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       {children}
-   </ThemeContext.Provider>
-  )
+    </ThemeContext.Provider>
+  );
 }
 
 export const useTheme = () => {
-  return useContext(ThemeContext)
-}
+  return useContext(ThemeContext);
+};

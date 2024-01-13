@@ -46,11 +46,11 @@ function MeetingsContainer({ meetings, currentUser }: MeetingsProps) {
   const handleClick = () => setIsAccepted(!isAccepted);
 
   return (
-    <div className="meetings-container bg-LHTModeSecondaryBG dark:bg-DRKModeSecondaryBG">
-      <div className="meetings-container-top">
-        <h2 className="meetings-title">{meetingText(isAccepted)}</h2>
+    <div className='meetings-container bg-LHTModeSecondaryBG dark:bg-DRKModeSecondaryBG'>
+      <div className='meetings-container-top'>
+        <h2 className='meetings-title'>{meetingText(isAccepted)}</h2>
         <button
-          className="meetings-toggle meeting-card-btn"
+          className='meetings-toggle meeting-card-btn'
           onClick={handleClick}
         >
           {meetingText(!isAccepted)}

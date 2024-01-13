@@ -6,13 +6,14 @@
   --lightmodelightgray: #f9faff;
   --lightmodelightgray2: #f2f3fa;
   --lightmodelightgray3: #e8e9f4;
-  --lightmodelightgray4: #f3f5fc;  
+  --lightmodelightgray4: #f3f5fc;
   --lightmodemediumgray: #becde7;
   --lightmodedarkergray: #949db5;
   --lightmodedarkestgray: #404d62;
   --lightmodelightblue: #b8d4f9;
   --lightmodeblue: #2c67d9;
-  --lightmodenavyblue:#384b73;
+  --lightmodenavyblue: #384b73;
+  --lightmodeblack: #000000;
   --darkmodedarkest: #111928;
   --darkmodedarker: #1f2a37;
   --darkmodedark: #2a3442;
@@ -25,7 +26,6 @@
   box-sizing: border-box;
   text-decoration: none;
 }
-
 
 main {
   min-height: 100dvh;
@@ -45,6 +45,6 @@ main > button {
 @media (max-width: 500px) {
   main {
     max-height: 20dvh;
-    flex-direction:column;
+    flex-direction: column;
   }
 }

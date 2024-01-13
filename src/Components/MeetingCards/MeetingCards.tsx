@@ -15,7 +15,6 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
   onAccept,
   onReject,
 }) => {
-  console.log(meetings);
   const { isDarkMode } = useTheme();
 
   function trimLeadingZero(time: string): string {
@@ -25,7 +24,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
     return time;
   }
   return (
-    <div className="meeting-card-wrapper">
+    <div className='meeting-card-wrapper'>
       {meetings.map((meeting) => {
         const formattedDate = dayjs(meeting.attributes.date).format("MMM. D");
         const formattedStartTime = trimLeadingZero(
@@ -37,10 +36,15 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
 
         return (
           // Want to make Partner: {meeting.attributes.partner_name} a link to partner's
-          <div key={meeting.id} className={`meeting-card ${isDarkMode ? "light" : "dark"} bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText`}>
+          <div
+            key={meeting.id}
+            className={`meeting-card ${
+              isDarkMode ? "light" : "dark"
+            } bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText`}
+          >
             {!meeting.attributes.is_accepted ? (
               isPending ? (
-                <div className="meeting-card-pending meeting-card-content">
+                <div className='meeting-card-pending meeting-card-content'>
                   <h3>PENDING</h3>
                   <p>{formattedDate}</p>
                   <p>
@@ -52,7 +56,7 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   <p>Meeting pending, waiting on partner to respond</p>
                 </div>
               ) : (
-                <div className="meeting-card-request meeting-card-content ">
+                <div className='meeting-card-request meeting-card-content '>
                   <h3>REQUEST</h3>
                   <p>{formattedDate}</p>
                   <p>
@@ -61,16 +65,16 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                   <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
                     <p>Partner: {meeting.attributes.partner_name}</p>
                   </Link>
-                  <div className="meeting-card-btn-container">
+                  <div className='meeting-card-btn-container'>
                     <button
                       onClick={() => onAccept?.(meeting.id)}
-                      className="meeting-card-btn"
+                      className='meeting-card-btn'
                     >
                       Accept
                     </button>
                     <button
                       onClick={() => onReject?.(meeting.id)}
-                      className="meeting-card-btn"
+                      className='meeting-card-btn'
                     >
                       Decline
                     </button>
@@ -78,14 +82,16 @@ const MeetingCards: React.FC<MeetingCardsProps> = ({
                 </div>
               )
             ) : (
-              <div className="meeting-card-content bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText">
+              <div className='meeting-card-content bg-LHTModeMeetingCardBG rounded-lg dark:bg-DRKModeTertiaryBG dark:text-DRKModePrimaryText'>
                 <p>{formattedDate}</p>
                 <p>
                   {formattedStartTime} - {formattedEndTime}
                 </p>
-                  <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
-                    <p className="text-indigo-900 hover:text-blue-700">Partner: {meeting.attributes.partner_name}</p>
-                  </Link>
+                <Link to={`/dashboard/${meeting.attributes.partner_id}`}>
+                  <p className='text-indigo-900 hover:text-blue-700'>
+                    Partner: {meeting.attributes.partner_name}
+                  </p>
+                </Link>
               </div>
             )}
           </div>

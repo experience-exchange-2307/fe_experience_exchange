@@ -4,43 +4,44 @@
   color: var(--lightmodedarkestgray);
   width: 7rem;
   border-radius: 10px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: .5rem;
-  display:flex;
+  margin-bottom: 0.5rem;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1rem;
-  padding:0rem;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  padding-bottom: .25rem;
- 
+  padding: 0rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.25rem;
 }
-.skill-list-container{
+
+.skill-list-container {
   margin-top: 1rem;
 }
+
 .tag-removal {
   background-color: transparent;
   border: none;
   margin-left: 1rem;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   color: var(--lightmodedarkergray);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .skill-input {
   height: 2rem;
   font-size: 1rem;
-  border:none;
+  border: none;
   background: var(--lightmodelightgray4);
   border-radius: 5px;
   padding-left: 1rem;
 }
-.proficiency-input{
+.proficiency-input {
   height: 1.6rem;
-  margin-left:.25rem;
+  margin-left: 0.25rem;
   cursor: pointer;
   color: var(--lightmodedarkergray);
   border: none;
@@ -50,10 +51,10 @@
 .proficiency-label {
   font-size: 1.5rem;
 }
-.add-skill-btn{
+.add-skill-btn {
   height: 2rem;
   font-size: 1rem;
-  padding: .25rem;
+  padding: 0.25rem;
   border-radius: 10px;
   background-color: var(--lightmodewhite);
   color: var(--lightmodedarkestgray);
@@ -66,14 +67,13 @@
   width: 100%;
   border-radius: 10px;
   height: 15vh;
-
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: var(--grayishorange);
 }
 .skill-list {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 .proficiency-input:hover,
-.add-skill-btn:hover{
+.add-skill-btn:hover {
   background-color: var(--lightmodelightgray3);
 }

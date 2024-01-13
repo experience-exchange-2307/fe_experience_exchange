@@ -1,11 +1,11 @@
-.back-to-search-btn{
-    height: 1rem;
-    border: solid 2px black;
-    height: 2rem;
+.back-to-search-btn {
+  height: 1rem;
+  border: solid 2px black;
+  height: 2rem;
   font-size: 1rem;
   padding: 0.25rem;
   border-radius: 10px;
   margin-top: 1rem;
-  background-color: var(--lavender);
-  cursor:pointer;
-  }
+  background-color: var(--lightmodelightgray4);
+  cursor: pointer;
+}

@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import './RequestMeetingForm.css';
+import "./RequestMeetingForm.css";
 import { useTheme } from "Contexts/ThemeContext";
 
 interface FormData {
@@ -92,74 +92,78 @@ function RequestMeetingForm({ currentUserId }: RequestMeetingFormProps) {
 
   return (
     <>
-      <section className={`request-meeting-container ${isDarkMode ? "light" : "dark"} bg-LHTModePrimaryBG dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText`}>
+      <section
+        className={`request-meeting-container ${
+          isDarkMode ? "light" : "dark"
+        } bg-LHTModePrimaryBG dark:bg-DRKModeSecondaryBG dark:text-DRKModePrimaryText`}
+      >
         <h2 className='meetings-title'>Request A Meeting</h2>
-        <form className="request-meeting-form">
-          <div className="request-meeting-input-group">
+        <form className='request-meeting-form'>
+          <div className='request-meeting-input-group'>
             <label>Date</label>
             <DatePicker
               selected={formData.date}
               onChange={handleDateChange}
-              dateFormat="yyyy-MM-dd"
-              placeholderText="Select a date"
-              className="request-meeting-input"
+              dateFormat='yyyy-MM-dd'
+              placeholderText='Select a date'
+              className='request-meeting-input'
             />
           </div>
 
-          <div className="time-input-group">
-            <div className="request-meeting-input-group">
+          <div className='time-input-group'>
+            <div className='request-meeting-input-group'>
               <label>Start Time</label>
               <input
-                type="text"
-                placeholder="Start Time"
-                name="start_time"
+                type='text'
+                placeholder='Start Time'
+                name='start_time'
                 value={formData.start_time}
                 onChange={handleInputChange}
-                className="request-meeting-input"
+                className='request-meeting-input'
               />
             </div>
 
-            <div className="request-meeting-input-group">
+            <div className='request-meeting-input-group'>
               <label>End Time</label>
               <input
-                type="text"
-                placeholder="End Time"
-                name="end_time"
+                type='text'
+                placeholder='End Time'
+                name='end_time'
                 value={formData.end_time}
                 onChange={handleInputChange}
-                className="request-meeting-input"
+                className='request-meeting-input'
               />
             </div>
           </div>
 
-          <div className="request-meeting-input-group">
+          <div className='request-meeting-input-group'>
             <label>Purpose</label>
             <input
-              type="text"
-              placeholder="Purpose"
-              name="purpose"
+              type='text'
+              placeholder='Purpose'
+              name='purpose'
               value={formData.purpose}
               onChange={handleInputChange}
-              className="request-meeting-input"
+              className='request-meeting-input'
             />
           </div>
 
-          <div className="request-meeting-input-group">
+          <div className='request-meeting-input-group'>
             <label>
               Remote?
               <input
-                type="checkbox"
-                name="is_remote"
+                type='checkbox'
+                name='is_remote'
                 checked={formData.is_remote}
                 onChange={handleRemoteChange}
-                className="request-meeting-checkbox"
+                className='request-meeting-checkbox'
               />
             </label>
           </div>
 
           <button
-            className="request-meeting-btn"
-            type="button"
+            className='request-meeting-btn'
+            type='button'
             disabled={!isFormComplete()}
             onClick={handleSubmit}
           >
