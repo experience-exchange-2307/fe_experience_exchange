@@ -129,7 +129,7 @@ describe("template spec", () => {
       });
     cy.get("@dashboardLink").then(($dashboardLink) => {
     const href = $dashboardLink.attr("href");
-    cy.visit(href);
+    cy.visit(`http://localhost:3000${href}`);
     });
     cy.url().should("include", "/dashboard/15");
     cy.get(".profile-name").should("have.text", "Tyler Blackmon");
